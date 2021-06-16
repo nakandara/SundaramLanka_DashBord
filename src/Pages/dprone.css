@@ -1,0 +1,131 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+
+
+.maind{
+   
+   margin-right: 34px;
+   margin-left: 34px;
+   margin-top: 0px;
+}
+
+.dp{
+
+   margin-top: 0px !important;
+   padding: 0px; 
+   background-color: rgb(71, 145, 255);
+ 
+  justify-content: end;
+  align-items: center;
+  border-radius: 19px;
+  
+  
+}
+
+
+
+.b{
+  
+   margin: 10px;
+   border-radius: 9px;
+   overflow-x: hidden;
+   width: 100%;
+   
+}
+
+.sun{
+   width: 150px;
+   margin-top: 0px;
+}
+
+
+.htwo{
+   color: white;
+   margin-left: 30px;
+   margin-top: 3px;
+   margin-right: 32%;
+}
+
+.dpone{
+
+   margin: 5px;
+   padding: 0px; 
+   background-color: rgb(127, 131, 136);
+ 
+  justify-content: end;
+  align-items: center;
+  border-radius: 9px;
+
+
+}
+.division{
+padding: 0 !important;
+margin-top: 50%;
+font-size: 20px;
+border-color: tomato !important;
+font-weight: 700;
+opacity: 0.8;
+
+}
+
+.table td,.table td {
+
+   border-color: rgb(66, 66, 70) !important;
+}
+
+
+.table-bordered{
+
+   border-color: blue !important;
+   border-radius: 10px !important;
+
+}
+
+.thm{
+   margin: 5px 5px 0 5px ;
+   object-fit: contain;
+   border-radius: 5px;
+   
+}
+
+.x{
+   position: sticky !important;
+   z-index: 2;
+}
+.dhead{
+   margin-right: 0px;
+   margin-left: 1px;
+}
+
+.thead-dark{
+   
+}
+
+.bo{
+   box-shadow: 0px 3px 10px rgb(0, 0, 0,0.5);
+}
+
+.ttt{
+
+   margin-top: 9px !important;
+}
+
+.acc{
+   font-size: 12px;
+}
+
+
+.makeStyles-wrapper-2 {
+   flex: 1 1 auto;
+   display: flex;
+   overflow: hidden;
+   padding-top: 8px !important;
+}
+
+.momdpr{
+
+}

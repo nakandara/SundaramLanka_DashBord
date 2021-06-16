@@ -1,0 +1,27 @@
+.line{
+   display: flex;
+   justify-content:space-around;
+   justify-items: center;
+   border:solid  black;
+   border-width: 0.1px;
+}
+
+.press{
+   justify-content: space-around;
+   border:solid  black;
+   border-width: 0.1px;
+}
+
+.headpress{
+
+   min-width: 20%;
+   text-align: center;
+}
+
+.trmain{
+   max-height: 1px  !important;
+}
+
+.table td {
+   padding: 1px !important;
+}

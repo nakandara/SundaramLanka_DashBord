@@ -1,0 +1,104 @@
+.flow{
+   border: 5px solid white;
+   display: flex;
+   flex-direction: column;
+   height: 93vh;
+   margin-top: 9vh;
+   align-items: center;
+}
+
+
+.final{
+   width: 100%;
+   height: 110px;
+   background-color: rgb(117, 221, 224);
+   border: 4px solid white;
+   border-radius: 25px;
+}
+
+.lv-final{
+   width: 100%;
+   height: 110px;
+  
+}
+
+.vp{
+   width: 100%;
+   height: 110px;
+   background-color: rgb(122, 234, 238);
+   border: 4px solid white;
+   border-radius: 25px;
+}
+
+.lv-one{
+   width: 100%;
+   height: 110px;
+  
+}
+
+
+
+.lv-two{
+   width: 100%;
+   height: 100px;
+   display: flex;
+}
+
+.second-lv{
+   width: 20%;
+   height: 100px;
+   flex-grow: 1;
+   background-color: rgba(19, 96, 185, 0.61);
+   border: 4px solid white;
+   border-radius: 25px;
+}
+
+
+.lv-three{
+   width: 100%;
+   height: 90px;
+   display: flex;
+}
+
+
+.third-lv{
+   width: 10%;
+   height: 90px;
+   flex-grow: 1;
+   background-color: rgb(107, 133, 189);
+   border: 4px solid white;
+   border-radius: 25px;
+}
+
+
+.lv-four{
+   width: 100%;
+   height: 80px;
+   display: flex;
+}
+
+
+.fourth-lv{
+   width: 5%;
+   height: 80px;
+   flex-grow: 1;
+   background-color: rgb(28, 16, 204);
+   border: 4px solid white;
+   border-radius: 25px;
+}
+
+
+.lv-five{
+   width: 100%;
+   height: 70px;
+   display: flex;
+}
+
+.fiveth-lv{
+   width: 2.5%;
+   height: 70px;
+   flex-grow: 1;
+   background-color: rgb(6, 17, 110);
+   border: 4px solid white;
+   border-radius: 15px;
+}

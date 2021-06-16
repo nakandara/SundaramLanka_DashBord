@@ -1,0 +1,15 @@
+
+
+.back{
+
+  object-fit: contain !important;
+  background-repeat: no-repeat  !important;
+  background-size: cover;
+  padding-left: 40px ;
+  min-height: 100%;
+}
+
+
+.extra{
+   min-height: 250px;
+}

@@ -1,0 +1,30 @@
+
+.cost{
+   width: 100%;
+   height: 200px;
+   background-color: rgb(211, 205, 205);
+   color: black;
+}
+.costt{
+   width: 100%;
+   height: 150px;
+   
+   color: black;
+}
+
+
+
+.cost-day-mom{
+
+   display: flex;
+
+}
+
+.cost-day{
+
+   flex: 1;
+   height: 50px;
+   border: 1px solid #ac9774;
+   padding: 10px;
+
+}

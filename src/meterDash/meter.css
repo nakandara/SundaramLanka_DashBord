@@ -1,0 +1,42 @@
+.meter{
+
+   color: black;
+   animation: square ;
+   animation-duration: 6s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+  
+
+}
+
+@keyframes square{
+
+   0%{color: brown;}
+   25%{color: chocolate;}
+   50%{color: darkgreen;}
+   75%{color: white;}
+   100%{color: darksalmon;}
+}
+
+
+
+.select{
+
+   border-radius: 9px;
+   box-shadow: 0px 3px 10px rgb(0, 0, 0,0.5);
+   border-color: none;
+   height: auto;
+   margin-top: 5px;
+}
+
+.under{
+
+   position: relative;
+   top: -100px;
+
+}
+
+.bd{
+   position: relative;
+   top: -100px;
+}

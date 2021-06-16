@@ -1,0 +1,98 @@
+.table--responsive{
+   margin-top: 1px;
+   height: 80vh;
+  
+   font-size: 12px;
+   padding: 10px;
+}
+
+.label{
+   height: 1.5cm;
+   width: 100%;
+   display: flex;
+background-color: yellow;
+border-color: black; 
+border-width: 10px solid;
+margin-right: 2cm;
+
+}
+.do{
+   height: 1.5cm;
+   width: 200px;
+   background-color: yellow;
+   padding: 0.3cm;
+   margin-left: 4cm;
+}
+.plan{
+   height: 1.5cm;
+   width: 200px;
+   background-color: yellow;
+   padding: 0.3cm;
+   margin-left: 1cm;
+}
+.check{
+   height: 1.5cm;
+   width: 200px;
+   background-color: yellow;
+   padding: 0.3cm;
+   margin-left: 5cm;
+}
+
+.tHeadOne{
+   
+   max-width: 4cm !important;
+   background-color:#00f7ff;
+   overflow-wrap: break-word;
+height: 1.5cm;
+border-color: black;
+
+}
+.tHeadOneD{
+   
+   max-width: 4cm !important;
+   background-color:rgba(235, 226, 226, 0.747);
+   overflow-wrap: break-word;
+
+}
+.tHeadTwo{
+  
+   max-width: 1.5cm !important;
+   background-color:#00f7ff;
+   overflow-wrap: break-word;
+
+}
+
+.tHeadThree{
+  
+   max-width: 3.5cm !important;
+   background-color:#00f7ff;
+   overflow-wrap: break-word;
+
+}
+.tHeadThreeD{
+   
+   max-width: 3.5cm !important;
+   background-color:rgba(235, 226, 226, 0.747);
+   overflow-wrap: break-word;
+   min-width: 2cm;
+
+}
+
+.tHeadFour{
+  
+   max-width: 8cm !important;
+   
+   background-color:#00f7ff;
+   overflow-wrap: break-word;
+
+}
+
+.tHeadFourD{
+   
+   max-width: 8cm !important;
+  min-width: 8cm !important;
+  
+   background-color:rgba(235, 226, 226, 0.747);
+   overflow-wrap: break-word;
+
+}
