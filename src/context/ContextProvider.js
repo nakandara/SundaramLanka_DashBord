@@ -390,15 +390,24 @@ const [weekChartDataFour,setWeekChartDataFour] = useState([])
 
 
 
-const[shift,setShift] =useState('A')
+const[shift,setShift] =useState('TOTAL')
+
+
+const[  pressNumberOne,setPressNumberOne] =useState([])
+
+const[pressSumSrt,setPressSumSrt]=useState([])
+const[pressSumPob,setPressSumPob]=useState([])
+const[pressSumApw,setPressSumApw]=useState([])
+const[pressSumPbb,setPressSumPbb]=useState([])
+const[pressSumSks,setPressSumSks]=useState([])
 
 
 
-
-
-
-
-
+const[pressCountSrt,setPressCountSrt]=useState([])
+const[pressCountPob,setPressCountPob]=useState([])
+const[pressCountApw,setPressCountApw]=useState([])
+const[pressCountPbb,setPressCountPbb]=useState([])
+const[pressCountSks,setPressCountSks]=useState([])
 
 
 
@@ -423,7 +432,8 @@ const[shift,setShift] =useState('A')
         weekDate,setWeekDate,weekDateTwo,setWeekDateTwo,weekChartData,setWeekChartData,weekChartDataTwo,setWeekChartDataTwo,
         weekDateThree,setWeekDateThree,weekDateFour,setWeekDateFour,
         weekDateFive,setWeekDateFive,weekDateSix,setWeekDateSix,weekDateSeven,setWeekDateSeven,weekDateEight,setWeekDateEight,weekChartDataThree,setWeekChartDataThree,
-        weekChartDataFour,setWeekChartDataFour,medate,setMeDdate,shift,setShift
+        weekChartDataFour,setWeekChartDataFour,medate,setMeDdate,shift,setShift, setPressNumberOne, pressNumberOne,pressSumSrt,setPressSumSrt,pressSumPob,setPressSumPob,pressSumApw,setPressSumApw,pressSumPbb,setPressSumPbb,pressSumSks,setPressSumSks,
+        pressCountSrt,setPressCountSrt,pressCountPob,setPressCountPob,pressCountApw,setPressCountApw,pressCountPbb,setPressCountPbb,pressCountSks,setPressCountSks
         }}>
                {props.children}
             </reportContext.Provider>

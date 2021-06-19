@@ -58,7 +58,7 @@ const items = [
   },
   {
     href: '/app/customers',
-    icon:SettingsIcon,
+    icon: SettingsIcon,
     title: 'OEE'
   },
   {
@@ -78,7 +78,7 @@ const items = [
   },
   {
     href: '/aks',
-    icon:  SpeakerNotesIcon,
+    icon: SpeakerNotesIcon,
     title: 'PKO Online'
   },
   {
@@ -106,7 +106,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     width: 64,
     height: 64
-  },button:{
+  }, button: {
     marginLeft: '-8px'
   }, nestedmain: {
     marginLeft: '-18px',
@@ -180,96 +180,109 @@ const NavBar = ({ onMobileClose, openMobile }) => {
             />
           ))}
 
-          <div style={{display:'flex',flexDirection:'column',alignItems:'start'}}><Button
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}><Button
             color=""
-            component="a"
-            href='https://docs.google.com/spreadsheets/d/1cORjLbMFJOXUfKTEmG3WKAd-uJuJPxmwaULLAIEzICk/edit#gid=2093608797'
+            component="button"
+            // href='https://docs.google.com/spreadsheets/d/1cORjLbMFJOXUfKTEmG3WKAd-uJuJPxmwaULLAIEzICk/edit#gid=2093608797'
             variant="outline"
             className={classes.button}
+            onClick={() => window.open('https://docs.google.com/spreadsheets/d/1cORjLbMFJOXUfKTEmG3WKAd-uJuJPxmwaULLAIEzICk/edit#gid=2093608797')}
+
+           
           >
-            <SpeakerNotesIcon  /> <span className='ml-2 justify-content-start'>PKO</span>
+            <SpeakerNotesIcon /> <span className='ml-2 justify-content-start'>PKO</span>
           </Button>
-          
-          <Button
-            color=""
-            component="a"
-            href='https://docs.google.com/spreadsheets/d/1ls-Lvz95rEls2RFu9MB0ZRkr6vhgF7hOOW-8yLdbitA/edit#gid=1047554916'
-            variant="outline"
-            className={classes.button}
-          >
-            <TransferWithinAStationIcon/> <span className='ml-2'>EDP</span>
-          </Button>
-</div>
 
-<div style={{marginLeft:'-10px'}}> 
-<List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      //subheader={
-      //   <ListSubheader component="div" id="nested-list-subheader">
-      //     Nested List Items
-      //   </ListSubheader>
-      // }
-      
-    >
-    
-      
-      <ListItem button onClick={handleClick} >
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText secondary="SYSTEM" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <Button >
-            <ListItemIcon >
-              <StarBorder  />
-            </ListItemIcon>
-            <ListItemText secondary="TEI"   />
+            <Button
+              color=""
+              component='button'
+              variant="outline"
+              className={classes.button}
+              onClick={() => window.open('https://docs.google.com/spreadsheets/d/1ls-Lvz95rEls2RFu9MB0ZRkr6vhgF7hOOW-8yLdbitA/edit#gid=1047554916')}
+            >
+              <TransferWithinAStationIcon /> <span className='ml-2'>EDP</span>
             </Button>
-          </ListItem>
-        </List>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-          <Button >
-            <ListItemIcon>
-              <Filter5Icon />
-            </ListItemIcon>
-            <ListItemText secondary="5S" />
-            </Button>
-          </ListItem>
-        </List>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-          <Button >
-            <ListItemIcon>
-              <RecentActorsIcon />
-            </ListItemIcon>
-            <ListItemText secondary="QCC" />
-            </Button>
-          </ListItem>
-          
-        </List>
 
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-          <Button href='https://docs.google.com/spreadsheets/d/1ZDxEVS77S60KWRLDVKdJJ1S8clt8VUnLxNkZcxUwxk0/edit#gid=0'>
-            <ListItemIcon>
-              <GavelIcon />
-            </ListItemIcon>
-            <ListItemText secondary="KAIZEN" />
+            <Button
+              color=""
+              component='button'
+              variant="outline"
+              className={classes.button}
+              onClick={() => window.open('https://google.com')}
+            >
+              <DraftsIcon /> <span className='ml-2'>DPR</span>
             </Button>
-          </ListItem>
-          
-        </List>
-      </Collapse>
-    </List>
+          </div>
 
-    </div>
-    
+          <div style={{ marginLeft: '-10px' }}>
+            <List
+              component="nav"
+              aria-labelledby="nested-list-subheader"
+            //subheader={
+            //   <ListSubheader component="div" id="nested-list-subheader">
+            //     Nested List Items
+            //   </ListSubheader>
+            // }
+
+            >
+
+
+              <ListItem button onClick={handleClick} >
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText secondary="SYSTEM" />
+                {open ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <Button >
+                      <ListItemIcon >
+                        <StarBorder />
+                      </ListItemIcon>
+                      <ListItemText secondary="TEI" />
+                    </Button>
+                  </ListItem>
+                </List>
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <Button >
+                      <ListItemIcon>
+                        <Filter5Icon />
+                      </ListItemIcon>
+                      <ListItemText secondary="5S" />
+                    </Button>
+                  </ListItem>
+                </List>
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <Button >
+                      <ListItemIcon>
+                        <RecentActorsIcon />
+                      </ListItemIcon>
+                      <ListItemText secondary="QCC" />
+                    </Button>
+                  </ListItem>
+
+                </List>
+
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <Button href='https://docs.google.com/spreadsheets/d/1ZDxEVS77S60KWRLDVKdJJ1S8clt8VUnLxNkZcxUwxk0/edit#gid=0'>
+                      <ListItemIcon>
+                        <GavelIcon />
+                      </ListItemIcon>
+                      <ListItemText secondary="KAIZEN" />
+                    </Button>
+                  </ListItem>
+
+                </List>
+              </Collapse>
+            </List>
+
+          </div>
+
 
 
         </List>
@@ -280,7 +293,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         m={2}
         bgcolor="background.dark"
       >
-      
+
         {/* <Box
           display="flex"
           justifyContent="center"
@@ -332,7 +345,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-  onMobileClose: () => {},
+  onMobileClose: () => { },
   openMobile: false
 };
 
