@@ -791,13 +791,19 @@ const LineBody = () => {
           <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'12px'}}>Pcs</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'12px'}} >Nos</td>
             
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{countpressnumberSumLineOneSrt+countpressnumberSumLineOnePob+countpressnumberSumLineOnePbb+countpressnumberSumLineOneApw+
+                                                        countpressnumberSumLineOneSks}</td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" > </td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{countpressnumberSumLineTwoSrt+countpressnumberSumLineTwoPob+countpressnumberSumLineTwoPbb+countpressnumberSumLineTwoApw+
+                                                        countpressnumberSumLineTwoSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{countpressnumberSumLineThreeSrt+countpressnumberSumLineThreePob+countpressnumberSumLineThreePbb+countpressnumberSumLineThreeApw+
+                                                        countpressnumberSumLineThreeSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{countpressnumberSumLineOneSrt+countpressnumberSumLineOnePob+countpressnumberSumLineOnePbb+countpressnumberSumLineOneApw+
+                                                        countpressnumberSumLineOneSks +countpressnumberSumLineTwoSrt+countpressnumberSumLineTwoPob+countpressnumberSumLineTwoPbb+countpressnumberSumLineTwoApw+
+                                                        countpressnumberSumLineTwoSks+countpressnumberSumLineThreeSrt+countpressnumberSumLineThreePob+countpressnumberSumLineThreePbb+countpressnumberSumLineThreeApw+
+                                                        countpressnumberSumLineThreeSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
            
             
@@ -809,13 +815,19 @@ const LineBody = () => {
           <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'14px'}}>Weight</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'14px'}}>Ton</td>
             
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{sumpressnumberSumLineOneSrt+sumpressnumberSumLineOnePob+sumpressnumberSumLineOnePbb+sumpressnumberSumLineOneApw+
+                                                        sumpressnumberSumLineOneSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{sumpressnumberSumLineTwoSrt+sumpressnumberSumLineTwoPob+sumpressnumberSumLineTwoPbb+sumpressnumberSumLineTwoApw+
+                                                        sumpressnumberSumLineTwoSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{sumpressnumberSumLineThreeSrt+sumpressnumberSumLineThreePob+sumpressnumberSumLineThreePbb+sumpressnumberSumLineThreeApw+
+                                                        sumpressnumberSumLineThreeSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{sumpressnumberSumLineOneSrt+sumpressnumberSumLineOnePob+sumpressnumberSumLineOnePbb+sumpressnumberSumLineOneApw+
+                                                        sumpressnumberSumLineOneSks +sumpressnumberSumLineTwoSrt+sumpressnumberSumLineTwoPob+sumpressnumberSumLineTwoPbb+sumpressnumberSumLineTwoApw+
+                                                        sumpressnumberSumLineTwoSks+sumpressnumberSumLineThreeSrt+sumpressnumberSumLineThreePob+sumpressnumberSumLineThreePbb+sumpressnumberSumLineThreeApw+
+                                                        sumpressnumberSumLineThreeSks}</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
             
             

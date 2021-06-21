@@ -572,7 +572,7 @@ const pressnumberSum102Sks = pressSumSks && pressSumSks.filter((d) => { return d
       <div className='thm' >
 
 
-      <div className='row dhead bo m-5'>
+      <div className='row dhead bo mt-5'>
          <div className='col-md-12 col-sm-12 col-lg-12 text-center '>
             
       
@@ -615,18 +615,18 @@ const pressnumberSum102Sks = pressSumSks && pressSumSks.filter((d) => { return d
       
          <table className="table  table-bordered table-hover ttt">
        
-        <tbody>
+         <tbody>
           <tr>
             <td scope="col-md-1 col-sm-1 col-lg-1"  width='17%' colspan='2'  style={{fontWeight:'bold'}} >KPI</td>
-            <td scope="col-md-3 col-sm-3 col-lg-3"  colspan='2' style={{fontWeight:'bold'}}  onClick={(e)=>pressOne(e)}>press 01</td>
+            <td scope="col-md-3 col-sm-3 col-lg-3"  colspan='2' style={{fontWeight:'bold'}}  onClick={(e)=>pressOne(e)}>102</td>
           
-            <td scope="col-md-2 col-sm-2 col-lg-2"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressTwo(e)}> press 02</td>
+            <td scope="col-md-2 col-sm-2 col-lg-2"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressTwo(e)}> 103</td>
             
-            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressThree(e)}>press 03</td>
+            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressThree(e)}>104</td>
         
-            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>press 04</td>
-            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>press 05</td>
-            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>press 06</td>
+            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>105</td>
+            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>106</td>
+            <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>107</td>
             <td scope="col-md-1 col-sm-1 col-lg-1"  colspan='2'  style={{fontWeight:'bold'}} >TOTAL</td>
             
             
@@ -658,41 +658,196 @@ const pressnumberSum102Sks = pressSumSks && pressSumSks.filter((d) => { return d
           <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'14px'}}>Pcs</td>
             <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'14px'}} >Nos</td>
             
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            
-          </tr>
-          
-          <tr>
-          <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'14px'}}>Weight</td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'14px'}}>Ton</td>
-            
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
-            <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+            <td scope="col-md-3 col-sm-3 col-lg-3" >{( isNaN( parseInt(pressnumberCount102Pob[0]?.total)) ?0:parseInt(pressnumberCount102Pob[0]?.total))+
+                                                  ( isNaN( parseInt(pressnumberCount102Apw[0]?.total)) ?0:parseInt(pressnumberCount102Apw[0]?.total)) +
+                                                  ( isNaN( parseInt(pressnumberCount102Sks[0]?.total)) ?0:parseInt(pressnumberCount102Sks[0]?.total))+
+                                                  ( isNaN( parseInt(pressnumberCount102Pbb[0]?.total)) ?0:parseInt(pressnumberCount102Pbb[0]?.total))}</td>
+
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{
+                 (isNaN(parseInt(pressnumberCount103Srt[0]?.total)) ? 0 : parseInt(pressnumberCount103Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount103Pob[0]?.total)) ? 0 : parseInt(pressnumberCount103Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount103Apw[0]?.total)) ? 0 : parseInt(pressnumberCount103Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount103Sks[0]?.total)) ? 0 : parseInt(pressnumberCount103Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount103Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount103Pbb[0]?.total))
+
+               }</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{
+                 (isNaN(parseInt(pressnumberCount104Srt[0]?.total)) ? 0 : parseInt(pressnumberCount104Srt[0]?.total)) +
+                 (isNaN(parseInt(pressnumberCount104Pob[0]?.total)) ? 0 : parseInt(pressnumberCount104Pob[0]?.total)) +
+                 (isNaN(parseInt(pressnumberCount104Apw[0]?.total)) ? 0 : parseInt(pressnumberCount104Apw[0]?.total)) +
+                 (isNaN(parseInt(pressnumberCount104Sks[0]?.total)) ? 0 : parseInt(pressnumberCount104Sks[0]?.total)) +
+                 (isNaN(parseInt(pressnumberCount104Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount104Pbb[0]?.total))
+
+
+               }</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{(isNaN(parseInt(pressnumberCount105Srt[0]?.total)) ? 0 : parseInt(pressnumberCount105Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount105Pob[0]?.total)) ? 0 : parseInt(pressnumberCount105Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount105Apw[0]?.total)) ? 0 : parseInt(pressnumberCount105Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount105Sks[0]?.total)) ? 0 : parseInt(pressnumberCount105Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount105Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount105Pbb[0]?.total))}</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" > {(isNaN(parseInt(pressnumberCount106Srt[0]?.total)) ? 0 : parseInt(pressnumberCount106Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount106Pob[0]?.total)) ? 0 : parseInt(pressnumberCount106Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount106Apw[0]?.total)) ? 0 : parseInt(pressnumberCount106Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount106Sks[0]?.total)) ? 0 : parseInt(pressnumberCount106Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount106Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount106Pbb[0]?.total))}</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" > {(isNaN(parseInt(pressnumberCount107Srt[0]?.total)) ? 0 : parseInt(pressnumberCount107Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount107Pob[0]?.total)) ? 0 : parseInt(pressnumberCount107Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount107Apw[0]?.total)) ? 0 : parseInt(pressnumberCount107Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount107Sks[0]?.total)) ? 0 : parseInt(pressnumberCount107Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberCount107Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount107Pbb[0]?.total))}</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{( isNaN( parseInt(pressnumberCount102Pob[0]?.total)) ?0:parseInt(pressnumberCount102Pob[0]?.total))+
+                                                  ( isNaN( parseInt(pressnumberCount102Apw[0]?.total)) ?0:parseInt(pressnumberCount102Apw[0]?.total)) +
+                                                  ( isNaN( parseInt(pressnumberCount102Sks[0]?.total)) ?0:parseInt(pressnumberCount102Sks[0]?.total))+
+                                                  ( isNaN( parseInt(pressnumberCount102Pbb[0]?.total)) ?0:parseInt(pressnumberCount102Pbb[0]?.total))
+                                                  
+                                                  + (isNaN(parseInt(pressnumberCount103Srt[0]?.total)) ? 0 : parseInt(pressnumberCount103Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount103Pob[0]?.total)) ? 0 : parseInt(pressnumberCount103Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount103Apw[0]?.total)) ? 0 : parseInt(pressnumberCount103Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount103Sks[0]?.total)) ? 0 : parseInt(pressnumberCount103Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount103Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount103Pbb[0]?.total))
+
+                                                  + (isNaN(parseInt(pressnumberCount104Srt[0]?.total)) ? 0 : parseInt(pressnumberCount104Srt[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberCount104Pob[0]?.total)) ? 0 : parseInt(pressnumberCount104Pob[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberCount104Apw[0]?.total)) ? 0 : parseInt(pressnumberCount104Apw[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberCount104Sks[0]?.total)) ? 0 : parseInt(pressnumberCount104Sks[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberCount104Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount104Pbb[0]?.total))
+
+
+                                                  +(isNaN(parseInt(pressnumberCount105Srt[0]?.total)) ? 0 : parseInt(pressnumberCount105Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount105Pob[0]?.total)) ? 0 : parseInt(pressnumberCount105Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount105Apw[0]?.total)) ? 0 : parseInt(pressnumberCount105Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount105Sks[0]?.total)) ? 0 : parseInt(pressnumberCount105Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount105Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount105Pbb[0]?.total))
+
+
+                                                  +(isNaN(parseInt(pressnumberCount106Srt[0]?.total)) ? 0 : parseInt(pressnumberCount106Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount106Pob[0]?.total)) ? 0 : parseInt(pressnumberCount106Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount106Apw[0]?.total)) ? 0 : parseInt(pressnumberCount106Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount106Sks[0]?.total)) ? 0 : parseInt(pressnumberCount106Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount106Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount106Pbb[0]?.total))
+
+                                                  +(isNaN(parseInt(pressnumberCount107Srt[0]?.total)) ? 0 : parseInt(pressnumberCount107Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount107Pob[0]?.total)) ? 0 : parseInt(pressnumberCount107Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount107Apw[0]?.total)) ? 0 : parseInt(pressnumberCount107Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount107Sks[0]?.total)) ? 0 : parseInt(pressnumberCount107Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberCount107Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount107Pbb[0]?.total))
+                                                  
+                                                  }</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+
+
+
+             </tr>
+
+             <tr>
+               <td scope="col-md-3 col-sm-3 col-lg-3" style={{ fontSize: '14px' }}>Weight</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" style={{ fontSize: '14px' }}>Ton</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{
+                 (isNaN(parseInt(pressnumberSum102Srt[0]?.total)) ? 0 : parseInt(pressnumberSum102Srt[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum102Pob[0]?.total)) ? 0 : parseInt(pressnumberSum102Pob[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum102Apw[0]?.total)) ? 0 : parseInt(pressnumberSum102Apw[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum102Sks[0]?.total)) ? 0 : parseInt(pressnumberSum102Sks[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum102Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum102Pbb[0]?.total))
+
+
+
+
+               }</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{
+                 (isNaN(parseInt(pressnumberSum103Srt[0]?.total)) ? 0 : parseInt(pressnumberSum103Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum103Pob[0]?.total)) ? 0 : parseInt(pressnumberSum103Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum103Apw[0]?.total)) ? 0 : parseInt(pressnumberSum103Apw[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum103Sks[0]?.total)) ? 0 : parseInt(pressnumberSum103Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum103Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum103Pbb[0]?.total))
+
+
+
+               }</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{
+                 (isNaN(parseInt(pressnumberSum104Srt[0]?.total)) ? 0 : parseInt(pressnumberSum104Srt[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum104Pob[0]?.total)) ? 0 : parseInt(pressnumberSum104Pob[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum104Apw[0]?.total)) ? 0 : parseInt(pressnumberSum104Apw[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum104Sks[0]?.total)) ? 0 : parseInt(pressnumberSum104Sks[0]?.total)) +
+                 (isNaN(parseInt(pressnumberSum104Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum104Pbb[0]?.total))
+
+               }</td>
+
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{(isNaN(parseInt(pressnumberSum105Srt[0]?.total)) ? 0 : parseInt(pressnumberSum105Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum105Pob[0]?.total)) ? 0 : parseInt(pressnumberSum105Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum105Apw[0]?.total)) ? 0 : parseInt(pressnumberSum105Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum105Sks[0]?.total)) ? 0 : parseInt(pressnumberSum105Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum105Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum105Pbb[0]?.total))}</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{(isNaN(parseInt(pressnumberSum106Srt[0]?.total)) ? 0 : parseInt(pressnumberSum106Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum106Pob[0]?.total)) ? 0 : parseInt(pressnumberSum106Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum106Apw[0]?.total)) ? 0 : parseInt(pressnumberSum106Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum106Sks[0]?.total)) ? 0 : parseInt(pressnumberSum106Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum106Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum106Pbb[0]?.total))}</td>
+
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{(isNaN(parseInt(pressnumberSum107Srt[0]?.total)) ? 0 : parseInt(pressnumberSum107Srt[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum107Pob[0]?.total)) ? 0 : parseInt(pressnumberSum107Pob[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum107Apw[0]?.total)) ? 0 : parseInt(pressnumberSum107Apw[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum107Sks[0]?.total)) ? 0 : parseInt(pressnumberSum107Sks[0]?.total))
+                 + (isNaN(parseInt(pressnumberSum107Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum107Pbb[0]?.total))}</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" >{( isNaN( parseInt(pressnumberSum102Pob[0]?.total)) ?0:parseInt(pressnumberSum102Pob[0]?.total))+
+                                                  ( isNaN( parseInt(pressnumberSum102Apw[0]?.total)) ?0:parseInt(pressnumberSum102Apw[0]?.total)) +
+                                                  ( isNaN( parseInt(pressnumberSum102Sks[0]?.total)) ?0:parseInt(pressnumberSum102Sks[0]?.total))+
+                                                  ( isNaN( parseInt(pressnumberSum102Pbb[0]?.total)) ?0:parseInt(pressnumberSum102Pbb[0]?.total))
+                                                  
+                                                  + (isNaN(parseInt(pressnumberSum103Srt[0]?.total)) ? 0 : parseInt(pressnumberSum103Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum103Pob[0]?.total)) ? 0 : parseInt(pressnumberSum103Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum103Apw[0]?.total)) ? 0 : parseInt(pressnumberSum103Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum103Sks[0]?.total)) ? 0 : parseInt(pressnumberSum103Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum103Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum103Pbb[0]?.total))
+
+                                                  + (isNaN(parseInt(pressnumberSum104Srt[0]?.total)) ? 0 : parseInt(pressnumberSum104Srt[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberSum104Pob[0]?.total)) ? 0 : parseInt(pressnumberSum104Pob[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberSum104Apw[0]?.total)) ? 0 : parseInt(pressnumberSum104Apw[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberSum104Sks[0]?.total)) ? 0 : parseInt(pressnumberSum104Sks[0]?.total)) +
+                                                  (isNaN(parseInt(pressnumberSum104Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum104Pbb[0]?.total))
+
+
+                                                  +(isNaN(parseInt(pressnumberSum105Srt[0]?.total)) ? 0 : parseInt(pressnumberSum105Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum105Pob[0]?.total)) ? 0 : parseInt(pressnumberSum105Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum105Apw[0]?.total)) ? 0 : parseInt(pressnumberSum105Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum105Sks[0]?.total)) ? 0 : parseInt(pressnumberSum105Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum105Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum105Pbb[0]?.total))
+
+
+                                                  +(isNaN(parseInt(pressnumberSum106Srt[0]?.total)) ? 0 : parseInt(pressnumberSum106Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum106Pob[0]?.total)) ? 0 : parseInt(pressnumberSum106Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum106Apw[0]?.total)) ? 0 : parseInt(pressnumberSum106Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum106Sks[0]?.total)) ? 0 : parseInt(pressnumberSum106Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum106Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum106Pbb[0]?.total))
+
+                                                  +(isNaN(parseInt(pressnumberSum107Srt[0]?.total)) ? 0 : parseInt(pressnumberSum107Srt[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum107Pob[0]?.total)) ? 0 : parseInt(pressnumberSum107Pob[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum107Apw[0]?.total)) ? 0 : parseInt(pressnumberSum107Apw[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum107Sks[0]?.total)) ? 0 : parseInt(pressnumberSum107Sks[0]?.total))
+                                                  + (isNaN(parseInt(pressnumberSum107Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum107Pbb[0]?.total))
+                                                  
+                                                  }</td>
+               <td scope="col-md-3 col-sm-3 col-lg-3" ></td>
+
             
           </tr>
           
