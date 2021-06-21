@@ -79,8 +79,6 @@ let monthNumberTwo = date.getMonth() + 1;
 
   var parmDataThree= yearNumber +'-'+monthNumber +'-'+ 1
 
-console.log(parmDataThree);
-console.log(parmDataTwo)
 
 // const a =[{total:'0'},{value:'7'}]
 

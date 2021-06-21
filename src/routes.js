@@ -31,7 +31,6 @@ import MeterDash from './meterDash/MeterDash'
 import LineOne from './views/DivisionDash/LineReport/LineOne';
 import LineTwo from './views/DivisionDash/LineReport/LineTwo';
 import LineThree from './views/DivisionDash/LineReport/LineThree';
-import LineFour from './views/DivisionDash/LineReport/LineFour';
 import DprMom from './MOM/DprMom';
 import AllKpiSummary from './Pages/AllKpiSummary/AllKpiSummary';
 const routes = [
@@ -62,7 +61,7 @@ const routes = [
       { path: 'lineone', element: <LineOne/> },
       { path: 'linetwo', element: <LineTwo/> },
       { path: 'linethree', element: <LineThree/> },
-      { path: 'linefour', element: <LineFour/> },
+     
       
 
  
