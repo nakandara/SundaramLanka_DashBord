@@ -11,6 +11,7 @@ import {
 import PropTypes from "prop-types";
 
 import useDeepCompareEffect from "./customHooks";
+import { remove } from "lodash";
 /*
 GaugeChart creates a gauge chart using D3
 The chart is responsive and will have the same width as the "container"

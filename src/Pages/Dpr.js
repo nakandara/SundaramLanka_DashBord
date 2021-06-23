@@ -1,59 +1,17 @@
 import React,{useContext,useEffect, useState} from 'react'
 import './dprone.css' 
 import logo from './unnamed.png';
-import { Link as RouterLink, useNavigate,useHistory } from 'react-router-dom';
-import { makeStyles,Container, Box,
+import {  useNavigate } from 'react-router-dom';
+import {
   Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  useTheme,} from '@material-ui/core';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import moment from 'moment'
+  } from '@material-ui/core';
 import {reportContext} from '../context/ContextProvider'
 import apiThree from '../../src/api/apiThree';
 import api from '../../src/api/api';
-import Page from 'src/components/Page';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { grey } from "@material-ui/core/colors";
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 
-const useStyles = makeStyles(theme=>({
-  root: {
-    margin:theme.spacing(3),
-    marginLeft:theme.spacing(8),
-    
-  },MuiCardContentRoot:{
-
-    color:'red',
-    padding:0
-
-  },
-
-  MuiCardHeaderRoot:{
-    margin:theme.spacing(1),
-    backgroundColor:'#3f51b5',
-    fontWeight:'900',
-    display:'flex',
-    justifyItems:'center',
-    alignItems:'center',
-    textAlign:'center',
-    color:'white',
-    
-
-  }
-  
-  
-
-}));
 
 
 
@@ -67,15 +25,15 @@ const Dpr = () => {
 
 
 
-   const {productionDashData,setProductionDashData,ddate,setMfgData,qualityDashData,setQualityDashData,productionDashActual,setProductionDashActual,productionDashPlan,setProductionDashPlan,productionDashAdherence,setProductionDashAdherence,productionDashUtilization,setProductionDashUtilization,productionDashProductivity,setProductionDashProductivity,
-      qualityDashFtr,setQualityDashFtr,qualityDashBerlc,setQualityDashBerlc,qualityDashB,setQualityDashB,qualityDashE,setQualityDashE,qualityR,setQualityR,qualityL,setQualityL,qualityC,setQualityC,qualityDashFlash,setQualityDashFlash,qualityDashRejectCompound,setQualityDashRejectCompound,qualityDashHold,setQualityDashHold,
-      mixingDashTonnage,setMixingDashTonnage,mixingDashTonnagePlan,setMixingDashTonnagePlan,mixingDashProductivity,setMixingDashProductivity,mixingDashBreakDown,setMixingDashBreakDown,mixingDashEnergy,setMixingDashEnergy,beadDashEnergy,setBeadDashEnergy,
+   const {ddate,productionDashActual,setProductionDashActual,productionDashPlan,setProductionDashPlan,productionDashAdherence,setProductionDashAdherence,productionDashUtilization,setProductionDashUtilization,setProductionDashProductivity,
+      qualityDashFtr,setQualityDashFtr,qualityDashBerlc,setQualityDashBerlc,qualityDashB,setQualityDashB,qualityDashE,setQualityDashE,qualityR,setQualityR,setQualityL,setQualityC,qualityDashFlash,setQualityDashFlash,qualityDashRejectCompound,setQualityDashRejectCompound,qualityDashHold,setQualityDashHold,
+      mixingDashTonnage,setMixingDashTonnage,mixingDashTonnagePlan,setMixingDashTonnagePlan,mixingDashProductivity,setMixingDashProductivity,mixingDashBreakDown,setMixingDashBreakDown,setMixingDashEnergy,beadDashEnergy,
       beadDashBead,setBeadDashBead,beadDashBeadPlan,setBeadDashBeadPlan,beadDashRejectBead,setBeadDashRejectBead,beadDashBreakDown,setBeadDashBreakDown,
       hrDashNearMiss,setHRDashNearMis,hrDashKaizen,setHRDashKaizen,hrDashNRC,setHRDashNRC,hrDashRA,setHRDashRA,hrDashdOT,setHRDashDot,hrDashAI,setHRDashAI,hrDashANI,setHRDashANI,
-      engDashBreakDown,setENGDashBreakDown,engDashFuelRate,setENGDashFuelRate,engDashFuelConsumption,setENGDashFuelConsumption,engDashEnergyCostRate,setENGDashEnergyCostRate,engDashPowerConsumption,setENGDashPowerConsumption,qualityDashNM,setQualityDashNM,setHRDashManpower,hrDashManpower,kpi,dispatch} =useContext(reportContext)
+      engDashBreakDown,setENGDashBreakDown,engDashFuelRate,setENGDashFuelRate,engDashFuelConsumption,engDashEnergyCostRate,setENGDashEnergyCostRate,engDashPowerConsumption,setENGDashPowerConsumption,setQualityDashNM,setHRDashManpower,hrDashManpower,dispatch} =useContext(reportContext)
   
   
-    const classes = useStyles();
+   
   
     const navigate = useNavigate();
   
@@ -1319,7 +1277,7 @@ RCCM
   <thead className="thead-dark x" >
     <tr>
       <th scope="col-md-2 col-sm-2 col-lg-2" width='14%'> DIVISION</th>
-      <th scope="col-md-3 col-sm-3 col-lg-3" width='15%'>INDICATOR</th>
+      <th scope="col-md-2 col-sm-2 col-lg-2" width='15%'>INDICATOR</th>
       <th scope="col-md-2 col-sm-2 col-lg-2" width='8%'>UOM</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='8%'>TARGET</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='8%'>ACTUAL</th>
@@ -1355,15 +1313,15 @@ RCCM
  
   <tbody>
     <tr>
-      <td scope="col-md-1 col-sm-1 col-lg-1" rowspan="3" width='14%' ><div className='division mt-3'>Production</div></td>
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Actual Production</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>Ton</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='9%'style={{fontSize:'12px',fontWeight:'bold'}}>{productionDashPlan}</td>
-      <td className='acc' scope="col-md-1 col-sm-1 col-lg-1 " width='9%' style={one?{backgroundColor:"green",fontWeight:"bold",color:'white',fontSize:'12px'}:{backgroundColor:"red",fontWeight:900,color:'white',fontSize:'12px'}}>{productionDashActual}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{productionMtd && productionMtd.toFixed(2)}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Akalanka</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+      <td  rowspan="3" width='14%' ><div className='division mt-3'>Production</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Actual Production</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>Ton</td>
+      <td  width='9%'style={{fontSize:'12px',fontWeight:'bold'}}>{productionDashPlan}</td>
+      <td className='acc'  width='9%' style={one?{backgroundColor:"green",fontWeight:"bold",color:'white',fontSize:'12px'}:{backgroundColor:"red",fontWeight:900,color:'white',fontSize:'12px'}}>{productionDashActual}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{productionMtd && productionMtd.toFixed(2)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Akalanka</td>
+      <td  width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
           variant='text'
 
           onClick={(e)=>{
@@ -1383,7 +1341,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>90%</td>
       <td className='acc' style={two?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{productionDashAdherence}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{productionAdherenceMtd && productionAdherenceMtd.toFixed(2)}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{productionAdherenceMtd && productionAdherenceMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Akalanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1405,8 +1363,8 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Plant Utilization</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>90%</td>
-      <td className='acc' style={three?{backgroundColor:"green",fontWeight:900,color:'white',fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{productionDashUtilization}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{productionUtilizationMtd && productionUtilizationMtd.toFixed(2)}%</td>
+      <td className='acc' style={three?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{productionDashUtilization}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{productionUtilizationMtd && productionUtilizationMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Akalanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1445,15 +1403,15 @@ RCCM
  
   <tbody>
     <tr>
-      <td scope="col-md-1 col-sm-1 col-lg-1" rowspan="8" width='14%' ><div className='division '>Quality</div></td>
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>FTR</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>90%</td>
-      <td className='acc' scope="col-md-1 col-sm-1 col-lg-1" width='9%'style={four?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{qualityDashFtr}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashFtrMtd && qualityDashFtrMtd.toFixed(2)}%</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+      <td  rowspan="8" width='14%' ><div className='division '>Quality</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>FTR</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>90%</td>
+      <td className='acc'  width='9%'style={four?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{qualityDashFtr}%</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashFtrMtd && qualityDashFtrMtd.toFixed(2)}%</td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
+      <td  width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
          variant='text'
          onClick={(e)=>{
             
@@ -1472,7 +1430,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0.3%</td>
       <td className='acc' style={five?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityDashBerlc}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashBerlcMtd && qualityDashBerlcMtd.toFixed(2)}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashBerlcMtd && qualityDashBerlcMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1494,7 +1452,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0.15%</td>
       <td className='acc' style={six?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityDashB}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashBMtd && qualityDashBMtd.toFixed(2)}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashBMtd && qualityDashBMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
       <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1516,7 +1474,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={seven?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityDashE}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashEMtd && qualityDashEMtd.toFixed(2)}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashEMtd && qualityDashEMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1538,7 +1496,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0.15%</td>
       <td className='acc' style={eight?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityR}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityRMtd && qualityRMtd.toFixed(2)}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityRMtd && qualityRMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1560,7 +1518,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>1.2%</td>
       <td className='acc' style={eleven?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityDashFlash}%</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashFlashMtd && qualityDashFlashMtd.toFixed(2)}%</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashFlashMtd && qualityDashFlashMtd.toFixed(2)}%</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dulan</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1582,7 +1540,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Kg</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}} >0</td>
       <td className='acc' style={thirteen?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityDashRejectCompound}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashRejectCompoundMtd && qualityDashRejectCompoundMtd.toFixed(2)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashRejectCompoundMtd && qualityDashRejectCompoundMtd.toFixed(2)}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Hasula</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1604,7 +1562,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}} >Kg</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={twelve?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{qualityDashHold}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashHoldMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{qualityDashHoldMtd}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Hasula</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Saman</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1644,15 +1602,15 @@ RCCM
  
   <tbody>
     <tr>
-      <td scope="col-md-1 col-sm-1 col-lg-1" rowspan="3" width='14%' ><div className='division mt-3'>Mixing</div></td>
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Mixing Tonnage</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>Kg</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{mixingDashTonnagePlan}</td>
-      <td className='acc' scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={fourteen?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{mixingDashTonnage}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{mixingDashTonnageMtd && mixingDashTonnageMtd.toFixed(2)}</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1"  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dinesh</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1"  width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+      <td  rowspan="3" width='14%' ><div className='division mt-3'>Mixing</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Mixing Tonnage</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>Kg</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{mixingDashTonnagePlan}</td>
+      <td className='acc'  width='9%' style={fourteen?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{mixingDashTonnage}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{mixingDashTonnageMtd && mixingDashTonnageMtd.toFixed(2)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dinesh</td>
+      <td   width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
          variant='text'
          onClick={(e)=>{
             
@@ -1671,7 +1629,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Kg/Man</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td className='acc' style={fifteen?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{mixingDashProductivity}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dinesh</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}} >Mr.Dhammika</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1693,7 +1651,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Kg</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={sixteen?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{mixingDashBreakDown}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dinesh</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1731,15 +1689,15 @@ RCCM
  
   <tbody>
     <tr>
-      <td scope="col-md-1 col-sm-1 col-lg-1" rowspan="4" width='14%' ><div className='division mt-5'>ENG</div></td>
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Machine BreakDowns</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>hrs</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>6.67/200</td>
-      <td className='acc' scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={seventeen?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{engDashBreakDown}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{engDashBreakDownMtd}</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1"  style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Vidusanka</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Manoj</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='1%'> <Button    size='small'  endIcon={<ArrowRightIcon />}
+      <td  rowspan="4" width='14%' ><div className='division mt-5'>ENG</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Machine BreakDowns</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>hrs</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>6.67/200</td>
+      <td className='acc'  width='9%' style={seventeen?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{engDashBreakDown}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{engDashBreakDownMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Vidusanka</td>
+      <td  width='12%' style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Manoj</td>
+      <td  width='1%'> <Button    size='small'  endIcon={<ArrowRightIcon />}
          variant='text'
          onClick={(e)=>{
             
@@ -1758,7 +1716,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Lkr/Kg</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>5.6</td>
       <td className='acc' style={eighteen?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{engDashFuelRate}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{engDashFuelRateMtd && engDashFuelRateMtd.toFixed(2)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{engDashFuelRateMtd && engDashFuelRateMtd.toFixed(2)}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Vidusanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Suminda</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1780,7 +1738,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Lkr/Kg</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>5.25</td>
       <td className='acc' style={twenty?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{engDashEnergyCostRate}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{engDashEnergyCostRateMtd  && engDashEnergyCostRateMtd.toFixed(2)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{engDashEnergyCostRateMtd  && engDashEnergyCostRateMtd.toFixed(2)}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Vidusanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Suminda</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1802,7 +1760,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Kwh/MT</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>370</td>
       <td className='acc' style={twentyone?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{engDashPowerConsumption}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{engDashPowerConsumptionMtd && engDashPowerConsumptionMtd.toFixed(0)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{engDashPowerConsumptionMtd && engDashPowerConsumptionMtd.toFixed(0)}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Vidusanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>            Mr.Suminda</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1838,15 +1796,15 @@ RCCM
  
   <tbody>
     <tr>
-      <td scope="col-md-1 col-sm-1 col-lg-1" rowspan="8" width='14%' ><div className='division'>HR & Safety</div></td>
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Near Miss</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>1</td>
-      <td className='acc' scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={twentytwo?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashNearMiss}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashNearMissMtd}</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1"  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+      <td  rowspan="8" width='14%' ><div className='division'>HR & Safety</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Near Miss</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>1</td>
+      <td className='acc'  width='9%' style={twentytwo?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashNearMiss}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashNearMissMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
          variant='text'
          onClick={(e)=>{
             
@@ -1865,7 +1823,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>1</td>
       <td className='acc' style={twentythree?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{hrDashKaizen}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashKaizenMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashKaizenMtd}</td>
       <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1887,7 +1845,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={twentyfour?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashNRC}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashNRCMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashNRCMtd}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1909,7 +1867,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc'  style={twentyfive?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashRA}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashRAMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashRAMtd}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1930,7 +1888,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={twentysix?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashdOT}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashdOTMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashdOTMtd}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1951,7 +1909,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={twentyseven?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashAI}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashAIMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashAIMtd}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1972,7 +1930,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={twentyeight?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashANI}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashANIMtd}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashANIMtd}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -1993,7 +1951,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>45</td>
       <td className='acc' style={twentynine?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{hrDashManpower}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashManpowerMtd && hrDashManpowerMtd.toFixed(2)}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}>{hrDashManpowerMtd && hrDashManpowerMtd.toFixed(2)}</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Malinda/Indika</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Rohitha</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -2029,15 +1987,15 @@ RCCM
  
   <tbody>
     <tr>
-      <td scope="col-md-1 col-sm-1 col-lg-1" rowspan="4" width='14%' ><div className='division mt-4'>Bead</div></td>
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>No of Bead</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{beadDashBeadPlan}</td>
-      <td className='acc' scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={thirty?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{beadDashBead}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" width='9%' style={{fontSize:'12px',fontWeight:'bold'}}></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+      <td  rowspan="4" width='14%' ><div className='division mt-4'>Bead</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>No of Bead</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{beadDashBeadPlan}</td>
+      <td className='acc'  width='9%' style={thirty?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{beadDashBead}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
          variant='text'
          onClick={(e)=>{
             
@@ -2055,7 +2013,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={thirtyone?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashRejectBead}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}
@@ -2076,7 +2034,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td className='acc' style={thirtythree?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashEnergy}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
       <td><Button   size='small'  endIcon={<ArrowRightIcon />}
@@ -2097,7 +2055,7 @@ RCCM
       <td style={{fontSize:'12px',fontWeight:'bold'}}>hrs</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
       <td className='acc' style={thirtyfour?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashBreakDown}</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
       <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
       <td><Button    size='small'  endIcon={<ArrowRightIcon />}

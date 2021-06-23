@@ -6,13 +6,13 @@ const initialState = {firstKpi:'actual_weight',secondKpi:'plan_weight',condition
 const reducer =(state,action)=>{
     switch(action.type){
         case 'plant_utilization':
-        return{firstKpi: 'plant_utilization',secondKpi:'plant_utilization_plan',condition:'avg',division:'production_data',division:'production_data',divrccm: 'production_rccm',titleOne:'Plant Utilization(%)',titleTwo:'Plan (%)'}
+        return{firstKpi: 'plant_utilization',secondKpi:'plant_utilization_plan',condition:'avg',division:'production_data',divrccm: 'production_rccm',titleOne:'Plant Utilization(%)',titleTwo:'Plan (%)'}
         case 'plan_adherence':
-        return {firstKpi: 'plan_adherence',secondKpi:'plan_adherence_plan',condition:'avg',division:'production_data',division:'production_data',divrccm: 'production_rccm',titleOne:'Plan Adhernce(%)',titleTwo:'Plan(%)'}
+        return {firstKpi: 'plan_adherence',secondKpi:'plan_adherence_plan',condition:'avg',division:'production_data',divrccm: 'production_rccm',titleOne:'Plan Adhernce(%)',titleTwo:'Plan(%)'}
         case 'plan_vs_actual':
-        return{firstKpi: 'actual_weight',secondKpi:'plan_weight',condition:'sum',division:'production_data',division:'production_data',divrccm: 'production_rccm',titleOne:'Actual Weight(Ton)',titleTwo:'Plan Weight(Ton)'}
+        return{firstKpi: 'actual_weight',secondKpi:'plan_weight',condition:'sum',division:'production_data',divrccm: 'production_rccm',titleOne:'Actual Weight(Ton)',titleTwo:'Plan Weight(Ton)'}
         case 'productivity':
-        return {firstKpi: 'productivity',secondKpi:'productivity_plan',condition:'avg',division:'production_data',division:'production_data',divrccm: 'production_rccm',titleOne:'Production Productivity(Kg/mhr)',titleTwo:'Plan (Kg/mhr)'}
+        return {firstKpi: 'productivity',secondKpi:'productivity_plan',condition:'avg',division:'production_data',divrccm: 'production_rccm',titleOne:'Production Productivity(Kg/mhr)',titleTwo:'Plan (Kg/mhr)'}
         case 'ftr':
                 return {firstKpi:'ftr',secondKpi:'ftr_plan',condition:'avg',division:'quality_data',divrccm:'quality_rccm',titleOne:'FTR (%)',titleTwo:'Plan (%)'}
         case 'flash':
@@ -82,7 +82,11 @@ const reducer =(state,action)=>{
                                     case 'beadManPower':
                                     return {firstKpi: 'bead_manpower_actual',secondKpi:'bead_manpower_plan',condition:'sum',division:'bead_data',divrccm:'bead_rccm',titleOne:'Bead Man Power (No)',titleTwo:'Plan (No)'}
                                     case 'nonReportableAccident':
-                                        return {firstKpi: 'non_reportable_accident',secondKpi:'non_reportable_accident_plan',condition:'sum',division:'hr_data',divrccm:'hr_rccm',titleOne:'Non Reportable Accident (No)',titleTwo:'Plan (No)'}
+    
+    
+                                    return {firstKpi: 'non_reportable_accident',secondKpi:'non_reportable_accident_plan',condition:'sum',division:'hr_data',divrccm:'hr_rccm',titleOne:'Non Reportable Accident (No)',titleTwo:'Plan (No)'}
+
+                                    default :
     }
 }
 
@@ -204,7 +208,7 @@ const myDateMain=new Date()
 
     // const[datem,setDatem] =useState(new Date())
     const [ddate,setDdate] =useState(myDateMain.setDate(myDateMain.getDate() - 1))
-    // console.log(datem);
+    //console.log(ddate);
 
     const myDateMeter=new Date()  
     const [medate,setMeDdate] =useState(myDateMeter.setDate(myDateMeter.getDate() - 1))
@@ -226,7 +230,6 @@ const [mixingDashData,setMixingDashData]  =useState([])
 
 const [beadDashData,setBeadDashData]  =useState([])
 
-const [safetyDashData,setSafetyDashData]  =useState([])
 
 const [hrDashData,setHRDashData]  =useState([])
 
@@ -411,6 +414,16 @@ const[pressCountSks,setPressCountSks]=useState([])
 
 
 
+const[pressCountA,setPressCountA]=useState([])
+const[pressSumB ,setPressSumB]=useState([])
+const[pressSumE ,setPressSumE]=useState([])
+const[pressSumR ,setPressSumR]=useState([]) 
+const[pressSumL ,setPressSumL]=useState([])
+const[pressSumC ,setPressSumC]=useState([])
+
+
+
+
     return (
         <div>
             <reportContext.Provider value={{dateOne,setDateOne,dateTwo,setDateTwo,mfgData,setMfgData,ddate,setDdate,mfgDataFirst,setMfgDataFirst,mfgDataSecond,setMfgDataSecond,mfgDataThird,setMfgDataThird
@@ -433,7 +446,8 @@ const[pressCountSks,setPressCountSks]=useState([])
         weekDateThree,setWeekDateThree,weekDateFour,setWeekDateFour,
         weekDateFive,setWeekDateFive,weekDateSix,setWeekDateSix,weekDateSeven,setWeekDateSeven,weekDateEight,setWeekDateEight,weekChartDataThree,setWeekChartDataThree,
         weekChartDataFour,setWeekChartDataFour,medate,setMeDdate,shift,setShift, setPressNumberOne, pressNumberOne,pressSumSrt,setPressSumSrt,pressSumPob,setPressSumPob,pressSumApw,setPressSumApw,pressSumPbb,setPressSumPbb,pressSumSks,setPressSumSks,
-        pressCountSrt,setPressCountSrt,pressCountPob,setPressCountPob,pressCountApw,setPressCountApw,pressCountPbb,setPressCountPbb,pressCountSks,setPressCountSks
+        pressCountSrt,setPressCountSrt,pressCountPob,setPressCountPob,pressCountApw,setPressCountApw,pressCountPbb,setPressCountPbb,pressCountSks,setPressCountSks,pressCountA,setPressCountA,
+        pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC
         }}>
                {props.children}
             </reportContext.Provider>

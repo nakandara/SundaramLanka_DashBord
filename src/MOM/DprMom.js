@@ -155,15 +155,15 @@ console.log(fourMMan);
 
        {fourMMan && fourMMan.map(
         (d,index)=>( <tr key={index}>
-           <td scope="col-md-1 col-sm-1 col-lg-1"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
-            <td scope="col-md-1 col-sm-1 col-lg-1"  width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
-           <td scope="col-md-3 col-sm-3 col-lg-3" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
-           <td scope="col-md-2 col-sm-2 col-lg-2" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
+           <td   width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
+            <td   width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
+           <td  width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
            
-           <td  scope="col-md-1 col-sm-1 col-lg-1" width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
-           <td  scope="col-md-1 col-sm-1 col-lg-1"  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
+           <td   width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
+           <td    width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
+           <td  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
            </tr>
         ) 
        )}
@@ -197,15 +197,15 @@ console.log(fourMMan);
 
   {fourMMaterial && fourMMaterial.map(
         (d,index)=>( <tr key={index}>
-           <td scope="col-md-1 col-sm-1 col-lg-1"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
-            <td scope="col-md-1 col-sm-1 col-lg-1"  width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
-           <td scope="col-md-3 col-sm-3 col-lg-3" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
-           <td scope="col-md-2 col-sm-2 col-lg-2" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
+           <td   width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
+            <td   width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
+           <td  width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
            
-           <td  scope="col-md-1 col-sm-1 col-lg-1" width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
-           <td  scope="col-md-1 col-sm-1 col-lg-1"  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
+           <td   width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
+           <td    width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
+           <td  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
            </tr>
         ) 
        )}
@@ -239,15 +239,15 @@ console.log(fourMMan);
 
   {fourMMachine && fourMMachine.map(
         (d,index)=>( <tr key={index}>
-           <td scope="col-md-1 col-sm-1 col-lg-1"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
-            <td scope="col-md-1 col-sm-1 col-lg-1"  width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
-           <td scope="col-md-3 col-sm-3 col-lg-3" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
-           <td scope="col-md-2 col-sm-2 col-lg-2" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
+           <td   width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
+            <td   width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
+           <td  width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
            
-           <td  scope="col-md-1 col-sm-1 col-lg-1" width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
-           <td  scope="col-md-1 col-sm-1 col-lg-1"  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
+           <td   width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
+           <td    width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
+           <td  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
            </tr>
         ) 
        )}
@@ -278,15 +278,15 @@ console.log(fourMMan);
 
   {fourMLogistic && fourMLogistic.map(
         (d,index)=>( <tr key={index}>
-           <td scope="col-md-1 col-sm-1 col-lg-1"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
-            <td scope="col-md-1 col-sm-1 col-lg-1"  width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
-           <td scope="col-md-3 col-sm-3 col-lg-3" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
-           <td scope="col-md-2 col-sm-2 col-lg-2" width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
+           <td   width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{d.four_m}</td>
+            <td   width='3%' style={{fontSize:'12px',fontWeight:'bold'}} >{d.id}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{moment(d.in_date).format('YY MMM D')}</td>
+           <td  width='7%' style={{fontSize:'12px',fontWeight:'bold'}}>{ moment(d.disc_date).format('YY MMM D')}</td>
+           <td  width='12%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.issue}</td>
            
-           <td  scope="col-md-1 col-sm-1 col-lg-1" width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
-           <td  scope="col-md-1 col-sm-1 col-lg-1"  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
-           <td scope="col-md-1 col-sm-1 col-lg-1" width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
+           <td   width='44%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.disc_point}</td>
+           <td    width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start'}}>{d.res}</td>
+           <td  width='12%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'start',backgroundColor: d.status>=80?'green':d.status>=50?'yellow':'red'}}>{d.target_date}</td>
            </tr>
         ) 
        )}

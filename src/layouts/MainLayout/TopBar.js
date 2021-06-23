@@ -1,5 +1,5 @@
 import React,{useState,useContext} from 'react';
-import { Link as RouterLink, useNavigate,useHistory } from 'react-router-dom';
+import { Link as RouterLink, useNavigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -7,29 +7,18 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import Logo from 'src/components/Logo';
 import DatePick from '../../views/Wpr/DatePick'
 import {
   Box,
   Button,
-  Checkbox,
-  Container,
-  FormHelperText,
-  Link,
-  TextField,
   Typography,
-  Grid,Paper,InputLabel,NativeSelect,FormControl,Select
+  InputLabel,NativeSelect,FormControl
 } from '@material-ui/core';
 import {reportContext} from '../../context/ContextProvider'
 import Production from 'src/views/Wpr/Production';
@@ -43,7 +32,6 @@ import Flash from 'src/views/Wpr/qualityAnalyis/Flash';
 import Ber from 'src/views/Wpr/qualityAnalyis/Ber';
 import Reject from 'src/views/Wpr/qualityAnalyis/Reject';
 import Hold from 'src/views/Wpr/qualityAnalyis/Hold';
-import { Navigate } from 'react-router-dom';
 import './main.css'
 import ProductionA from 'src/views/Wpr/ProductionAnalayisi/ProductionA';
 import MixingA from 'src/views/Wpr/MixingAnalysis/MixingA';
@@ -126,7 +114,7 @@ const useStyles = makeStyles(theme=>({
 
 const TopBar = ({ className, ...rest }) => {
 
-  const {kpi,dispatch,dateOne,dateTwo,lineChartData,setLineChartData,stateSelect, setStateSelect} =useContext(reportContext)
+  const {kpi,stateSelect, setStateSelect} =useContext(reportContext)
 
 
   const classes = useStyles();

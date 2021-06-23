@@ -1,5 +1,4 @@
 import React,{useContext,useEffect} from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import api from '../../../src/api/api'
 import {reportContext} from '../../context/ContextProvider'
 import clsx from 'clsx';
@@ -54,7 +53,7 @@ const PieChartOne =({ className, ...rest })=>{
   const classes = useStyles();
 
 
-  const {kpi,dispatch,dateOne,dateTwo,pieChartData,setPieChartData,pieChartDataTwo,setPieChartDataTwo} =useContext(reportContext)
+  const {kpi,dateOne,dateTwo,pieChartData,setPieChartData,pieChartDataTwo,setPieChartDataTwo} =useContext(reportContext)
    
   //console.log(dateOne);
   //console.log(dateTwo);

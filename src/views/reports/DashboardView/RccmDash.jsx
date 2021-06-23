@@ -1,18 +1,9 @@
-import React,{useState,useContext,useEffect} from 'react';
+import React,{useContext,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import './rccm.css'
 import api from '../../../api/api'
-import axios from 'axios'
 import {reportContext} from '../../../context/ContextProvider'
 import moment from 'moment'
-import { Card, CardHeader, Container, Divider } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -152,16 +143,16 @@ const t=`RCCM ${kpi.titleOne} from ${paramDateOne} to ${paramDateTwo}`
 
 
 <td scope="col-md-2 col-sm-2 col-lg-2" width='6%' style={{fontSize:'12px',fontWeight:'bold'}}>{row.accountability}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" width='4%'style={{fontSize:'12px',fontWeight:'bold'}}>{row.metix}</td>
-     <td  scope="col-md-1 col-sm-1 col-lg-1 " width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{row.target_date}</td>
-     <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.actual}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.reason_achive_not_target}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.root_cause}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.counter_measure}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.resp}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.target}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.status}</td>
-     </tr>
+     <td  width='4%'style={{fontSize:'12px',fontWeight:'bold'}}>{row.metix}</td>
+     <td   width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{row.target_date}</td>
+     <td   style={{fontSize:'12px',fontWeight:'bold'}}>{row.actual}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.reason_achive_not_target}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.root_cause}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.counter_measure}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.resp}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.target}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.status}</td>
+     </tr> 
       ))
 
 

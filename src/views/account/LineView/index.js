@@ -4,7 +4,6 @@ import {
   Grid,
   makeStyles
 } from '@material-ui/core';
-import Page from 'src/components/Page';
 import Line from './Line';
 import './Line.css'
 

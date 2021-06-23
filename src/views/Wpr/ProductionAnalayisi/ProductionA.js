@@ -1,15 +1,7 @@
 import React from 'react'
 import {
     Box,
-    Button,
-    Checkbox,
-    Container,
-    FormHelperText,
-    Link,
-    TextField,
-    Typography,
-    Grid,
-    makeStyles,Paper,InputLabel,NativeSelect,FormControl,Select
+    Button
   } from '@material-ui/core';
   import '../wpr.css'
 
@@ -36,4 +28,4 @@ const ProductionA = () => {
     )
 }
 
-export default ProductionA
+export default ProductionA 

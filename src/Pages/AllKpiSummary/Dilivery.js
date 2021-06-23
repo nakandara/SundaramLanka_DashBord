@@ -1,11 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -27,7 +23,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function FullScreenDialogDiliveryOne({}) {
+export function FullScreenDialogDiliveryOne() {
    const classes = useStyles();
    const [open, setOpen] = React.useState(false);
  
@@ -87,7 +83,7 @@ export function FullScreenDialogDiliveryOne({}) {
     
      <tr>
       
-       <th scope="col-md-3 col-sm-3 col-lg-3" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1</th>
+       <th scope="col-md-3 col-sm-3 col-lg-3"  style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1</th>
        <th scope="col-md-2 col-sm-2 col-lg-2"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}> 95% on time shipment as per first  committed ship date.( Allowable slack one day in every 30 days</th>
        <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>95% </th>
        <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}></th>
@@ -107,7 +103,7 @@ export function FullScreenDialogDiliveryOne({}) {
    
      <tr>
       
-      <th scope="col-md-3 col-sm-3 col-lg-3" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1.1</th>
+      <th scope="col-md-3 col-sm-3 col-lg-3"  style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1.1</th>
       <th scope="col-md-2 col-sm-2 col-lg-2"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}> Lead time from PO received @ factory date to readiness for ship date</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>75% </th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}></th>
@@ -196,7 +192,7 @@ export function FullScreenDialogDiliveryOne({}) {
     
      <tr>
       
-       <th scope="col-md-3 col-sm-3 col-lg-3" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1</th>
+       <th scope="col-md-3 col-sm-3 col-lg-3"  style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1</th>
        <th scope="col-md-2 col-sm-2 col-lg-2"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}> 95% on time shipment as per first  committed ship date.( Allowable slack one day in every 30 days</th>
        <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>95% </th>
        <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}></th>
@@ -216,7 +212,7 @@ export function FullScreenDialogDiliveryOne({}) {
    
      <tr>
       
-      <th scope="col-md-3 col-sm-3 col-lg-3" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1.1</th>
+      <th scope="col-md-3 col-sm-3 col-lg-3"  style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1.1</th>
       <th scope="col-md-2 col-sm-2 col-lg-2"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}> Lead time from PO received @ factory date to readiness for ship date</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>75% </th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}></th>
@@ -313,7 +309,7 @@ export function FullScreenDialogDiliveryThree() {
    
     <tr>
      
-      <th scope="col-md-3 col-sm-3 col-lg-3" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1</th>
+      <th scope="col-md-3 col-sm-3 col-lg-3" style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1</th>
       <th scope="col-md-2 col-sm-2 col-lg-2"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}> 95% on time shipment as per first  committed ship date.( Allowable slack one day in every 30 days</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>95% </th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}></th>
@@ -333,7 +329,7 @@ export function FullScreenDialogDiliveryThree() {
   
     <tr>
      
-     <th scope="col-md-3 col-sm-3 col-lg-3" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1.1</th>
+     <th scope="col-md-3 col-sm-3 col-lg-3"  style={{fontSize:'12px',fontWeight:'bold'}}  width='1%' >1.1</th>
      <th scope="col-md-2 col-sm-2 col-lg-2"  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}> Lead time from PO received @ factory date to readiness for ship date</th>
      <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>75% </th>
      <th scope="col-md-1 col-sm-1 col-lg-1" width='5%' style={{fontSize:'12px',fontWeight:'bold'}}></th>

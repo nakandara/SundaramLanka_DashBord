@@ -1,22 +1,13 @@
 import React,{useEffect,useContext,useRef} from 'react'
 import api from '../api/api'
 import {reportContext} from '../context/ContextProvider'
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './wpr.css'
-import numeral, { format } from "numeral";
-import Chartjs from 'chart.js'
 import moment from 'moment'
-import { blue } from '@material-ui/core/colors';
 import ChartJS from "chart.js";
 import chartTrendline from "chartjs-plugin-trendline";
 import { Bar } from 'react-chartjs-2';
 import {
   Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
   useTheme,
   makeStyles,
   colors
@@ -59,13 +50,10 @@ const useStyles = makeStyles((theme) => ({
  
 
 const HrAnalaysis = () => {
-    const classes = useStyles();
-
-    const chartRef = useRef();
-
+    
     const theme = useTheme();
-    const {kpi,dispatch,dateOne,dateTwo,lineChartData,setLineChartData, weekDate,setWeekDate,weekDateTwo,setWeekDateTwo,weekChartData,setWeekChartData,weekChartDataTwo,setWeekChartDataTwo,weekDateThree,setWeekDateThree,weekDateFour,setWeekDateFour,
-      weekDateFive,setWeekDateFive,weekDateSix,setWeekDateSix,weekDateSeven,setWeekDateSeven,weekDateEight,setWeekDateEight,weekChartDataThree,setWeekChartDataThree,
+    const {kpi, weekDate,weekDateTwo,weekChartData,setWeekChartData,weekChartDataTwo,setWeekChartDataTwo,weekDateThree,weekDateFour,
+      weekDateFive,weekDateSix,weekDateSeven,weekDateEight,weekChartDataThree,setWeekChartDataThree,
       weekChartDataFour,setWeekChartDataFour
     } =useContext(reportContext)
    

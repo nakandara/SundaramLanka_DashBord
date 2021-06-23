@@ -1,12 +1,12 @@
-import React, { useEffect, useContext,useState } from "react";
-import { Link as RouterLink, useNavigate,useHistory } from 'react-router-dom';
+import React, { useEffect, useContext } from "react";
+import {  useNavigate } from 'react-router-dom';
 import { makeStyles,Container, Box,
   Button,
   Card,
   CardContent,
   CardHeader,
   Divider,
-  useTheme,} from '@material-ui/core';
+  } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -14,13 +14,13 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import moment from 'moment'
+
 import {reportContext} from '../../../context/ContextProvider'
 import apiThree from '../../../api/apiThree';
-import Page from 'src/components/Page';
+
 import  './dash.css';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { grey } from "@material-ui/core/colors";
+
 
 
 
@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme=>({
 
 const Dashboard = () => {
  
-  const {productionDashData,setProductionDashData,ddate,setMfgData,qualityDashData,setQualityDashData,productionDashActual,setProductionDashActual,productionDashPlan,setProductionDashPlan,productionDashAdherence,setProductionDashAdherence,productionDashUtilization,setProductionDashUtilization,productionDashProductivity,setProductionDashProductivity,
+  const {ddate,productionDashActual,setProductionDashActual,productionDashPlan,setProductionDashPlan,productionDashAdherence,setProductionDashAdherence,productionDashUtilization,setProductionDashUtilization,productionDashProductivity,setProductionDashProductivity,
     qualityDashFtr,setQualityDashFtr,qualityDashBerlc,setQualityDashBerlc,qualityDashB,setQualityDashB,qualityDashE,setQualityDashE,qualityR,setQualityR,qualityL,setQualityL,qualityC,setQualityC,qualityDashFlash,setQualityDashFlash,qualityDashRejectCompound,setQualityDashRejectCompound,qualityDashHold,setQualityDashHold,
     mixingDashTonnage,setMixingDashTonnage,mixingDashTonnagePlan,setMixingDashTonnagePlan,mixingDashProductivity,setMixingDashProductivity,mixingDashBreakDown,setMixingDashBreakDown,mixingDashEnergy,setMixingDashEnergy,beadDashEnergy,setBeadDashEnergy,
     beadDashBead,setBeadDashBead,beadDashBeadPlan,setBeadDashBeadPlan,beadDashRejectBead,setBeadDashRejectBead,beadDashBreakDown,setBeadDashBreakDown,
@@ -837,7 +837,7 @@ console.log(qualityDashHold);
             position="relative"
           >
       <TableContainer component={Paper}>
-      <Table className={classes.table} size="small" aria-label="a dense table"  stickyHeader aria-label="sticky table"   >
+      <Table className={classes.table} size="small"   stickyHeader aria-label="sticky table"   >
         <TableHead className='a'>
           <TableRow className='tHead'>
             <TableCell align="start" className='tHead' > DIVISION  </TableCell>
@@ -909,7 +909,7 @@ console.log(qualityDashHold);
              <TableCell align="start" className='tHTwo'>Plant Utilization</TableCell>
              <TableCell align="center" className='tH'>% </TableCell>
              <TableCell align="center" className='tH'>90%</TableCell>
-             <TableCell align="center" className='tH' style={three?{backgroundColor:"green",fontWeight:900,color:'white',fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{productionDashUtilization}%</TableCell>
+             <TableCell align="center" className='tH' style={three?{backgroundColor:"green",fontWeight:900,color:'white',color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{productionDashUtilization}%</TableCell>
              {/* <TableCell align="center" className='tH'></TableCell> */}
              <TableCell align="center" className='tH'>Mr.Akalanka</TableCell>
              <TableCell align="center" className='tH'><Button    size='small'  endIcon={<ArrowRightIcon />}

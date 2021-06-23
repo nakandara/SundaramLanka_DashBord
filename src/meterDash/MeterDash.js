@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useContext } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import {  Row, Col } from 'react-bootstrap'
 import GaugeChart from './lib'
 import GaugeChartTwo from './libTwo'
 import {reportContext} from '../context/ContextProvider'
@@ -11,12 +11,11 @@ const MeterDash = () => {
 
 
 
-  const {productionDashData,setProductionDashData,medate,setMeDdate,setMfgData,qualityDashData,setQualityDashData,productionDashActual,setProductionDashActual,productionDashPlan,setProductionDashPlan,productionDashAdherence,setProductionDashAdherence,productionDashUtilization,setProductionDashUtilization,productionDashProductivity,setProductionDashProductivity,
-    qualityDashFtr,setQualityDashFtr,qualityDashBerlc,setQualityDashBerlc,qualityDashB,setQualityDashB,qualityDashE,setQualityDashE,qualityR,setQualityR,qualityL,setQualityL,qualityC,setQualityC,qualityDashFlash,setQualityDashFlash,qualityDashRejectCompound,setQualityDashRejectCompound,qualityDashHold,setQualityDashHold,
-    mixingDashTonnage,setMixingDashTonnage,mixingDashTonnagePlan,setMixingDashTonnagePlan,mixingDashProductivity,setMixingDashProductivity,mixingDashBreakDown,setMixingDashBreakDown,mixingDashEnergy,setMixingDashEnergy,beadDashEnergy,setBeadDashEnergy,
-    beadDashBead,setBeadDashBead,beadDashBeadPlan,setBeadDashBeadPlan,beadDashRejectBead,setBeadDashRejectBead,beadDashBreakDown,setBeadDashBreakDown,
-    hrDashNearMiss,setHRDashNearMis,hrDashKaizen,setHRDashKaizen,hrDashNRC,setHRDashNRC,hrDashRA,setHRDashRA,hrDashdOT,setHRDashDot,hrDashAI,setHRDashAI,hrDashANI,setHRDashANI,
-    engDashBreakDown,setENGDashBreakDown,engDashFuelRate,setENGDashFuelRate,engDashFuelConsumption,setENGDashFuelConsumption,engDashEnergyCostRate,setENGDashEnergyCostRate,engDashPowerConsumption,setENGDashPowerConsumption,qualityDashNM,setQualityDashNM,setHRDashManpower,hrDashManpower,kpi,dispatch} =useContext(reportContext)
+  const {medate,setMeDdate,productionDashActual,setProductionDashActual,productionDashPlan,setProductionDashPlan,productionDashAdherence,setProductionDashAdherence,
+ qualityDashBerlc,setQualityDashBerlc,qualityDashB,setQualityDashB,qualityR,setQualityR,setQualityDashFlash,
+    mixingDashTonnage,setMixingDashTonnage,mixingDashTonnagePlan,setMixingDashTonnagePlan,
+    beadDashBead,setBeadDashBead,beadDashBeadPlan,setBeadDashBeadPlan,hrDashNRC,hrDashRA,hrDashAI,setHRDashAI,hrDashANI,setHRDashANI,
+    engDashBreakDown,setENGDashBreakDown,engDashFuelRate,setENGDashFuelRate,engDashEnergyCostRate,setENGDashEnergyCostRate} =useContext(reportContext)
 
 
   
@@ -600,19 +599,19 @@ const MeterDash = () => {
   const accident =()=> {
     
 
-    if ((hrDashNRC+ hrDashRA)==0) {
+    if ((hrDashNRC+ hrDashRA)===0) {
       return 0;
-    } else if ((hrDashNRC+ hrDashRA)==1) {
+    } else if ((hrDashNRC+ hrDashRA)===1) {
       return 0.25;
     }
 
-    else if ((hrDashNRC+ hrDashRA)==2) {
+    else if ((hrDashNRC+ hrDashRA)===2) {
       return 0.5;
     }
-    else if ((hrDashNRC+ hrDashRA)==3) {
+    else if ((hrDashNRC+ hrDashRA)===3) {
       return 0.75;
     }
-    else if ((hrDashNRC+ hrDashRA)==4) {
+    else if ((hrDashNRC+ hrDashRA)===4) {
       return 0.1;
     }
     else  { 
@@ -628,19 +627,19 @@ const MeterDash = () => {
 const absent =()=> {
     
 
-  if ((hrDashAI+ hrDashANI)==0) {
+  if ((hrDashAI+ hrDashANI)===0) {
     return 0;
-  } else if ((hrDashAI+ hrDashANI)==1) {
+  } else if ((hrDashAI+ hrDashANI)===1) {
     return 0.25;
   }
 
-  else if ((hrDashAI+ hrDashANI)==2) {
+  else if ((hrDashAI+ hrDashANI)===2) {
     return 0.5;
   }
-  else if ((hrDashAI+ hrDashANI)==3) {
+  else if ((hrDashAI+ hrDashANI)===3) {
     return 0.75;
   }
-  else if ((hrDashAI+ hrDashANI)==4) {
+  else if ((hrDashAI+ hrDashANI)===4) {
     return 1;
   }
   else  { 

@@ -9,7 +9,6 @@ import LoginView from 'src/views/Wpr/LoginView';
 import NotFoundView from 'src/views/other/NotFoundView';
 import FlowData from 'src/views/product/FlowData';
 import RegisterView from 'src/views/Wpr/WprView';
-import SettingsView from 'src/views/settings/SettingsView';
 import Rccm from 'src/views/Wpr/Rccm'
 import ProductionDashBoard from './views/DivisionDash/ProductionDashBoard';
 import QualityDashBoard from './views/DivisionDash/QualityDashBoard';
@@ -42,7 +41,6 @@ const routes = [
       { path: 'customers', element: <CustomerListView /> },
       { path: 'dashboard', element: <Dpr /> },
       { path: 'dataflow', element: <FlowData /> },
-      { path: 'cost', element: <SettingsView /> },
       { path: '*', element: <Navigate to="/404" /> },
       { path: 'productiondashboard', element: <ProductionDashBoard /> },
       { path: 'qualitydashboard', element: <QualityDashBoard/> },

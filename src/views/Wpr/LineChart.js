@@ -1,11 +1,8 @@
 import React,{useEffect,useContext,useRef} from 'react'
 import api from '../../../src/api/api'
 import {reportContext} from '../../context/ContextProvider'
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { makeStyles } from '@material-ui/core/styles';
 import './wpr.css'
-import numeral, { format } from "numeral";
+import numeral from "numeral";
 import Chartjs from 'chart.js'
 import moment from 'moment'
 
@@ -13,21 +10,12 @@ import moment from 'moment'
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   } from 'recharts';
-import { blue } from '@material-ui/core/colors';
+
 
 import ChartJS from "chart.js";
 import chartTrendline from "chartjs-plugin-trendline";
  
 ChartJS.plugins.register(chartTrendline);
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(1),minHeight: '100%'
-
-    },
-  },
-}));
 
 
 
@@ -36,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
  
 
 const LineChartOne = () => {
-    const classes = useStyles();
+    
 
     const chartRef = useRef();
 
 
-    const {kpi,dispatch,dateOne,dateTwo,lineChartData,setLineChartData} =useContext(reportContext)
+    const {kpi,dateOne,dateTwo,lineChartData,setLineChartData} =useContext(reportContext)
    
 //console.log(dateOne);
 //console.log(dateTwo);
@@ -97,7 +85,7 @@ var newd =  new Date(dateOne);
         fetchData()
     },[kpi.firstKpi,paramDateOne,paramDateTwo])
 
-   console.log(data);
+   //console.log(data);
 //////////////x//////////////////////////
     const x =
     data &&
@@ -117,44 +105,44 @@ data.map((d) => {
   if(z=== 'ftr'){ return (d.ftr)}
     if(z=== 'flash'){ return (d.flash)}
     if (z==='berlc'){return (d.berlc)}
-    if(z== 'actual_weight'){ return (d.actual_weight)}
-    if(z== 'plant_utilization'){ return (d.plant_utilization)}
-    if(z== 'plan_adherence'){ return (d.plan_adherence)}
-    if(z== 'productivity'){ return (d.productivity)}
-    if(z== 'hold_compound'){ return (d.hold_compound)}
-    if (z=='reject_compound'){return (d.reject_compound)}
-    if(z== 'nm_dirty_tires'){ return (d.nm_dirty_tires)}
-    if (z=='plan_adherence_plan'){return (d.plan_adherence_plan)}
+    if(z=== 'actual_weight'){ return (d.actual_weight)}
+    if(z=== 'plant_utilization'){ return (d.plant_utilization)}
+    if(z=== 'plan_adherence'){ return (d.plan_adherence)}
+    if(z=== 'productivity'){ return (d.productivity)}
+    if(z=== 'hold_compound'){ return (d.hold_compound)}
+    if (z==='reject_compound'){return (d.reject_compound)}
+    if(z=== 'nm_dirty_tires'){ return (d.nm_dirty_tires)}
+    if (z==='plan_adherence_plan'){return (d.plan_adherence_plan)}
     
-    if(z== 'compound_weight_actual'){ return (d.compound_weight_actual)}
-    if (z=='mixing_break_down'){return (d.mixing_break_down)}
-    if(z== 'mixing_productivity'){ return (d.mixing_productivity)}
-    if(z== 'mixing_man_power'){ return (d.mixing_man_power)}
-    if(z== 'mixing_energy'){ return (d.mixing_energy)}
-    if(z== 'energy_cost_kg'){ return (d.energy_cost_kg)}
-    if(z== 'energy_consumed'){ return (d.energy_consumed)}
-    if (z=='break_down'){return (d.break_down)}
-    if(z== 'firewood_cost_rate'){ return (d.firewood_cost_rate)}
-    if (z=='oil'){return (d.oil)}
+    if(z=== 'compound_weight_actual'){ return (d.compound_weight_actual)}
+    if (z==='mixing_break_down'){return (d.mixing_break_down)}
+    if(z=== 'mixing_productivity'){ return (d.mixing_productivity)}
+    if(z=== 'mixing_man_power'){ return (d.mixing_man_power)}
+    if(z=== 'mixing_energy'){ return (d.mixing_energy)}
+    if(z=== 'energy_cost_kg'){ return (d.energy_cost_kg)}
+    if(z=== 'energy_consumed'){ return (d.energy_consumed)}
+    if (z==='break_down'){return (d.break_down)}
+    if(z=== 'firewood_cost_rate'){ return (d.firewood_cost_rate)}
+    if (z==='oil'){return (d.oil)}
 
-    if(z== 'pm_actual'){ return (d.pm_actual)}
-    if (z=='absent_inform'){return (d.absent_inform)}
-    if(z== 'absent_non_inform'){ return (d.absent_non_inform)}
-    if(z== 'man_power'){ return (d.man_power)}
-    if(z== 'late'){ return (d.late)}
-    if(z== 'dot'){ return (d.dot)}
-    if(z== 'reportable_accident'){ return (d.reportable_accident)}
-    if (z=='near_miss'){return (d.near_miss)}
-    if(z== 'kaizen'){ return (d.kaizen)}
-    if (z=='training'){return (d.training)}
+    if(z=== 'pm_actual'){ return (d.pm_actual)}
+    if (z==='absent_inform'){return (d.absent_inform)}
+    if(z=== 'absent_non_inform'){ return (d.absent_non_inform)}
+    if(z=== 'man_power'){ return (d.man_power)}
+    if(z=== 'late'){ return (d.late)}
+    if(z=== 'dot'){ return (d.dot)}
+    if(z=== 'reportable_accident'){ return (d.reportable_accident)}
+    if (z==='near_miss'){return (d.near_miss)}
+    if(z=== 'kaizen'){ return (d.kaizen)}
+    if (z==='training'){return (d.training)}
 
-    if(z== 'creel_bead_actual'){ return (d.creel_bead_actual)}
-    if (z=='reject_bead'){return (d.reject_bead)}
-    if(z== 'non_reportable_accident'){ return (d.non_reportable_accident)}
-    if(z== 'bead_energy'){ return (d.bead_energy)}
-    if(z== 'bead_breakdown'){ return (d.bead_breakdown)}
-    if(z== 'bead_productivity_actual'){ return (d.bead_productivity_actual)}
-    if(z== 'bead_manpower_actual'){ return (d.bead_manpower_actual)}
+    if(z=== 'creel_bead_actual'){ return (d.creel_bead_actual)}
+    if (z==='reject_bead'){return (d.reject_bead)}
+    if(z=== 'non_reportable_accident'){ return (d.non_reportable_accident)}
+    if(z=== 'bead_energy'){ return (d.bead_energy)}
+    if(z=== 'bead_breakdown'){ return (d.bead_breakdown)}
+    if(z=== 'bead_productivity_actual'){ return (d.bead_productivity_actual)}
+    if(z=== 'bead_manpower_actual'){ return (d.bead_manpower_actual)}
     
  
 });
@@ -228,9 +216,7 @@ useEffect(() => {
                   display: true,padding:0,
                   text: `${z}`
               } ,
-                tooltips: {
-                  mode: 'nearest'
-              },
+                
                 elements: { line:{borderColor:'green',tension:0},
                   point: {
                     borderColor:'#027dc4',

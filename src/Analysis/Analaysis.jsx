@@ -1,32 +1,19 @@
-import React,{useEffect, useReducer,useState,useContext} from 'react';
-import { Link as RouterLink, useNavigate,useHistory } from 'react-router-dom';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
+import React,{useContext} from 'react';
+
 import {reportContext} from '../context/ContextProvider'
 import {
-  Box,
-  Button,
-  Checkbox,
-  Container,
-  FormHelperText,
-  Link,
-  TextField,
-  Typography,
-  Grid,CardHeader,IconButton,
-  makeStyles,Paper,Card,InputLabel,NativeSelect,FormControl,Select
+ 
+  Grid,
+  makeStyles,Card
 } from '@material-ui/core';
-import Page from 'src/components/Page';
-import DatePicker from "react-datepicker"
+
 import "react-datepicker/dist/react-datepicker.css";
 import './wpr.css'
-import { Line } from 'react-chartjs-2';
-import moment from 'moment'
 //import { Navigate } from 'react-router-dom';
 //import{useHistory} from 'react-router-dom';
 import './wpr.css'
-import Avatar from '@material-ui/core/Avatar';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { green, red } from '@material-ui/core/colors'; 
+
+import { green } from '@material-ui/core/colors'; 
 import TopBarA from './TopBarA'
 import HrAnalaysis from './HrAnalaysis';
 
@@ -108,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Analaysis= () => {
-  const {kpi,dispatch,dateOne,dateTwo,lineChartData,setLineChartData} =useContext(reportContext)
+  const {kpi} =useContext(reportContext)
 
 let z =kpi.firstKpi
   const classes = useStyles();

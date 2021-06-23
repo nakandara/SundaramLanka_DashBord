@@ -1,15 +1,12 @@
-import React, { useState,useContext,useEffect } from 'react';
+import React, { useContext,useEffect } from 'react';
 import clsx from 'clsx';
-import moment from 'moment';
-import { v4 as uuid } from 'uuid';
+
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {
   Box,
-  Button,
   Card,
   CardHeader,
-  Chip,
   Divider,
   Table,
   TableBody,
@@ -20,7 +17,6 @@ import {
   Tooltip,
   makeStyles
 } from '@material-ui/core';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import {reportContext} from '../../../context/ContextProvider'
 import api from '../../../../src/api/api'
 
@@ -37,7 +33,7 @@ const LatestOrders = ({props, className, ...rest }) => {
   const classes = useStyles();
   
 
-  const {mfgData,setMfgData,ddate,setDdate,mfgDataFirst,setMfgDataFirst,mfgDataSecond,setMfgDataSecond,mfgDataThird,setMfgDataThird
+  const {mfgData,setMfgData,ddate,setMfgDataFirst,mfgDataSecond,setMfgDataSecond,mfgDataThird,setMfgDataThird
     ,mfgDataFourth,setMfgDataFourth,mfgDataFive,setMfgDataFive,mfgDataSix,setMfgDataSix,mfgDataSeven,setMfgDataSeven,mfgDataEight,setMfgDataEight,mfgDataCount,setMfgDataCount,mfgDataFirstCount,setMfgDataFirstCount,mfgDataSecondCount,setMfgDataSecondCount,mfgDataThirdCount,setMfgDataThirdCount
     ,mfgDataFourthCount,setMfgDataFourthCount,mfgDataFiveCount,setMfgDataFiveCount,mfgDataSixCount,setMfgDataSixCount,mfgDataSevenCount,setMfgDataSevenCount,mfgDataEightCount,setMfgDataEightCount,mfgDataMTD,setMfgDataMTD,mfgDataCountMTD,setMfgDataCountMTD,QualityCountA,setQualityCountA,
     QualitySumWeightA,setQualitySumWeightA, QualitySumWeightAPlus,setQualitySumWeightAPlus,QualityCountAPlus,setQualityCountAPlus, QualitySumWeightB,setQualitySumWeightB,QualityCountB,setQualityCountB, QualitySumWeightE,setQualitySumWeightE,QualityCountE,setQualityCountE, QualitySumWeightR,setQualitySumWeightR,QualityCountR,setQualityCountR, QualitySumWeightL,setQualitySumWeightL,QualityCountL,setQualityCountL,qualityDataAMTD,setQualityDataAMTD,

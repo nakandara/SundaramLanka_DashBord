@@ -143,15 +143,15 @@ const t=`RCCM ${kpi.titleOne} from ${paramDateOne} to ${paramDateTwo}`
 
 
 <td scope="col-md-2 col-sm-2 col-lg-2" width='3%' style={{fontSize:'12px',fontWeight:'bold',textAlign:'center '}}>{row.accountability}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" width='2%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'center '}}>{row.metix}</td>
-     <td  scope="col-md-1 col-sm-1 col-lg-1 " width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{row.target_date}</td>
-     <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold',textAlign:'center '}}>{row.actual}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.reason_achive_not_target}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.root_cause}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.counter_measure}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.resp}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.target}</td>
-     <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'12px',fontWeight:'bold'}}>{row.status}</td>
+     <td  width='2%'style={{fontSize:'12px',fontWeight:'bold',textAlign:'center '}}>{row.metix}</td>
+     <td  width='5%' style={{fontSize:'12px',fontWeight:'bold'}}>{row.target_date}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold',textAlign:'center '}}>{row.actual}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.reason_achive_not_target}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.root_cause}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.counter_measure}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.resp}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.target}</td>
+     <td  style={{fontSize:'12px',fontWeight:'bold'}}>{row.status}</td>
      </tr>
       ))
 

@@ -1,5 +1,5 @@
 import React, { useState,useContext } from 'react';
-import { Link as RouterLink,Outlet } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {Grid,
@@ -9,11 +9,9 @@ import {Grid,
   Hidden,
   IconButton,
   Toolbar,
-  makeStyles,
-  Container
+  makeStyles
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
 import Logo from 'src/components/Logo';
 import DatePicker from "react-datepicker";
@@ -42,8 +40,8 @@ const TopBar = ({
 
 
 
-  const{ddate,setDdate, weekDate,setWeekDate,weekDateTwo,setWeekDateTwo,weekDateThree,setWeekDateThree,weekDateFour,setWeekDateFour, weekDateFive,setWeekDateFive,weekDateSix,setWeekDateSix,weekDateSeven,setWeekDateSeven,weekDateEight,setWeekDateEight,weekChartDataThree,setWeekChartDataThree,
-    weekChartDataFour,setWeekChartDataFour} =useContext(reportContext)
+  const{ weekDate,setWeekDate,weekDateTwo,setWeekDateTwo,weekDateThree,setWeekDateThree,weekDateFour,setWeekDateFour, weekDateFive,setWeekDateFive,weekDateSix,setWeekDateSix,weekDateSeven,setWeekDateSeven,weekDateEight,setWeekDateEight
+   } =useContext(reportContext)
 
   return (
      

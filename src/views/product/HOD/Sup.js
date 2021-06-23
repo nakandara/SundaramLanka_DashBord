@@ -1,11 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -72,8 +67,8 @@ export default function FullScreenDialog() {
   <thead className="thead-dark">
     <tr>
      
-      <th scope="col-md-3 col-sm-3 col-lg-3" width='22%'>INDICATOR</th>
-      <th scope="col-md-2 col-sm-2 col-lg-2" width='9%'>UOM</th>
+      <th  width='22%'>INDICATOR</th>
+      <th  width='9%'>UOM</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='12%'>TARGET</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='12%'>ACTUAL</th>
       <th scope="col-md-1 col-sm-1 col-lg-1">RESP</th>
@@ -83,122 +78,122 @@ export default function FullScreenDialog() {
     <tbody>
     <tr>
      
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Absent Inform</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+      <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Absent Inform</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
       
     </tr>
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Absent Non Inform</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Absent Non Inform</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
       
     </tr>
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Kaizen</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Kaizen</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
     </tr>
 
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Near Miss</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Near Miss</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
       
     </tr>
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Reportable Accident</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Reportable Accident</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
     </tr>
 
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Non Reportable Accident</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Non Reportable Accident</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
       
     </tr>
 
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Training</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>hrs</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Training</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>hrs</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
     </tr>
 
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>T & D</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>T & D</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>Mr Rohitha</td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>Mr Indika</td>
+      <td  width='3%'></td>
       
     </tr>
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>HR Admin</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>HR Admin</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}></td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}></td>
+      <td  width='3%'></td>
       
     </tr>
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Dot</td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' ></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'></td>
+    <td  width='22%' style={{fontSize:'14px',fontWeight:'bold'}}>Dot</td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}>Nos</td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold'}}>0</td>
+      <td   width='12%' ></td>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}></td>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}></td>
+      <td  width='3%'></td>
       
     </tr>
     </tbody>
@@ -220,8 +215,8 @@ export default function FullScreenDialog() {
   <thead className="thead" style ={{backgroundColor:'#B3EAB5'}}>
     <tr>
      
-      <th scope="col-md-3 col-sm-3 col-lg-3" width='4%'>KPI</th>
-      <th scope="col-md-2 col-sm-2 col-lg-2" width='3%'>UOM</th>
+      <th scope="col-md-1 col-sm-1 col-lg-1"  width='4%'>KPI</th>
+      <th scope="col-md-1 col-sm-1 col-lg-1"  width='3%'>UOM</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='25%'>DUTY</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" >   WHO TAKE MEASURE</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" >   HOW TO MEASURE</th>
@@ -232,9 +227,9 @@ export default function FullScreenDialog() {
     <tbody>
     <tr>
      
-      <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>Absent Inform /Non Inform</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+      <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>Absent Inform /Non Inform</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Daily monitoring of shift level attendance while maintaining the daily attendance reports (including Late in/ Early out)</li>
          <li> Preparation of monthly leave plan/ leading it accordingly</li>
          <li>Level - 2 authorizing of any mode of leave applications/ Gate Passes</li>
@@ -245,7 +240,7 @@ export default function FullScreenDialog() {
         
          
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
          <li> Leader</li>
          <li>Leader </li>
          <li>Leader</li>
@@ -256,7 +251,7 @@ export default function FullScreenDialog() {
         
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} >
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} >
       <ul>
          <li> Manual Attendance Sheet</li>
          <li> Monthly leave plan</li>
@@ -273,7 +268,7 @@ export default function FullScreenDialog() {
          
          
          </td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Daily</li>
          <li> Daily</li>
          <li>Daily</li>
@@ -284,7 +279,7 @@ export default function FullScreenDialog() {
         
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Shift In-charge/ Leader </li>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader</li>
@@ -301,9 +296,9 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>KAIZEN</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>KAIZEN</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li> Daily/ Weekly monitoring of shift level employee involvement for KAIZEN proposals/ encouraging employees </li>
          <li> Keeping records on shift level KAIZENs</li>
          <li>Maintaining and updating of KAIZEN Pits off in regular basis</li>
@@ -314,7 +309,7 @@ export default function FullScreenDialog() {
          
          </ul></td>
          
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%'  style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}>
+      <td   width='12%'  style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}>
       <ul>
          <li> Leader</li>
          <li>Leader </li>
@@ -326,7 +321,7 @@ export default function FullScreenDialog() {
          
          </ul>
       </td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>
       <ul>
          <li> KAIZEN records - Sectional</li>
          <li>KAIZEN records - Sectional </li>
@@ -337,7 +332,7 @@ export default function FullScreenDialog() {
          
          </ul>
       </td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Daily</li>
          <li>Daily </li>
          <li>Daily</li>
@@ -347,7 +342,7 @@ export default function FullScreenDialog() {
         
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'><ul>
+      <td  width='3%'><ul>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader </li>
          <li>Shift In-charge/ Leader</li>
@@ -362,9 +357,9 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>Safety</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>Safety</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Weekly/ Daily reviewing the every level safety status/ Keeping records and making MIS</li>
          <li> Sole responsibilty to arranging the sfety committee meetings in regular basis/ Launch the decisions immediately/ keeping the recommended represantaion/ reporting to the management</li>
          <li>Maintaining Fire/ First aid teams</li>
@@ -381,7 +376,7 @@ export default function FullScreenDialog() {
          <li>Recommends further awarenesses/ trainings</li>
          </ul></td>
         
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}>
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}>
       
       
       <ul>
@@ -404,7 +399,7 @@ export default function FullScreenDialog() {
          </ul>
       
       </td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Sectional daily safety records/ DRM</li>
          <li> Safety committee member participation - Section</li>
          <li>Fire/ First Aid Team - Section list</li>
@@ -422,7 +417,7 @@ export default function FullScreenDialog() {
          
          </ul>
       </td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Daily</li>
          <li> Daily</li>
          <li>Daily</li>
@@ -442,7 +437,7 @@ export default function FullScreenDialog() {
          </ul>
       </td>
 
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Shift In-charge/ Leader</li>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader</li>
@@ -467,9 +462,9 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>T & D</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>T & D</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Weekly/ Daily updating and maintaining training data in necessary locations</li>
          <li> Identify and recommend the training programs for employees to the next level.</li>
          <li>Identify and directing employees for multiskill upgrading programs</li>
@@ -481,7 +476,7 @@ export default function FullScreenDialog() {
          <li>Responsibility to cover each employee with the "30 min per employee per month"/ Keeping records</li>
          <li>Recommends further awarenesses/ trainings</li>
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
          <li>Leader</li>
          <li> Leader</li>
          <li>Leader</li>
@@ -493,7 +488,7 @@ export default function FullScreenDialog() {
          <li>Leader</li>
          <li>Leader</li>
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%'  style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+      <td   width='12%'  style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Training Data updates</li>
          <li>Employee Training Need  </li>
          <li>Sectional Skill Matrix</li>
@@ -505,7 +500,7 @@ export default function FullScreenDialog() {
          <li>Training Records</li>
          <li>Training Records</li>
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Daily</li>
          <li>Daily </li>
          <li>Daily</li>
@@ -517,7 +512,7 @@ export default function FullScreenDialog() {
          <li>Daily</li>
          <li>Daily</li>
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Shift In-charge/ Leader</li>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader</li>
@@ -535,9 +530,9 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>DOT</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>DOT</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Assessing and requesting daily DOT requirement and raising the request form to shift in charge</li>
          <li> Maintaining sectional DOT level within the given limit/ Maintaining the cost</li>
          <li>Identify the patern of the DOT and recommends the actions to the next levels</li>
@@ -546,7 +541,7 @@ export default function FullScreenDialog() {
         <li>Recommends awarenesses/ trainings</li>
          
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} >
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} >
          <ul>
          <li>Leader</li>
          <li>Leader </li>
@@ -557,7 +552,7 @@ export default function FullScreenDialog() {
          
          </ul>
          </td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}>  <ul>
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}>  <ul>
          <li>DOT Approval Form/ AB Records</li>
          <li>DOT Approval Form/ AB Records </li>
          <li>DRM Records/ Weekly Reviews</li>
@@ -566,7 +561,7 @@ export default function FullScreenDialog() {
         <li>Training Records</li>
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>  <ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}>  <ul>
          <li>Daily</li>
          <li>Daily </li>
          <li>Daily</li>
@@ -575,7 +570,7 @@ export default function FullScreenDialog() {
         <li>Daily</li>
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}>  <ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}>  <ul>
          <li>Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader </li>
          <li>Shift In-charge/ Leader</li>
@@ -593,33 +588,33 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>IR Mgt</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>IR Mgt</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Responsibility to directing the employees for the total employee participation on events/ motivational activities/ committees</li>
          <li> Immediately inform/ directing the employee to the management regarding their grievances.</li>
          <li>Regularily maintaining the records as per the given formats</li>
          
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
          <li>Leader</li>
          <li> Leader</li>
          <li>Leader</li>
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Employee signature lists</li>
          <li> No of Grivances recieved</li>
          <li>No of Grivances recieved</li>
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Daily</li>
          <li> Daily</li>
          <li>Daily</li>
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Shift In-charge/ Leader</li>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader</li>
@@ -631,9 +626,9 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>Performance Management</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>Performance Management</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li> Setting the operator level targets for the sectional employees.</li>
          <li> Daily/ hourly monitoring the acheivements of the sectional targets</li>
          <li>Inform to higher level about the deviations </li>
@@ -641,7 +636,7 @@ export default function FullScreenDialog() {
         <li>Recommends further awarenesses/ trainings</li>
          
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} >
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} >
          <ul>
          <li>Leader </li>
          <li>Leader </li>
@@ -651,7 +646,7 @@ export default function FullScreenDialog() {
          
          </ul>
          </td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li> Individual Targets Vs Achievements</li>
          <li> Operational Log/ 3 hrs review</li>
          <li> PA Interview records</li>
@@ -659,7 +654,7 @@ export default function FullScreenDialog() {
         <li>Training Records</li>
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li>Daily </li>
          <li> Daily</li>
          <li> Daily</li>
@@ -667,7 +662,7 @@ export default function FullScreenDialog() {
         <li>Daily</li>
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader </li>
          <li> Shift In-charge/ Leader</li>
@@ -681,9 +676,9 @@ export default function FullScreenDialog() {
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>HR Admin</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>HR Admin</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Taking the employee concerns/ recording and communicate to the higher level for the suitable actions.</li>
          <li> On time submitting of leave forms/ Zero invalid attendance of the section</li>
          <li> Inform transport issues to the next level.</li>
@@ -691,7 +686,7 @@ export default function FullScreenDialog() {
         <li> Recommends further awarenesses/ trainings</li>
          
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
          <li> Leader</li>
          <li> Leader</li>
          <li> Leader</li>
@@ -699,7 +694,7 @@ export default function FullScreenDialog() {
         <li>Leader</li>
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li> Special Incident reports/ NCR</li>
          <li> Time sheets/ Leave forms</li>
          <li>Employee suggessions </li>
@@ -707,7 +702,7 @@ export default function FullScreenDialog() {
         <li>Training records</li>
          
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Daily</li>
          <li> Daily</li>
          <li> Daily</li>
@@ -715,7 +710,7 @@ export default function FullScreenDialog() {
         <li>Daily</li>
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Shift In-charge/ Leader</li>
          <li> Shift In-charge/ Leader</li>
          <li>Shift In-charge/ Leader </li>
@@ -723,14 +718,14 @@ export default function FullScreenDialog() {
         <li>Shift In-charge/ Leader</li>
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='3%'><div style={{padding:'30px'}}></div></td>
+      <td  width='3%'><div style={{padding:'30px'}}></div></td>
     </tr>
 
     <tr>
      
-    <td scope="col-md-3 col-sm-3 col-lg-3" width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>TEI</div></td>
-      <td scope="col-md-2 col-sm-2 col-lg-2" width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+    <td  width='3%' style={{fontSize:'14px',fontWeight:'bold',verticalAlign:'center '}}><div style={{padding:'30px'}}>TEI</div></td>
+      <td  width='9%' style={{fontSize:'14px',fontWeight:'bold'}}> <div style={{padding:'30px'}}>Nos</div></td>
+      <td  width='12%'style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li>Managing sectional employees as per the code of ethics of the Sun-Tws</li>
          <li> Keping individual reports on violations/ compliance/ supports</li>
          <li>Updating the TEI corners with correct informations</li>
@@ -739,7 +734,7 @@ export default function FullScreenDialog() {
            </li>Sharing information with management on time with correct facts and figures</li>
          <li>Recommends further awarenesses/ trainings</li>
          </ul></td>
-         <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
+         <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}} ><ul>
          <li> Leader</li>
          <li> Leader</li>
          <li> Leader</li>
@@ -748,7 +743,7 @@ export default function FullScreenDialog() {
         <li>Leader</li>
         <li>Leader</li>
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1 " width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
+      <td   width='12%' style={{fontSize:'14px',fontWeight:'bold',textAlign:'start'}}><ul>
          <li> Individual disciplinary records</li>
          <li> Individual disciplinary records</li>
          <li> TEI Index </li>
@@ -757,7 +752,7 @@ export default function FullScreenDialog() {
          <li>Special Incident Reports/ Log entries/ Whatsapp</li>
          <li>Training Records</li>
          </ul></td>
-      <td  scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td   style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Daily</li>
          <li> Daily</li>
          <li> Daily</li>
@@ -767,7 +762,7 @@ export default function FullScreenDialog() {
         <li>Daily</li>
          
          </ul></td>
-      <td scope="col-md-1 col-sm-1 col-lg-1" style={{fontSize:'14px',fontWeight:'bold'}}><ul>
+      <td  style={{fontSize:'14px',fontWeight:'bold'}}><ul>
          <li> Shift In-charge/ Leader</li>
          <li> Shift In-charge/ Leader</li>
          <li> Shift In-charge/ Leader</li>
