@@ -11,7 +11,8 @@ const LineThree = () => {
   const {  ddate, shift, setShift,pressSumSrt,setPressSumSrt,pressSumPob,setPressSumPob,pressSumApw,setPressSumApw,pressSumPbb,setPressSumPbb,pressSumSks,setPressSumSks,
     pressCountSrt,setPressCountSrt,pressCountPob,setPressCountPob,pressCountApw,setPressCountApw,pressCountPbb,setPressCountPbb,pressCountSks,setPressCountSks,
     pressCountA,setPressCountA,
-    pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC } = useContext(reportContext)
+    pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC,
+    pressSumKaizen ,setPressSumKaizen,pressSumNearmiss,setPressSumNearmiss,pressSumRa ,setPressSumRa,pressSumNra ,setPressSumNra,pressSumBd ,setPressSumBd } = useContext(reportContext)
   
 
 
@@ -47,6 +48,166 @@ const LineThree = () => {
   let dateNumberTwo = nextDay.getDate()
 
   var datetwo = yearNumberTwo + '-' + monthNumberTwo + '-' + dateNumberTwo
+
+
+
+///////////////////////////
+
+
+
+//////////////////////////kpi
+
+
+const fetchDataShiftPressWiseKpiKaizen = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/kaizen/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumKaizen(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiNearmiss = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/nearmiss/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumNearmiss(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiRa = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/ra/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumRa(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiNra = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/nra/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumNra(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiBd = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/bd/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumBd(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+////////////////////////kpi total
+
+const fetchDataTotalPressWiseKpiKaizen = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/kaizen/${dateone}/${datetwo}`);
+
+    setPressSumKaizen(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiNearmiss = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/nearmiss/${dateone}/${datetwo}`);
+
+    setPressSumNearmiss(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiRa = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/ra/${dateone}/${datetwo}`);
+
+    setPressSumRa(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiNra = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/nra/${dateone}/${datetwo}`);
+
+    setPressSumNra(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiBd = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/bd/${dateone}/${datetwo}`);
+
+    setPressSumBd(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 
@@ -593,6 +754,13 @@ useEffect(() => {
     fetchDataShiftPressWiseSumL()
     fetchDataShiftPressWiseSumC()
 
+
+    fetchDataShiftPressWiseKpiKaizen()
+    fetchDataShiftPressWiseKpiNearmiss()
+    fetchDataShiftPressWiseKpiRa()
+    fetchDataShiftPressWiseKpiNra()
+    fetchDataShiftPressWiseKpiBd()
+
    
 
 
@@ -617,11 +785,18 @@ useEffect(() => {
     fetchDataTotalPressWiseSumR()
     fetchDataTotalPressWiseSumL()
     fetchDataTotalPressWiseSumC()
+
+    fetchDataTotalPressWiseKpiKaizen()
+    fetchDataTotalPressWiseKpiNearmiss()
+    fetchDataTotalPressWiseKpiRa()
+    fetchDataTotalPressWiseKpiNra()
+    fetchDataTotalPressWiseKpiBd()
    
   }
 
 
-}, [dateone, shift]) 
+}, [dateone, shift])
+
 
 
 
@@ -925,11 +1100,78 @@ const pressnumberSum306L = pressSumL && pressSumL.filter((d) => { return d.press
 
 
 
+///kpi
+
+const pressnumberSum151Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '151' })
+const pressnumberSum152Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '152' })
+const pressnumberSum153Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '153' })
+const pressnumberSum154Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '154' })
+const pressnumberSum155Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '155' })
+const pressnumberSum156Kaizen= pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '156' })
+
+
+const pressnumberSum151Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '151' })
+const pressnumberSum152Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '152' })
+const pressnumberSum153Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '153' })
+const pressnumberSum154Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '154' })
+const pressnumberSum155Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '155' })
+const pressnumberSum156Nearmiss= pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '156' })
+
+
+const pressnumberSum151Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '151' })
+const pressnumberSum152Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '152' })
+const pressnumberSum153Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '153' })
+const pressnumberSum154Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '154' })
+const pressnumberSum155Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '155' })
+const pressnumberSum156Ra= pressSumRa && pressSumRa.filter((d) => { return d.press_no === '156' })
+
+const pressnumberSum151Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '151' })
+const pressnumberSum152Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '152' })
+const pressnumberSum153Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '153' })
+const pressnumberSum154Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '154' })
+const pressnumberSum155Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '155' })
+const pressnumberSum156Nra= pressSumNra && pressSumNra.filter((d) => { return d.press_no === '156' })
+
+
+const pressnumberSum151Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '151' })
+const pressnumberSum152Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '152' })
+const pressnumberSum153Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '153' })
+const pressnumberSum154Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '154' })
+const pressnumberSum155Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '155' })
+const pressnumberSum156Bd= pressSumBd && pressSumBd.filter((d) => { return d.press_no === '156' })
 
 
 
 
+///kpi
 
+const pressnumberSum303Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '303' })
+const pressnumberSum304Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '304' })
+const pressnumberSum305Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '305' })
+const pressnumberSum306Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '306' })
+
+
+const pressnumberSum303Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '303' })
+const pressnumberSum304Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '304' })
+const pressnumberSum305Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '305' })
+const pressnumberSum306Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '306' })
+
+
+const pressnumberSum303Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '303' })
+const pressnumberSum304Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '304' })
+const pressnumberSum305Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '305' })
+const pressnumberSum306Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '306' })
+
+
+const pressnumberSum303Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '303' })
+const pressnumberSum304Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '304' })
+const pressnumberSum305Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '305' })
+const pressnumberSum306Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '306' })
+
+const pressnumberSum303Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '303' })
+const pressnumberSum304Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '304' })
+const pressnumberSum305Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '305' })
+const pressnumberSum306Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '306' })
 
 
 
@@ -1848,126 +2090,215 @@ const pressnumberSum306L = pressSumL && pressSumL.filter((d) => { return d.press
           <td  style={{fontSize:'14px'}}>Kaizen</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td  >{isNaN(parseInt(pressnumberSum151Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum151Kaizen[0]?.total)}</td>
+
+
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum152Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum152Kaizen[0]?.total)
+
+               }</td>
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum153Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum153Kaizen[0]?.total)
+
+               }</td>
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum154Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum154Kaizen[0]?.total)
+
+               }</td>
+
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum155Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum155Kaizen[0]?.total)
+
+               }</td>
+
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum156Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum156Kaizen[0]?.total)
+
+               }</td>
+               <td  >1</td>
+               <td  >{( isNaN(parseInt(pressnumberSum151Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum151Kaizen[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum152Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum152Kaizen[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum153Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum153Kaizen[0]?.total))+(isNaN(parseInt(pressnumberSum154Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum154Kaizen[0]?.total))+
+                                                 (isNaN(parseInt(pressnumberSum155Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum155Kaizen[0]?.total))+( isNaN(parseInt(pressnumberSum156Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum156Kaizen[0]?.total))
+                                                  }</td>
+               <td  >1</td>
             
           </tr>  <tr>
           <td  style={{fontSize:'14px'}}>NearMiss</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td  >{isNaN(parseInt(pressnumberSum151Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum151Nearmiss[0]?.total)}</td>
+
+
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum152Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum152Nearmiss[0]?.total)
+
+}</td>
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum153Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum153Nearmiss[0]?.total)
+
+}</td>
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum154Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum154Nearmiss[0]?.total)
+
+}</td>
+
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum155Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum155Nearmiss[0]?.total)
+
+}</td>
+
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum156Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum156Nearmiss[0]?.total)
+
+}</td>
+<td  >1</td>
+<td  >{( isNaN(parseInt(pressnumberSum151Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum151Nearmiss[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum152Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum152Nearmiss[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum153Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum153Nearmiss[0]?.total))+(isNaN(parseInt(pressnumberSum154Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum154Nearmiss[0]?.total))+
+                                  (isNaN(parseInt(pressnumberSum155Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum155Nearmiss[0]?.total))+( isNaN(parseInt(pressnumberSum156Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum156Nearmiss[0]?.total))
+                                   }</td>
+<td  >1</td>
             
           </tr>
           <tr>
           <td  style={{fontSize:'14px'}}>RA</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td  >{isNaN(parseInt(pressnumberSum151Ra[0]?.total)) ? 0 : parseInt(pressnumberSum151Ra[0]?.total)}</td>
+
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum152Ra[0]?.total)) ? 0 : parseInt(pressnumberSum152Ra[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum153Ra[0]?.total)) ? 0 : parseInt(pressnumberSum153Ra[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum154Ra[0]?.total)) ? 0 : parseInt(pressnumberSum154Ra[0]?.total)
+
+}</td>
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum155Ra[0]?.total)) ? 0 : parseInt(pressnumberSum155Ra[0]?.total)
+
+}</td>
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum156Ra[0]?.total)) ? 0 : parseInt(pressnumberSum156Ra[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{( isNaN(parseInt(pressnumberSum151Ra[0]?.total)) ? 0 : parseInt(pressnumberSum151Ra[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum152Ra[0]?.total)) ? 0 : parseInt(pressnumberSum152Ra[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum153Ra[0]?.total)) ? 0 : parseInt(pressnumberSum153Ra[0]?.total))+(isNaN(parseInt(pressnumberSum154Ra[0]?.total)) ? 0 : parseInt(pressnumberSum154Ra[0]?.total))+
+                                  (isNaN(parseInt(pressnumberSum155Ra[0]?.total)) ? 0 : parseInt(pressnumberSum155Ra[0]?.total))+( isNaN(parseInt(pressnumberSum156Ra[0]?.total)) ? 0 : parseInt(pressnumberSum156Ra[0]?.total))
+                                   }</td>
+<td  >0</td>
           </tr>
 
           <tr>
           <td  style={{fontSize:'14px'}}>NRA</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
+            <td  >{isNaN(parseInt(pressnumberSum151Nra[0]?.total)) ? 0 : parseInt(pressnumberSum151Nra[0]?.total)}</td>
+
+
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum152Nra[0]?.total)) ? 0 : parseInt(pressnumberSum152Nra[0]?.total)
+
+               }</td>
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum153Nra[0]?.total)) ? 0 : parseInt(pressnumberSum153Nra[0]?.total)
+
+               }</td>
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum154Nra[0]?.total)) ? 0 : parseInt(pressnumberSum154Nra[0]?.total)
+
+               }</td>
+
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum155Nra[0]?.total)) ? 0 : parseInt(pressnumberSum155Nra[0]?.total)
+
+               }</td>
+
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum156Nra[0]?.total)) ? 0 : parseInt(pressnumberSum156Nra[0]?.total)
+
+               }</td>
+               <td  >0</td>
+               <td  >{( isNaN(parseInt(pressnumberSum151Nra[0]?.total)) ? 0 : parseInt(pressnumberSum151Nra[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum152Nra[0]?.total)) ? 0 : parseInt(pressnumberSum152Nra[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum153Nra[0]?.total)) ? 0 : parseInt(pressnumberSum153Nra[0]?.total))+(isNaN(parseInt(pressnumberSum154Nra[0]?.total)) ? 0 : parseInt(pressnumberSum154Nra[0]?.total))+
+                                                 (isNaN(parseInt(pressnumberSum155Nra[0]?.total)) ? 0 : parseInt(pressnumberSum155Nra[0]?.total))+( isNaN(parseInt(pressnumberSum156Nra[0]?.total)) ? 0 : parseInt(pressnumberSum156Nra[0]?.total))
+                                                  }</td>
+               <td  >0</td>
             
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>AI</td>
-            <td   style={{fontSize:'14px'}} >Nos</td>
+          <td  style={{fontSize:'14px'}}>Bd</td>
+            <td   style={{fontSize:'14px'}} >hrs</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td  >{isNaN(parseInt(pressnumberSum151Bd[0]?.total)) ? 0 : parseInt(pressnumberSum151Bd[0]?.total)}</td>
+
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum152Bd[0]?.total)) ? 0 : parseInt(pressnumberSum152Bd[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum153Bd[0]?.total)) ? 0 : parseInt(pressnumberSum153Bd[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum154Bd[0]?.total)) ? 0 : parseInt(pressnumberSum154Bd[0]?.total)
+
+}</td>
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum155Bd[0]?.total)) ? 0 : parseInt(pressnumberSum155Bd[0]?.total)
+
+}</td>
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum156Bd[0]?.total)) ? 0 : parseInt(pressnumberSum156Bd[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{( isNaN(parseInt(pressnumberSum151Bd[0]?.total)) ? 0 : parseInt(pressnumberSum151Bd[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum152Bd[0]?.total)) ? 0 : parseInt(pressnumberSum152Bd[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum153Bd[0]?.total)) ? 0 : parseInt(pressnumberSum153Bd[0]?.total))+(isNaN(parseInt(pressnumberSum154Bd[0]?.total)) ? 0 : parseInt(pressnumberSum154Bd[0]?.total))+
+                                  (isNaN(parseInt(pressnumberSum155Bd[0]?.total)) ? 0 : parseInt(pressnumberSum155Bd[0]?.total))+( isNaN(parseInt(pressnumberSum156Bd[0]?.total)) ? 0 : parseInt(pressnumberSum156Bd[0]?.total))
+                                   }</td>
+<td  >0</td>
           </tr>
-          <tr>
-          <td  style={{fontSize:'14px'}}>ANI</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-          </tr>
-          
 
 
 
@@ -2590,115 +2921,158 @@ const pressnumberSum306L = pressSumL && pressSumL.filter((d) => { return d.press
           <td  style={{fontSize:'14px'}}>Kaizen</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            
-           
+            <td  >{isNaN(parseInt(pressnumberSum303Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum303Kaizen[0]?.total)}</td>
+
+
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum304Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum304Kaizen[0]?.total)
+
+               }</td>
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum305Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum305Kaizen[0]?.total)
+
+               }</td>
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum306Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum306Kaizen[0]?.total)
+
+               }</td>
+
+               <td  >1</td>
+              
+               <td  >{( isNaN(parseInt(pressnumberSum303Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum303Kaizen[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum304Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum304Kaizen[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum305Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum305Kaizen[0]?.total))+(isNaN(parseInt(pressnumberSum306Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum306Kaizen[0]?.total))
+                                                  }</td>
+               <td  >1</td>
             
           </tr>  <tr>
           <td  style={{fontSize:'14px'}}>NearMiss</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-           
-            
+            <td  >{isNaN(parseInt(pressnumberSum303Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum303Nearmiss[0]?.total)}</td>
+
+
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum304Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum304Nearmiss[0]?.total)
+
+}</td>
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum305Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum305Nearmiss[0]?.total)
+
+}</td>
+<td  >1</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum306Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum306Nearmiss[0]?.total)
+
+}</td>
+
+<td  >1</td>
+
+<td  >{( isNaN(parseInt(pressnumberSum303Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum303Nearmiss[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum304Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum304Nearmiss[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum305Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum305Nearmiss[0]?.total))+(isNaN(parseInt(pressnumberSum306Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum306Nearmiss[0]?.total))   }</td>
+<td  >1</td>
             
           </tr>
           <tr>
           <td  style={{fontSize:'14px'}}>RA</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-           
-           
+            <td  >{isNaN(parseInt(pressnumberSum303Ra[0]?.total)) ? 0 : parseInt(pressnumberSum303Ra[0]?.total)}</td>
+
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum304Ra[0]?.total)) ? 0 : parseInt(pressnumberSum304Ra[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum305Ra[0]?.total)) ? 0 : parseInt(pressnumberSum305Ra[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum306Ra[0]?.total)) ? 0 : parseInt(pressnumberSum306Ra[0]?.total)
+
+}</td>
+
+<td  >0</td>
+
+<td  >{( isNaN(parseInt(pressnumberSum303Ra[0]?.total)) ? 0 : parseInt(pressnumberSum303Ra[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum304Ra[0]?.total)) ? 0 : parseInt(pressnumberSum304Ra[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum305Ra[0]?.total)) ? 0 : parseInt(pressnumberSum305Ra[0]?.total))+(isNaN(parseInt(pressnumberSum306Ra[0]?.total)) ? 0 : parseInt(pressnumberSum306Ra[0]?.total))
+                                   }</td>
+<td  >0</td>
           </tr>
 
           <tr>
           <td  style={{fontSize:'14px'}}>NRA</td>
             <td  style={{fontSize:'14px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-           
-            
-            
-            
-          </tr>
-          <tr>
-          <td  style={{fontSize:'14px'}}>AI</td>
-            <td   style={{fontSize:'14px'}} >Nos</td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            
-            <td  ></td>
-            <td  ></td>
-            
-          </tr>
-          <tr>
-          <td  style={{fontSize:'14px'}}>ANI</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            
-           
-            
-          </tr>
-          
+            <td  >{isNaN(parseInt(pressnumberSum303Nra[0]?.total)) ? 0 : parseInt(pressnumberSum303Nra[0]?.total)}</td>
 
+
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum304Nra[0]?.total)) ? 0 : parseInt(pressnumberSum304Nra[0]?.total)
+
+               }</td>
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum305Nra[0]?.total)) ? 0 : parseInt(pressnumberSum305Nra[0]?.total)
+
+               }</td>
+               <td  >0</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum306Nra[0]?.total)) ? 0 : parseInt(pressnumberSum306Nra[0]?.total)
+
+               }</td>
+
+               <td  >0</td>
+              
+               <td  >{( isNaN(parseInt(pressnumberSum303Nra[0]?.total)) ? 0 : parseInt(pressnumberSum303Nra[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum304Nra[0]?.total)) ? 0 : parseInt(pressnumberSum304Nra[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum305Nra[0]?.total)) ? 0 : parseInt(pressnumberSum305Nra[0]?.total))+(isNaN(parseInt(pressnumberSum306Nra[0]?.total)) ? 0 : parseInt(pressnumberSum306Nra[0]?.total))  }</td>
+               <td  >0</td>
+            
+          </tr>
+          <tr>
+          <td  style={{fontSize:'14px'}}>Bd</td>
+            <td   style={{fontSize:'14px'}} >hrs</td>
+            
+            <td  >{isNaN(parseInt(pressnumberSum303Bd[0]?.total)) ? 0 : parseInt(pressnumberSum303Bd[0]?.total)}</td>
+
+
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum304Bd[0]?.total)) ? 0 : parseInt(pressnumberSum304Bd[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum305Bd[0]?.total)) ? 0 : parseInt(pressnumberSum305Bd[0]?.total)
+
+}</td>
+<td  >0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum306Bd[0]?.total)) ? 0 : parseInt(pressnumberSum306Bd[0]?.total)
+
+}</td>
+
+<td  >0</td>
+
+<td  >{( isNaN(parseInt(pressnumberSum303Bd[0]?.total)) ? 0 : parseInt(pressnumberSum303Bd[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum304Bd[0]?.total)) ? 0 : parseInt(pressnumberSum304Bd[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum305Bd[0]?.total)) ? 0 : parseInt(pressnumberSum305Bd[0]?.total))+(isNaN(parseInt(pressnumberSum306Bd[0]?.total)) ? 0 : parseInt(pressnumberSum306Bd[0]?.total))
+                                   }</td>
+<td  >0</td>
+          </tr>
 
 
           <tr>

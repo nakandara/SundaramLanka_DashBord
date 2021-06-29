@@ -422,6 +422,24 @@ const[pressSumL ,setPressSumL]=useState([])
 const[pressSumC ,setPressSumC]=useState([])
 
 
+const[pressSumKaizen ,setPressSumKaizen]=useState([])
+const[pressSumNearmiss,setPressSumNearmiss]=useState([])
+const[pressSumRa ,setPressSumRa]=useState([]) 
+const[pressSumNra ,setPressSumNra]=useState([])
+const[pressSumBd ,setPressSumBd]=useState([])
+
+
+
+const[pressSumAi ,setPressSumAi]=useState([])
+const[pressSumAni,setPressSumAni]=useState([])
+const[pressSumDot,setPressSumDot]=useState([]) 
+const[pressSumMp ,setPressSumMp]=useState([])
+const[pressSumHeadCount ,setPressSumHeadCount]=useState([])
+
+
+
+const [pressState,setPressState] = useState('')
+
 
 
     return (
@@ -447,7 +465,8 @@ const[pressSumC ,setPressSumC]=useState([])
         weekDateFive,setWeekDateFive,weekDateSix,setWeekDateSix,weekDateSeven,setWeekDateSeven,weekDateEight,setWeekDateEight,weekChartDataThree,setWeekChartDataThree,
         weekChartDataFour,setWeekChartDataFour,medate,setMeDdate,shift,setShift, setPressNumberOne, pressNumberOne,pressSumSrt,setPressSumSrt,pressSumPob,setPressSumPob,pressSumApw,setPressSumApw,pressSumPbb,setPressSumPbb,pressSumSks,setPressSumSks,
         pressCountSrt,setPressCountSrt,pressCountPob,setPressCountPob,pressCountApw,setPressCountApw,pressCountPbb,setPressCountPbb,pressCountSks,setPressCountSks,pressCountA,setPressCountA,
-        pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC
+        pressSumKaizen ,setPressSumKaizen,pressSumNearmiss,setPressSumNearmiss,pressSumRa ,setPressSumRa,pressSumNra ,setPressSumNra,pressSumBd ,setPressSumBd,
+        pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC,pressSumAi ,setPressSumAi,pressSumAni,setPressSumAni,pressSumDot,setPressSumDot,pressSumMp ,setPressSumMp,pressSumHeadCount ,setPressSumHeadCount,pressState,setPressState
         }}>
                {props.children}
             </reportContext.Provider>

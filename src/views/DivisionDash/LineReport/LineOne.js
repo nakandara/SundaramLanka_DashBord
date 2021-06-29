@@ -11,12 +11,20 @@ import api from '../../../../src/api/api'
 const LineOne = () => {
   const {  ddate,  shift, setShift,pressSumSrt,setPressSumSrt,pressSumPob,setPressSumPob,pressSumApw,setPressSumApw,pressSumPbb,setPressSumPbb,pressSumSks,setPressSumSks,
     pressCountSrt,setPressCountSrt,pressCountPob,setPressCountPob,pressCountApw,setPressCountApw,pressCountPbb,setPressCountPbb,pressCountSks,setPressCountSks,pressCountA,setPressCountA,
-    pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC } = useContext(reportContext)
+    pressSumB ,setPressSumB,pressSumE ,setPressSumE,pressSumR ,setPressSumR,pressSumL ,setPressSumL,pressSumC ,setPressSumC,
+    pressSumKaizen ,setPressSumKaizen,pressSumNearmiss,setPressSumNearmiss,pressSumRa ,setPressSumRa,pressSumNra ,setPressSumNra,pressSumBd ,setPressSumBd,pressState,setPressState } = useContext(reportContext)
   
 
 
       const navigate = useNavigate();
      
+
+
+      const oeeChange =(e)=>{
+        e.preventDefault();
+       setPressState('1001')
+        navigate('/app/oeemachinewise')
+     }
 
 
   const handleOptionOne = (e) => {
@@ -47,6 +55,160 @@ const LineOne = () => {
   let dateNumberTwo = nextDay.getDate()
 
   var datetwo = yearNumberTwo + '-' + monthNumberTwo + '-' + dateNumberTwo
+
+//////////////////////////kpi
+
+
+const fetchDataShiftPressWiseKpiKaizen = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/kaizen/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumKaizen(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiNearmiss = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/nearmiss/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumNearmiss(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiRa = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/ra/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumRa(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiNra = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/nra/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumNra(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataShiftPressWiseKpiBd = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpishift/bd/${dateone}/${datetwo}/${shift}`);
+
+    setPressSumBd(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+////////////////////////kpi total
+
+const fetchDataTotalPressWiseKpiKaizen = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/kaizen/${dateone}/${datetwo}`);
+
+    setPressSumKaizen(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiNearmiss = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/nearmiss/${dateone}/${datetwo}`);
+
+    setPressSumNearmiss(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiRa = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/ra/${dateone}/${datetwo}`);
+
+    setPressSumRa(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiNra = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/nra/${dateone}/${datetwo}`);
+
+    setPressSumNra(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+const fetchDataTotalPressWiseKpiBd = async () => {
+
+  try {
+
+    //       ///////////////////////////////////////////////////
+    const responsePressOne = await api.get(`/kpi/kpitotal/bd/${dateone}/${datetwo}`);
+
+    setPressSumBd(responsePressOne.data.data.data);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 
@@ -593,6 +755,13 @@ const fetchDataTotalPressWiseCountSKS = async () => {
       fetchDataShiftPressWiseSumL()
       fetchDataShiftPressWiseSumC()
 
+
+      fetchDataShiftPressWiseKpiKaizen()
+      fetchDataShiftPressWiseKpiNearmiss()
+      fetchDataShiftPressWiseKpiRa()
+      fetchDataShiftPressWiseKpiNra()
+      fetchDataShiftPressWiseKpiBd()
+
      
 
 
@@ -617,13 +786,19 @@ const fetchDataTotalPressWiseCountSKS = async () => {
       fetchDataTotalPressWiseSumR()
       fetchDataTotalPressWiseSumL()
       fetchDataTotalPressWiseSumC()
+
+      fetchDataTotalPressWiseKpiKaizen()
+      fetchDataTotalPressWiseKpiNearmiss()
+      fetchDataTotalPressWiseKpiRa()
+      fetchDataTotalPressWiseKpiNra()
+      fetchDataTotalPressWiseKpiBd()
      
     }
 
 
   }, [dateone, shift])
 
-
+//console.log(pressSumKaizen);
   // useEffect(() => { 
   //   if (shift === 'A' || shift === 'B' || shift === 'C') {
       
@@ -849,10 +1024,45 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 // const pressnumberCount502L = pressCountL && pressCountL.filter((d) => { return d.press_no === '502' })
 
 
+///kpi
+
+const pressnumberSum1001Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '1001' })
+const pressnumberSum651Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '651' })
+const pressnumberSum401Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '401' })
+const pressnumberSum402Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '402' })
+const pressnumberSum501Kaizen = pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '501' })
+const pressnumberSum502Kaizen= pressSumKaizen && pressSumKaizen.filter((d) => { return d.press_no === '502' })
 
 
+const pressnumberSum1001Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '1001' })
+const pressnumberSum651Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '651' })
+const pressnumberSum401Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '401' })
+const pressnumberSum402Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '402' })
+const pressnumberSum501Nearmiss = pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '501' })
+const pressnumberSum502Nearmiss= pressSumNearmiss && pressSumNearmiss.filter((d) => { return d.press_no === '502' })
 
 
+const pressnumberSum1001Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '1001' })
+const pressnumberSum651Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '651' })
+const pressnumberSum401Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '401' })
+const pressnumberSum402Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '402' })
+const pressnumberSum501Ra = pressSumRa && pressSumRa.filter((d) => { return d.press_no === '501' })
+const pressnumberSum502Ra= pressSumRa && pressSumRa.filter((d) => { return d.press_no === '502' })
+
+const pressnumberSum1001Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '1001' })
+const pressnumberSum651Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '651' })
+const pressnumberSum401Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '401' })
+const pressnumberSum402Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '402' })
+const pressnumberSum501Nra = pressSumNra && pressSumNra.filter((d) => { return d.press_no === '501' })
+const pressnumberSum502Nra= pressSumNra && pressSumNra.filter((d) => { return d.press_no === '502' })
+
+
+const pressnumberSum1001Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '1001' })
+const pressnumberSum651Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '651' })
+const pressnumberSum401Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '401' })
+const pressnumberSum402Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '402' })
+const pressnumberSum501Bd = pressSumBd && pressSumBd.filter((d) => { return d.press_no === '501' })
+const pressnumberSum502Bd= pressSumBd && pressSumBd.filter((d) => { return d.press_no === '502' })
 
                                                  
 //console.log(pressnumberSum1001B);                                              
@@ -949,56 +1159,56 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
        
         <tbody>
           <tr>
-            <td   width='17%' colspan='2'  style={{fontWeight:'bold'}} >KPI</td>
-            <td   colspan='2' style={{fontWeight:'bold'}}  onClick={(e)=>pressOne(e)}>1001</td>
+            <td   width='17%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} >KPI</td>
+            <td   colspan='2' style={{fontWeight:'bold',fontSize:'12px'}}  onClick={(e)=>pressOne(e)}>1001</td>
           
-            <td  colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressTwo(e)}> 651</td>
+            <td  colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressTwo(e)}> 651</td>
             
-            <td   colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressThree(e)}>401</td>
+            <td   colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressThree(e)}>401</td>
         
-            <td   colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>402</td>
-            <td   colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>501</td>
-            <td   colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>502</td>
-            <td   colspan='2'  style={{fontWeight:'bold'}} >TOTAL</td>
+            <td   colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressFour(e)}>402</td>
+            <td   colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressFour(e)}>501</td>
+            <td   colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressFour(e)}>502</td>
+            <td   colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} >TOTAL</td>
             
             
           </tr>
 
 
           <tr>
-          <td  style={{fontWeight:'bold'}}>PI</td>
-            <td  style={{fontWeight:'bold'}} >UOM</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>PI</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}} >UOM</td>
             
             <td  style={{fontSize:'12px',textAlign:'center'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
             
            
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>Pcs</td>
-            <td  style={{fontSize:'14px'}} >Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>Pcs</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}} >Nos</td>
             
-               <td  >{(isNaN(parseInt(pressnumberCount1001Srt[0]?.total)) ? 0 : parseInt(pressnumberCount1001Srt[0]?.total)) +
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{(isNaN(parseInt(pressnumberCount1001Srt[0]?.total)) ? 0 : parseInt(pressnumberCount1001Srt[0]?.total)) +
                  (isNaN(parseInt(pressnumberCount1001Pob[0]?.total)) ? 0 : parseInt(pressnumberCount1001Pob[0]?.total)) +
                  (isNaN(parseInt(pressnumberCount1001Apw[0]?.total)) ? 0 : parseInt(pressnumberCount1001Apw[0]?.total)) +
                  (isNaN(parseInt(pressnumberCount1001Sks[0]?.total)) ? 0 : parseInt(pressnumberCount1001Sks[0]?.total)) +
                  (isNaN(parseInt(pressnumberCount1001Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount1001Pbb[0]?.total))}</td>
 
 
-               <td  ></td>
-               <td  >{
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                  (isNaN(parseInt(pressnumberCount651Srt[0]?.total)) ? 0 : parseInt(pressnumberCount651Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberCount651Pob[0]?.total)) ? 0 : parseInt(pressnumberCount651Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberCount651Apw[0]?.total)) ? 0 : parseInt(pressnumberCount651Apw[0]?.total))
@@ -1006,8 +1216,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                  + (isNaN(parseInt(pressnumberCount651Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount651Pbb[0]?.total))
 
                }</td>
-               <td  ></td>
-               <td  >{
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                  (isNaN(parseInt(pressnumberCount401Srt[0]?.total)) ? 0 : parseInt(pressnumberCount401Srt[0]?.total)) +
                  (isNaN(parseInt(pressnumberCount401Pob[0]?.total)) ? 0 : parseInt(pressnumberCount401Pob[0]?.total)) +
                  (isNaN(parseInt(pressnumberCount401Apw[0]?.total)) ? 0 : parseInt(pressnumberCount401Apw[0]?.total)) +
@@ -1016,28 +1226,28 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
 
                }</td>
-               <td  ></td>
-               <td  >{(isNaN(parseInt(pressnumberCount402Srt[0]?.total)) ? 0 : parseInt(pressnumberCount402Srt[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{(isNaN(parseInt(pressnumberCount402Srt[0]?.total)) ? 0 : parseInt(pressnumberCount402Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberCount402Pob[0]?.total)) ? 0 : parseInt(pressnumberCount402Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberCount402Apw[0]?.total)) ? 0 : parseInt(pressnumberCount402Apw[0]?.total))
                  + (isNaN(parseInt(pressnumberCount402Sks[0]?.total)) ? 0 : parseInt(pressnumberCount402Sks[0]?.total))
                  + (isNaN(parseInt(pressnumberCount402Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount402Pbb[0]?.total))}</td>
 
-               <td  ></td>
-               <td  > {(isNaN(parseInt(pressnumberCount501Srt[0]?.total)) ? 0 : parseInt(pressnumberCount501Srt[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}> {(isNaN(parseInt(pressnumberCount501Srt[0]?.total)) ? 0 : parseInt(pressnumberCount501Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberCount501Pob[0]?.total)) ? 0 : parseInt(pressnumberCount501Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberCount501Apw[0]?.total)) ? 0 : parseInt(pressnumberCount501Apw[0]?.total))
                  + (isNaN(parseInt(pressnumberCount501Sks[0]?.total)) ? 0 : parseInt(pressnumberCount501Sks[0]?.total))
                  + (isNaN(parseInt(pressnumberCount501Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount501Pbb[0]?.total))}</td>
 
-               <td  ></td>
-               <td  > {(isNaN(parseInt(pressnumberCount502Srt[0]?.total)) ? 0 : parseInt(pressnumberCount502Srt[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}> {(isNaN(parseInt(pressnumberCount502Srt[0]?.total)) ? 0 : parseInt(pressnumberCount502Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberCount502Pob[0]?.total)) ? 0 : parseInt(pressnumberCount502Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberCount502Apw[0]?.total)) ? 0 : parseInt(pressnumberCount502Apw[0]?.total))
                  + (isNaN(parseInt(pressnumberCount502Sks[0]?.total)) ? 0 : parseInt(pressnumberCount502Sks[0]?.total))
                  + (isNaN(parseInt(pressnumberCount502Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount502Pbb[0]?.total))}</td>
-               <td  ></td>
-               <td  >{( isNaN( parseInt(pressnumberCount1001Pob[0]?.total)) ?0:parseInt(pressnumberCount1001Pob[0]?.total))+
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{( isNaN( parseInt(pressnumberCount1001Pob[0]?.total)) ?0:parseInt(pressnumberCount1001Pob[0]?.total))+
                                                   ( isNaN( parseInt(pressnumberCount1001Apw[0]?.total)) ?0:parseInt(pressnumberCount1001Apw[0]?.total)) +
                                                   ( isNaN( parseInt(pressnumberCount1001Sks[0]?.total)) ?0:parseInt(pressnumberCount1001Sks[0]?.total))+
                                                   ( isNaN( parseInt(pressnumberCount1001Pbb[0]?.total)) ?0:parseInt(pressnumberCount1001Pbb[0]?.total))
@@ -1075,17 +1285,17 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                                                   + (isNaN(parseInt(pressnumberCount502Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount502Pbb[0]?.total))
                                                   
                                                   }</td>
-               <td  ></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
 
 
 
              </tr>
 
              <tr>
-               <td  style={{ fontSize: '14px' }}>Weight</td>
-               <td  style={{ fontSize: '14px' }}>Ton</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>Weight</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
 
-               <td  >{
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                  (isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                  (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                  (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1097,8 +1307,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
                }</td>
 
-               <td  ></td>
-               <td  >{
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                  (isNaN(parseInt(pressnumberSum651Srt[0]?.total)) ? 0 : parseInt(pressnumberSum651Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberSum651Pob[0]?.total)) ? 0 : parseInt(pressnumberSum651Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
@@ -1109,8 +1319,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
                }</td>
 
-               <td  ></td>
-               <td  >{
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                  (isNaN(parseInt(pressnumberSum401Srt[0]?.total)) ? 0 : parseInt(pressnumberSum401Srt[0]?.total)) +
                  (isNaN(parseInt(pressnumberSum401Pob[0]?.total)) ? 0 : parseInt(pressnumberSum401Pob[0]?.total)) +
                  (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
@@ -1120,28 +1330,28 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                }</td>
 
 
-               <td  ></td>
-               <td  >{(isNaN(parseInt(pressnumberSum402Srt[0]?.total)) ? 0 : parseInt(pressnumberSum402Srt[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{(isNaN(parseInt(pressnumberSum402Srt[0]?.total)) ? 0 : parseInt(pressnumberSum402Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberSum402Pob[0]?.total)) ? 0 : parseInt(pressnumberSum402Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total))
                  + (isNaN(parseInt(pressnumberSum402Sks[0]?.total)) ? 0 : parseInt(pressnumberSum402Sks[0]?.total))
                  + (isNaN(parseInt(pressnumberSum402Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum402Pbb[0]?.total))}</td>
 
-               <td  ></td>
-               <td  >{(isNaN(parseInt(pressnumberSum501Srt[0]?.total)) ? 0 : parseInt(pressnumberSum501Srt[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{(isNaN(parseInt(pressnumberSum501Srt[0]?.total)) ? 0 : parseInt(pressnumberSum501Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberSum501Pob[0]?.total)) ? 0 : parseInt(pressnumberSum501Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total))
                  + (isNaN(parseInt(pressnumberSum501Sks[0]?.total)) ? 0 : parseInt(pressnumberSum501Sks[0]?.total))
                  + (isNaN(parseInt(pressnumberSum501Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum501Pbb[0]?.total))}</td>
 
-               <td  ></td>
-               <td  >{(isNaN(parseInt(pressnumberSum502Srt[0]?.total)) ? 0 : parseInt(pressnumberSum502Srt[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{(isNaN(parseInt(pressnumberSum502Srt[0]?.total)) ? 0 : parseInt(pressnumberSum502Srt[0]?.total))
                  + (isNaN(parseInt(pressnumberSum502Pob[0]?.total)) ? 0 : parseInt(pressnumberSum502Pob[0]?.total))
                  + (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total))
                  + (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total))
                  + (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total))}</td>
-               <td  ></td>
-               <td  >{(isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total))+
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{(isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total))+
                  (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
                  (isNaN(parseInt(pressnumberSum1001Sks[0]?.total)) ? 0 : parseInt(pressnumberSum1001Sks[0]?.total)) +
                  (isNaN(parseInt(pressnumberSum1001Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pbb[0]?.total))
@@ -1179,17 +1389,17 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                  + (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total))
 
                }</td>
-               <td  ></td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
 
             
           </tr>
           
           
           <tr>
-          <td  style={{fontSize:'14px'}}>FTR</td>
-            <td  style={{fontSize:'14px'}}>%</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>FTR</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>%</td>
             
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberCount1001A[0]?.total)) ? 0 : parseInt(pressnumberCount1001A[0]?.total))
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberCount1001A[0]?.total)) ? 0 : parseInt(pressnumberCount1001A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount1001Srt[0]?.total)) ? 0 : parseInt(pressnumberCount1001Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount1001Pob[0]?.total)) ? 0 : parseInt(pressnumberCount1001Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount1001Apw[0]?.total)) ? 0 : parseInt(pressnumberCount1001Apw[0]?.total)) +
@@ -1204,8 +1414,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
 
 
-            <td  >90%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberCount651A[0]?.total)) ? 0 : parseInt(pressnumberCount651A[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>90%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberCount651A[0]?.total)) ? 0 : parseInt(pressnumberCount651A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount651Srt[0]?.total)) ? 0 : parseInt(pressnumberCount651Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount651Pob[0]?.total)) ? 0 : parseInt(pressnumberCount651Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount651Apw[0]?.total)) ? 0 : parseInt(pressnumberCount651Apw[0]?.total)) +
@@ -1216,8 +1426,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                (isNaN(parseInt(pressnumberCount651Apw[0]?.total)) ? 0 : parseInt(pressnumberCount651Apw[0]?.total)) +
                (isNaN(parseInt(pressnumberCount651Sks[0]?.total)) ? 0 : parseInt(pressnumberCount651Sks[0]?.total)) +
                (isNaN(parseInt(pressnumberCount651Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount651Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >90%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberCount401A[0]?.total)) ? 0 : parseInt(pressnumberCount401A[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >90%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberCount401A[0]?.total)) ? 0 : parseInt(pressnumberCount401A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount401Srt[0]?.total)) ? 0 : parseInt(pressnumberCount401Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount401Pob[0]?.total)) ? 0 : parseInt(pressnumberCount401Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount401Apw[0]?.total)) ? 0 : parseInt(pressnumberCount401Apw[0]?.total)) +
@@ -1228,8 +1438,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                (isNaN(parseInt(pressnumberCount401Apw[0]?.total)) ? 0 : parseInt(pressnumberCount401Apw[0]?.total)) +
                (isNaN(parseInt(pressnumberCount401Sks[0]?.total)) ? 0 : parseInt(pressnumberCount401Sks[0]?.total)) +
                (isNaN(parseInt(pressnumberCount401Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount401Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >90%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberCount402A[0]?.total)) ? 0 : parseInt(pressnumberCount402A[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >90%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberCount402A[0]?.total)) ? 0 : parseInt(pressnumberCount402A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount402Srt[0]?.total)) ? 0 : parseInt(pressnumberCount402Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount402Pob[0]?.total)) ? 0 : parseInt(pressnumberCount402Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount402Apw[0]?.total)) ? 0 : parseInt(pressnumberCount402Apw[0]?.total)) +
@@ -1240,8 +1450,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                (isNaN(parseInt(pressnumberCount402Apw[0]?.total)) ? 0 : parseInt(pressnumberCount402Apw[0]?.total)) +
                (isNaN(parseInt(pressnumberCount402Sks[0]?.total)) ? 0 : parseInt(pressnumberCount402Sks[0]?.total)) +
                (isNaN(parseInt(pressnumberCount402Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount402Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >90%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberCount501A[0]?.total)) ? 0 : parseInt(pressnumberCount501A[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>90%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberCount501A[0]?.total)) ? 0 : parseInt(pressnumberCount501A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount501Srt[0]?.total)) ? 0 : parseInt(pressnumberCount501Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount501Pob[0]?.total)) ? 0 : parseInt(pressnumberCount501Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount501Apw[0]?.total)) ? 0 : parseInt(pressnumberCount501Apw[0]?.total)) +
@@ -1252,9 +1462,9 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                (isNaN(parseInt(pressnumberCount501Apw[0]?.total)) ? 0 : parseInt(pressnumberCount501Apw[0]?.total)) +
                (isNaN(parseInt(pressnumberCount501Sks[0]?.total)) ? 0 : parseInt(pressnumberCount501Sks[0]?.total)) +
                (isNaN(parseInt(pressnumberCount501Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount501Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >90%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >90%</td>
             
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberCount502A[0]?.total)) ? 0 : parseInt(pressnumberCount502A[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberCount502A[0]?.total)) ? 0 : parseInt(pressnumberCount502A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount502Srt[0]?.total)) ? 0 : parseInt(pressnumberCount502Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount502Pob[0]?.total)) ? 0 : parseInt(pressnumberCount502Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount502Apw[0]?.total)) ? 0 : parseInt(pressnumberCount502Apw[0]?.total)) +
@@ -1265,8 +1475,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                (isNaN(parseInt(pressnumberCount502Apw[0]?.total)) ? 0 : parseInt(pressnumberCount502Apw[0]?.total)) +
                (isNaN(parseInt(pressnumberCount502Sks[0]?.total)) ? 0 : parseInt(pressnumberCount502Sks[0]?.total)) +
                (isNaN(parseInt(pressnumberCount502Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount502Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >90%</td>
-            <td  >
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>90%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}}  >
             {(((isNaN(((((isNaN(parseInt(pressnumberCount1001A[0]?.total)) ? 0 : parseInt(pressnumberCount1001A[0]?.total))
                        / ((isNaN(parseInt(pressnumberCount1001Srt[0]?.total)) ? 0 : parseInt(pressnumberCount1001Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberCount1001Pob[0]?.total)) ? 0 : parseInt(pressnumberCount1001Pob[0]?.total)) +
@@ -1319,15 +1529,15 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 (isNaN(parseInt(pressnumberCount502Sks[0]?.total)) ? 0 : parseInt(pressnumberCount502Sks[0]?.total)) +
 (isNaN(parseInt(pressnumberCount502Pbb[0]?.total)) ? 0 : parseInt(pressnumberCount502Pbb[0]?.total)))) * 100)))))/6).toFixed(2)}%
             </td>
-            <td  >90%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >90%</td>
             
           </tr>
           
           <tr>
-          <td  style={{fontSize:'14px'}}>B</td>
-            <td  style={{fontSize:'14px'}}>%</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>B</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>%</td>
             
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberSum1001B[0]?.total)) ? 0 : parseInt(pressnumberSum1001B[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum1001B[0]?.total)) ? 0 : parseInt(pressnumberSum1001B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1342,8 +1552,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
 
 
-               <td  >0.15%</td>
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberSum651B[0]?.total)) ? 0 : parseInt(pressnumberSum651B[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum651B[0]?.total)) ? 0 : parseInt(pressnumberSum651B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum651Srt[0]?.total)) ? 0 : parseInt(pressnumberSum651Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum651Pob[0]?.total)) ? 0 : parseInt(pressnumberSum651Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
@@ -1355,8 +1565,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                      (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum651Sks[0]?.total)) ? 0 : parseInt(pressnumberSum651Sks[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum651Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum651Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-               <td  >0.15%</td>
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberSum401B[0]?.total)) ? 0 : parseInt(pressnumberSum401B[0]?.total))
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0.15%</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum401B[0]?.total)) ? 0 : parseInt(pressnumberSum401B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum401Srt[0]?.total)) ? 0 : parseInt(pressnumberSum401Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum401Pob[0]?.total)) ? 0 : parseInt(pressnumberSum401Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
@@ -1368,8 +1578,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                      (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum401Sks[0]?.total)) ? 0 : parseInt(pressnumberSum401Sks[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum401Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum401Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-               <td  >0.15%</td>
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberSum402B[0]?.total)) ? 0 : parseInt(pressnumberSum402B[0]?.total))
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0.15%</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum402B[0]?.total)) ? 0 : parseInt(pressnumberSum402B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum402Srt[0]?.total)) ? 0 : parseInt(pressnumberSum402Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum402Pob[0]?.total)) ? 0 : parseInt(pressnumberSum402Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total)) +
@@ -1381,8 +1591,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                      (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum402Sks[0]?.total)) ? 0 : parseInt(pressnumberSum402Sks[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum402Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum402Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-               <td  >0.15%</td>
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberSum501B[0]?.total)) ? 0 : parseInt(pressnumberSum501B[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberSum501B[0]?.total)) ? 0 : parseInt(pressnumberSum501B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum501Srt[0]?.total)) ? 0 : parseInt(pressnumberSum501Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum501Pob[0]?.total)) ? 0 : parseInt(pressnumberSum501Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total)) +
@@ -1394,9 +1604,9 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                      (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum501Sks[0]?.total)) ? 0 : parseInt(pressnumberSum501Sks[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum501Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum501Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-               <td  >0.15%</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
 
-               <td  >{isNaN(((((isNaN(parseInt(pressnumberSum502B[0]?.total)) ? 0 : parseInt(pressnumberSum502B[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum502B[0]?.total)) ? 0 : parseInt(pressnumberSum502B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum502Srt[0]?.total)) ? 0 : parseInt(pressnumberSum502Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum502Pob[0]?.total)) ? 0 : parseInt(pressnumberSum502Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
@@ -1408,8 +1618,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                      (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total)) +
                      (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-               <td  >0.15%</td>
-               <td  > {(((isNaN(((((isNaN(parseInt(pressnumberSum1001B[0]?.total)) ? 0 : parseInt(pressnumberSum1001B[0]?.total))
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}> {(((isNaN(((((isNaN(parseInt(pressnumberSum1001B[0]?.total)) ? 0 : parseInt(pressnumberSum1001B[0]?.total))
                  / ((isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                    (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1460,14 +1670,14 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                                                        (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
                                                        (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total)) +
                                                        (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total)))) * 100))))) / 6).toFixed(2)}%</td>
-               <td  >0.15%</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
             
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>E</td>
-          <td  style={{fontSize:'14px'}}>%</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>E</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>%</td>
             
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum1001E[0]?.total)) ? 0 : parseInt(pressnumberSum1001E[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberSum1001E[0]?.total)) ? 0 : parseInt(pressnumberSum1001E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1482,8 +1692,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
 
 
-            <td  >0%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum651E[0]?.total)) ? 0 : parseInt(pressnumberSum651E[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum651E[0]?.total)) ? 0 : parseInt(pressnumberSum651E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum651Srt[0]?.total)) ? 0 : parseInt(pressnumberSum651Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum651Pob[0]?.total)) ? 0 : parseInt(pressnumberSum651Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
@@ -1495,8 +1705,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum651Sks[0]?.total)) ? 0 : parseInt(pressnumberSum651Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum651Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum651Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum401E[0]?.total)) ? 0 : parseInt(pressnumberSum401E[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum401E[0]?.total)) ? 0 : parseInt(pressnumberSum401E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum401Srt[0]?.total)) ? 0 : parseInt(pressnumberSum401Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum401Pob[0]?.total)) ? 0 : parseInt(pressnumberSum401Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
@@ -1508,8 +1718,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum401Sks[0]?.total)) ? 0 : parseInt(pressnumberSum401Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum401Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum401Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum402E[0]?.total)) ? 0 : parseInt(pressnumberSum402E[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum402E[0]?.total)) ? 0 : parseInt(pressnumberSum402E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum402Srt[0]?.total)) ? 0 : parseInt(pressnumberSum402Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum402Pob[0]?.total)) ? 0 : parseInt(pressnumberSum402Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total)) +
@@ -1521,8 +1731,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum402Sks[0]?.total)) ? 0 : parseInt(pressnumberSum402Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum402Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum402Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum501E[0]?.total)) ? 0 : parseInt(pressnumberSum501E[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum501E[0]?.total)) ? 0 : parseInt(pressnumberSum501E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum501Srt[0]?.total)) ? 0 : parseInt(pressnumberSum501Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum501Pob[0]?.total)) ? 0 : parseInt(pressnumberSum501Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total)) +
@@ -1534,9 +1744,9 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum501Sks[0]?.total)) ? 0 : parseInt(pressnumberSum501Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum501Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum501Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0%</td>
 
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum502E[0]?.total)) ? 0 : parseInt(pressnumberSum502E[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum502E[0]?.total)) ? 0 : parseInt(pressnumberSum502E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum502Srt[0]?.total)) ? 0 : parseInt(pressnumberSum502Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum502Pob[0]?.total)) ? 0 : parseInt(pressnumberSum502Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
@@ -1548,8 +1758,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0%</td>
-            <td  > {(((isNaN(((((isNaN(parseInt(pressnumberSum1001E[0]?.total)) ? 0 : parseInt(pressnumberSum1001E[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}> {(((isNaN(((((isNaN(parseInt(pressnumberSum1001E[0]?.total)) ? 0 : parseInt(pressnumberSum1001E[0]?.total))
               / ((isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1600,13 +1810,13 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                                                     (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
                                                     (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total)) +
                                                     (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total)))) * 100))))) / 6).toFixed(2)}%</td>
-            <td  >0%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0%</td>
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>R</td>
-          <td  style={{fontSize:'14px'}}>%</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>R</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>%</td>
             
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum1001R[0]?.total)) ? 0 : parseInt(pressnumberSum1001R[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberSum1001R[0]?.total)) ? 0 : parseInt(pressnumberSum1001R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1621,8 +1831,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
 
 
-            <td  >0.15%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum651R[0]?.total)) ? 0 : parseInt(pressnumberSum651R[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberSum651R[0]?.total)) ? 0 : parseInt(pressnumberSum651R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum651Srt[0]?.total)) ? 0 : parseInt(pressnumberSum651Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum651Pob[0]?.total)) ? 0 : parseInt(pressnumberSum651Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
@@ -1634,8 +1844,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum651Apw[0]?.total)) ? 0 : parseInt(pressnumberSum651Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum651Sks[0]?.total)) ? 0 : parseInt(pressnumberSum651Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum651Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum651Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0.15%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum401R[0]?.total)) ? 0 : parseInt(pressnumberSum401R[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum401R[0]?.total)) ? 0 : parseInt(pressnumberSum401R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum401Srt[0]?.total)) ? 0 : parseInt(pressnumberSum401Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum401Pob[0]?.total)) ? 0 : parseInt(pressnumberSum401Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
@@ -1647,8 +1857,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum401Apw[0]?.total)) ? 0 : parseInt(pressnumberSum401Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum401Sks[0]?.total)) ? 0 : parseInt(pressnumberSum401Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum401Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum401Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0.15%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum402R[0]?.total)) ? 0 : parseInt(pressnumberSum402R[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >0.15%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum402R[0]?.total)) ? 0 : parseInt(pressnumberSum402R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum402Srt[0]?.total)) ? 0 : parseInt(pressnumberSum402Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum402Pob[0]?.total)) ? 0 : parseInt(pressnumberSum402Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total)) +
@@ -1660,8 +1870,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum402Apw[0]?.total)) ? 0 : parseInt(pressnumberSum402Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum402Sks[0]?.total)) ? 0 : parseInt(pressnumberSum402Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum402Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum402Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0.15%</td>
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum501R[0]?.total)) ? 0 : parseInt(pressnumberSum501R[0]?.total))
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >0.15%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(((((isNaN(parseInt(pressnumberSum501R[0]?.total)) ? 0 : parseInt(pressnumberSum501R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum501Srt[0]?.total)) ? 0 : parseInt(pressnumberSum501Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum501Pob[0]?.total)) ? 0 : parseInt(pressnumberSum501Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total)) +
@@ -1673,9 +1883,9 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum501Apw[0]?.total)) ? 0 : parseInt(pressnumberSum501Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum501Sks[0]?.total)) ? 0 : parseInt(pressnumberSum501Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum501Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum501Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0.15%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
 
-            <td  >{isNaN(((((isNaN(parseInt(pressnumberSum502R[0]?.total)) ? 0 : parseInt(pressnumberSum502R[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(((((isNaN(parseInt(pressnumberSum502R[0]?.total)) ? 0 : parseInt(pressnumberSum502R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum502Srt[0]?.total)) ? 0 : parseInt(pressnumberSum502Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum502Pob[0]?.total)) ? 0 : parseInt(pressnumberSum502Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
@@ -1687,8 +1897,8 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                   (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total)) +
                   (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total)))) * 100)).toFixed(2)}%</td>
-            <td  >0.15%</td>
-            <td  > {(((isNaN(((((isNaN(parseInt(pressnumberSum1001R[0]?.total)) ? 0 : parseInt(pressnumberSum1001R[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}> {(((isNaN(((((isNaN(parseInt(pressnumberSum1001R[0]?.total)) ? 0 : parseInt(pressnumberSum1001R[0]?.total))
               / ((isNaN(parseInt(pressnumberSum1001Srt[0]?.total)) ? 0 : parseInt(pressnumberSum1001Srt[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Pob[0]?.total)) ? 0 : parseInt(pressnumberSum1001Pob[0]?.total)) +
                 (isNaN(parseInt(pressnumberSum1001Apw[0]?.total)) ? 0 : parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -1739,16 +1949,16 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                                                     (isNaN(parseInt(pressnumberSum502Apw[0]?.total)) ? 0 : parseInt(pressnumberSum502Apw[0]?.total)) +
                                                     (isNaN(parseInt(pressnumberSum502Sks[0]?.total)) ? 0 : parseInt(pressnumberSum502Sks[0]?.total)) +
                                                     (isNaN(parseInt(pressnumberSum502Pbb[0]?.total)) ? 0 : parseInt(pressnumberSum502Pbb[0]?.total)))) * 100))))) / 6).toFixed(2)}%</td>
-            <td  >0.15%</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}}>0.15%</td>
             
           </tr>
         
 
           <tr>
-          <td  style={{fontSize:'14px'}}>OEE</td>
-            <td  style={{fontSize:'14px'}}>%</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>OEE</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>%</td>
             
-            <td  ></td>
+            <td onClick={oeeChange} ></td>
             <td  ></td>
             <td  ></td>
             <td  ></td>
@@ -1766,134 +1976,221 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
             
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>Kaizen</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>Kaizen</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(parseInt(pressnumberSum1001Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum1001Kaizen[0]?.total)}</td>
+
+
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+                isNaN(parseInt(pressnumberSum651Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum651Kaizen[0]?.total)
+
+               }</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+                isNaN(parseInt(pressnumberSum401Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum401Kaizen[0]?.total)
+
+               }</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+                isNaN(parseInt(pressnumberSum402Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum402Kaizen[0]?.total)
+
+               }</td>
+
+               <td  >1</td>
+               <td  >{
+                isNaN(parseInt(pressnumberSum501Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum501Kaizen[0]?.total)
+
+               }</td>
+
+               <td  >1</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{
+                isNaN(parseInt(pressnumberSum502Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum502Kaizen[0]?.total)
+
+               }</td>
+               <td  >1</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{( isNaN(parseInt(pressnumberSum1001Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum1001Kaizen[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum651Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum651Kaizen[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum401Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum401Kaizen[0]?.total))+(isNaN(parseInt(pressnumberSum402Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum402Kaizen[0]?.total))+
+                                                 (isNaN(parseInt(pressnumberSum501Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum501Kaizen[0]?.total))+( isNaN(parseInt(pressnumberSum502Kaizen[0]?.total)) ? 0 : parseInt(pressnumberSum502Kaizen[0]?.total))
+                                                  }</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
             
           </tr>  <tr>
-          <td  style={{fontSize:'14px'}}>NearMiss</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>NearMiss</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN(parseInt(pressnumberSum1001Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum1001Nearmiss[0]?.total)}</td>
+
+
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum651Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum651Nearmiss[0]?.total)
+
+}</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum401Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum401Nearmiss[0]?.total)
+
+}</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum402Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum402Nearmiss[0]?.total)
+
+}</td>
+
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum501Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum501Nearmiss[0]?.total)
+
+}</td>
+
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum502Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum502Nearmiss[0]?.total)
+
+}</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >1</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{( isNaN(parseInt(pressnumberSum1001Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum1001Nearmiss[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum651Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum651Nearmiss[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum401Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum401Nearmiss[0]?.total))+(isNaN(parseInt(pressnumberSum402Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum402Nearmiss[0]?.total))+
+                                  (isNaN(parseInt(pressnumberSum501Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum501Nearmiss[0]?.total))+( isNaN(parseInt(pressnumberSum502Nearmiss[0]?.total)) ? 0 : parseInt(pressnumberSum502Nearmiss[0]?.total))
+                                   }</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>1</td>
             
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>RA</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>RA</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(parseInt(pressnumberSum1001Ra[0]?.total)) ? 0 : parseInt(pressnumberSum1001Ra[0]?.total)}</td>
+
+
+<td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum651Ra[0]?.total)) ? 0 : parseInt(pressnumberSum651Ra[0]?.total)
+
+}</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum401Ra[0]?.total)) ? 0 : parseInt(pressnumberSum401Ra[0]?.total)
+
+}</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >{
+ isNaN(parseInt(pressnumberSum402Ra[0]?.total)) ? 0 : parseInt(pressnumberSum402Ra[0]?.total)
+
+}</td>
+
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum501Ra[0]?.total)) ? 0 : parseInt(pressnumberSum501Ra[0]?.total)
+
+}</td>
+
+<td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >{
+ isNaN(parseInt(pressnumberSum502Ra[0]?.total)) ? 0 : parseInt(pressnumberSum502Ra[0]?.total)
+
+}</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >{( isNaN(parseInt(pressnumberSum1001Ra[0]?.total)) ? 0 : parseInt(pressnumberSum1001Ra[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum651Ra[0]?.total)) ? 0 : parseInt(pressnumberSum651Ra[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum401Ra[0]?.total)) ? 0 : parseInt(pressnumberSum401Ra[0]?.total))+(isNaN(parseInt(pressnumberSum402Ra[0]?.total)) ? 0 : parseInt(pressnumberSum402Ra[0]?.total))+
+                                  (isNaN(parseInt(pressnumberSum501Ra[0]?.total)) ? 0 : parseInt(pressnumberSum501Ra[0]?.total))+( isNaN(parseInt(pressnumberSum502Ra[0]?.total)) ? 0 : parseInt(pressnumberSum502Ra[0]?.total))
+                                   }</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
           </tr>
 
           <tr>
-          <td  style={{fontSize:'14px'}}>NRA</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>NRA</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(parseInt(pressnumberSum1001Nra[0]?.total)) ? 0 : parseInt(pressnumberSum1001Nra[0]?.total)}</td>
+
+
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{
+                isNaN(parseInt(pressnumberSum651Nra[0]?.total)) ? 0 : parseInt(pressnumberSum651Nra[0]?.total)
+
+               }</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+                isNaN(parseInt(pressnumberSum401Nra[0]?.total)) ? 0 : parseInt(pressnumberSum401Nra[0]?.total)
+
+               }</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{
+                isNaN(parseInt(pressnumberSum402Nra[0]?.total)) ? 0 : parseInt(pressnumberSum402Nra[0]?.total)
+
+               }</td>
+
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+                isNaN(parseInt(pressnumberSum501Nra[0]?.total)) ? 0 : parseInt(pressnumberSum501Nra[0]?.total)
+
+               }</td>
+
+               <td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{
+                isNaN(parseInt(pressnumberSum502Nra[0]?.total)) ? 0 : parseInt(pressnumberSum502Nra[0]?.total)
+
+               }</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >{( isNaN(parseInt(pressnumberSum1001Nra[0]?.total)) ? 0 : parseInt(pressnumberSum1001Nra[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum651Nra[0]?.total)) ? 0 : parseInt(pressnumberSum651Nra[0]?.total))+
+                                                 ( isNaN(parseInt(pressnumberSum401Nra[0]?.total)) ? 0 : parseInt(pressnumberSum401Nra[0]?.total))+(isNaN(parseInt(pressnumberSum402Nra[0]?.total)) ? 0 : parseInt(pressnumberSum402Nra[0]?.total))+
+                                                 (isNaN(parseInt(pressnumberSum501Nra[0]?.total)) ? 0 : parseInt(pressnumberSum501Nra[0]?.total))+( isNaN(parseInt(pressnumberSum502Nra[0]?.total)) ? 0 : parseInt(pressnumberSum502Nra[0]?.total))
+                                                  }</td>
+               <td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
             
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}}>AI</td>
-            <td   style={{fontSize:'14px'}} >Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>Bd</td>
+            <td   style={{fontWeight:'bold',fontSize:'12px'}} >hrs</td>
             
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-          </tr>
-          <tr>
-          <td  style={{fontSize:'14px'}}>ANI</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN(parseInt(pressnumberSum1001Bd[0]?.total)) ? 0 : parseInt(pressnumberSum1001Bd[0]?.total)}</td>
+
+
+<td style={{fontWeight:'bold',fontSize:'12px'}} >0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum651Bd[0]?.total)) ? 0 : parseInt(pressnumberSum651Bd[0]?.total)
+
+}</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum401Bd[0]?.total)) ? 0 : parseInt(pressnumberSum401Bd[0]?.total)
+
+}</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td  >{
+ isNaN(parseInt(pressnumberSum402Bd[0]?.total)) ? 0 : parseInt(pressnumberSum402Bd[0]?.total)
+
+}</td>
+
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{
+ isNaN(parseInt(pressnumberSum501Bd[0]?.total)) ? 0 : parseInt(pressnumberSum501Bd[0]?.total)
+
+}</td>
+
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td style={{fontWeight:'bold',fontSize:'12px'}} >{
+ isNaN(parseInt(pressnumberSum502Bd[0]?.total)) ? 0 : parseInt(pressnumberSum502Bd[0]?.total)
+
+}</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>{( isNaN(parseInt(pressnumberSum1001Bd[0]?.total)) ? 0 : parseInt(pressnumberSum1001Bd[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum651Bd[0]?.total)) ? 0 : parseInt(pressnumberSum651Bd[0]?.total))+
+                                  ( isNaN(parseInt(pressnumberSum401Bd[0]?.total)) ? 0 : parseInt(pressnumberSum401Bd[0]?.total))+(isNaN(parseInt(pressnumberSum402Bd[0]?.total)) ? 0 : parseInt(pressnumberSum402Bd[0]?.total))+
+                                  (isNaN(parseInt(pressnumberSum501Bd[0]?.total)) ? 0 : parseInt(pressnumberSum501Bd[0]?.total))+( isNaN(parseInt(pressnumberSum502Bd[0]?.total)) ? 0 : parseInt(pressnumberSum502Bd[0]?.total))
+                                   }</td>
+<td  style={{fontWeight:'bold',fontSize:'12px'}}>0</td>
           </tr>
           
-
-
-
           <tr>
-          <td  colspan='2' style={{fontWeight:'bold'}}>SUMMARY</td>
+          <td  colspan='2' style={{fontWeight:'bold',fontSize:'12px'}}>SUMMARY</td>
           
             
             <td  ></td>
@@ -1932,57 +2229,57 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
        
         <tbody>
           <tr>
-            <td   width='17%' colspan='2'  style={{fontWeight:'bold'}} >TYPE</td>
-            <td  width='15%' colspan='2' style={{fontWeight:'bold'}}  onClick={(e)=>pressOne(e)}>SRT</td>
+            <td   width='17%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} >TYPE</td>
+            <td  width='15%' colspan='2' style={{fontWeight:'bold',fontSize:'12px'}}  onClick={(e)=>pressOne(e)}>SRT</td>
           
-            <td width='15%' colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressTwo(e)}> POB</td>
+            <td width='15%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressTwo(e)}> POB</td>
             
-            <td  width='15%' colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressThree(e)}>APW</td>
+            <td  width='15%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressThree(e)}>APW</td>
         
-            <td  width='15%' colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>SKS</td>
-            <td  width='15%' colspan='2'  style={{fontWeight:'bold'}} onClick={(e)=>pressFour(e)}>PBB</td>
+            <td  width='15%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressFour(e)}>SKS</td>
+            <td  width='15%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} onClick={(e)=>pressFour(e)}>PBB</td>
             
-            <td  width='10%' colspan='2'  style={{fontWeight:'bold'}} >TOTAL</td>
+            <td  width='10%' colspan='2'  style={{fontWeight:'bold',fontSize:'12px'}} >TOTAL</td>
             
             
           </tr>
 
 
           <tr>
-          <td  style={{fontWeight:'bold'}}>Press No</td>
-            <td  style={{fontWeight:'bold'}} >UOM</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}}>Press No</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}} >UOM</td>
             
             <td  style={{fontSize:'12px',textAlign:'center'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
-            <td  style={{fontSize:'12px'}}>Act</td>
-            <td  style={{fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Act</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Plan</td>
             
             
             
           </tr>
           <tr>
           <td  style={{fontSize:'14px',textAlign:'center'}} rowspan='2'>1001</td>
-            <td  style={{fontSize:'14px'}} >Nos</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}} >Nos</td>
             
-            <td  >{isNaN( parseInt(pressnumberCount1001Srt[0]?.total)) ?0:parseInt(pressnumberCount1001Srt[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount1001Pob[0]?.total)) ?0:parseInt(pressnumberCount1001Pob[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount1001Apw[0]?.total)) ?0:parseInt(pressnumberCount1001Apw[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount1001Sks[0]?.total)) ?0:parseInt(pressnumberCount1001Sks[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount1001Pbb[0]?.total)) ?0:parseInt(pressnumberCount1001Pbb[0]?.total) }</td>
-            <td  ></td>
-            <td  >{
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount1001Srt[0]?.total)) ?0:parseInt(pressnumberCount1001Srt[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount1001Pob[0]?.total)) ?0:parseInt(pressnumberCount1001Pob[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount1001Apw[0]?.total)) ?0:parseInt(pressnumberCount1001Apw[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount1001Sks[0]?.total)) ?0:parseInt(pressnumberCount1001Sks[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount1001Pbb[0]?.total)) ?0:parseInt(pressnumberCount1001Pbb[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                                                  (isNaN( parseInt(pressnumberCount1001Srt[0]?.total)) ?0:parseInt(pressnumberCount1001Srt[0]?.total))+
                                                   ( isNaN( parseInt(pressnumberCount1001Pob[0]?.total)) ?0:parseInt(pressnumberCount1001Pob[0]?.total))+
                                                   ( isNaN( parseInt(pressnumberCount1001Apw[0]?.total)) ?0:parseInt(pressnumberCount1001Apw[0]?.total)) +
@@ -1996,19 +2293,19 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
           
           <tr>
          
-            <td  style={{fontSize:'14px'}}>Ton</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
             
-            <td  >{isNaN( parseInt(pressnumberSum1001Srt[0]?.total)) ?0:parseInt(pressnumberSum1001Srt[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum1001Pob[0]?.total)) ?0:parseInt(pressnumberSum1001Pob[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum1001Apw[0]?.total)) ?0:parseInt(pressnumberSum1001Apw[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum1001Sks[0]?.total)) ?0:parseInt(pressnumberSum1001Sks[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum1001Pbb[0]?.total)) ?0:parseInt(pressnumberSum1001Pbb[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum1001Srt[0]?.total)) ?0:parseInt(pressnumberSum1001Srt[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum1001Pob[0]?.total)) ?0:parseInt(pressnumberSum1001Pob[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum1001Apw[0]?.total)) ?0:parseInt(pressnumberSum1001Apw[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum1001Sks[0]?.total)) ?0:parseInt(pressnumberSum1001Sks[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum1001Pbb[0]?.total)) ?0:parseInt(pressnumberSum1001Pbb[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{
                                                          (isNaN( parseInt(pressnumberSum1001Srt[0]?.total)) ?0:parseInt(pressnumberSum1001Srt[0]?.total)) +
                                                          (isNaN( parseInt(pressnumberSum1001Pob[0]?.total)) ?0:parseInt(pressnumberSum1001Pob[0]?.total))+
                                                         ( isNaN( parseInt(pressnumberSum1001Apw[0]?.total)) ?0:parseInt(pressnumberSum1001Apw[0]?.total)) +
@@ -2019,27 +2316,27 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
 
             }</td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
             
             
           </tr>
           
           
           <tr>
-          <td  style={{fontSize:'14px'}} rowspan='2'>651</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}} rowspan='2'>651</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  >{isNaN( parseInt(pressnumberCount651Srt[0]?.total)) ?0:parseInt(pressnumberCount651Srt[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount651Pob[0]?.total)) ?0:parseInt(pressnumberCount651Pob[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount651Apw[0]?.total)) ?0:parseInt(pressnumberCount651Apw[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount651Sks[0]?.total)) ?0:parseInt(pressnumberCount651Sks[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount651Pbb[0]?.total)) ?0:parseInt(pressnumberCount651Pbb[0]?.total) }</td>
-            <td  ></td>
-            <td  >{
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount651Srt[0]?.total)) ?0:parseInt(pressnumberCount651Srt[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount651Pob[0]?.total)) ?0:parseInt(pressnumberCount651Pob[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount651Apw[0]?.total)) ?0:parseInt(pressnumberCount651Apw[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount651Sks[0]?.total)) ?0:parseInt(pressnumberCount651Sks[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount651Pbb[0]?.total)) ?0:parseInt(pressnumberCount651Pbb[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
               (isNaN( parseInt(pressnumberCount651Srt[0]?.total)) ?0:parseInt(pressnumberCount651Srt[0]?.total))
               +(isNaN( parseInt(pressnumberCount651Pob[0]?.total)) ?0:parseInt(pressnumberCount651Pob[0]?.total))
               +(isNaN( parseInt(pressnumberCount651Apw[0]?.total)) ?0:parseInt(pressnumberCount651Apw[0]?.total))
@@ -2047,7 +2344,7 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
               +(isNaN( parseInt(pressnumberCount651Pbb[0]?.total)) ?0:parseInt(pressnumberCount651Pbb[0]?.total))
                                                           
             }</td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
             
             
             
@@ -2055,19 +2352,19 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
           
           <tr>
           
-            <td  style={{fontSize:'14px'}}>Ton</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
             
-            <td  >{isNaN( parseInt(pressnumberSum651Srt[0]?.total)) ?0:parseInt(pressnumberSum651Srt[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum651Pob[0]?.total)) ?0:parseInt(pressnumberSum651Pob[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum651Apw[0]?.total)) ?0:parseInt(pressnumberSum651Apw[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum651Sks[0]?.total)) ?0:parseInt(pressnumberSum651Sks[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum651Pbb[0]?.total)) ?0:parseInt(pressnumberSum651Pbb[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum651Srt[0]?.total)) ?0:parseInt(pressnumberSum651Srt[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum651Pob[0]?.total)) ?0:parseInt(pressnumberSum651Pob[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum651Apw[0]?.total)) ?0:parseInt(pressnumberSum651Apw[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum651Sks[0]?.total)) ?0:parseInt(pressnumberSum651Sks[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum651Pbb[0]?.total)) ?0:parseInt(pressnumberSum651Pbb[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                                                        (isNaN( parseInt(pressnumberSum651Srt[0]?.total)) ?0:parseInt(pressnumberSum651Srt[0]?.total))
                                                        +(isNaN( parseInt(pressnumberSum651Pob[0]?.total)) ?0:parseInt(pressnumberSum651Pob[0]?.total))
                                                        +(isNaN( parseInt(pressnumberSum651Apw[0]?.total)) ?0:parseInt(pressnumberSum651Apw[0]?.total)) +
@@ -2077,26 +2374,26 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
 
                                                    
             }</td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
             
             
             
           </tr>
           <tr>
-          <td  style={{fontSize:'14px'}} rowspan='2'>401</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}} rowspan='2'>401</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  >{isNaN( parseInt(pressnumberCount401Srt[0]?.total)) ?0:parseInt(pressnumberCount401Srt[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount401Pob[0]?.total)) ?0:parseInt(pressnumberCount401Pob[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount401Apw[0]?.total)) ?0:parseInt(pressnumberCount401Apw[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount401Sks[0]?.total)) ?0:parseInt(pressnumberCount401Sks[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount401Pbb[0]?.total)) ?0:parseInt(pressnumberCount401Pbb[0]?.total) }</td>
-            <td  ></td>
-            <td  >{
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount401Srt[0]?.total)) ?0:parseInt(pressnumberCount401Srt[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount401Pob[0]?.total)) ?0:parseInt(pressnumberCount401Pob[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount401Apw[0]?.total)) ?0:parseInt(pressnumberCount401Apw[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount401Sks[0]?.total)) ?0:parseInt(pressnumberCount401Sks[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount401Pbb[0]?.total)) ?0:parseInt(pressnumberCount401Pbb[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{
                                                       (isNaN( parseInt(pressnumberCount401Srt[0]?.total)) ?0:parseInt(pressnumberCount401Srt[0]?.total))+
                                                      ( isNaN( parseInt(pressnumberCount401Pob[0]?.total)) ?0:parseInt(pressnumberCount401Pob[0]?.total))+
                                                      ( isNaN( parseInt(pressnumberCount401Apw[0]?.total)) ?0:parseInt(pressnumberCount401Apw[0]?.total))+
@@ -2111,19 +2408,19 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
           </tr>
           <tr>
          
-            <td  style={{fontSize:'14px'}}>Ton</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
             
-            <td  >{isNaN( parseInt(pressnumberSum401Srt[0]?.total)) ?0:parseInt(pressnumberSum401Srt[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum401Pob[0]?.total)) ?0:parseInt(pressnumberSum401Pob[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum401Apw[0]?.total)) ?0:parseInt(pressnumberSum401Apw[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum401Sks[0]?.total)) ?0:parseInt(pressnumberSum401Sks[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum401Pbb[0]?.total)) ?0:parseInt(pressnumberSum401Pbb[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum401Srt[0]?.total)) ?0:parseInt(pressnumberSum401Srt[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum401Pob[0]?.total)) ?0:parseInt(pressnumberSum401Pob[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum401Apw[0]?.total)) ?0:parseInt(pressnumberSum401Apw[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum401Sks[0]?.total)) ?0:parseInt(pressnumberSum401Sks[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum401Pbb[0]?.total)) ?0:parseInt(pressnumberSum401Pbb[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{
                                                       ( isNaN( parseInt(pressnumberSum401Srt[0]?.total)) ?0:parseInt(pressnumberSum401Srt[0]?.total)) +
                                                       ( isNaN( parseInt(pressnumberSum401Pob[0]?.total)) ?0:parseInt(pressnumberSum401Pob[0]?.total)) +
                                                        (isNaN( parseInt(pressnumberSum401Apw[0]?.total)) ?0:parseInt(pressnumberSum401Apw[0]?.total))+
@@ -2131,169 +2428,169 @@ const pressnumberSum502L= pressSumL && pressSumL.filter((d) => { return d.press_
                                                        (isNaN( parseInt(pressnumberSum401Pbb[0]?.total)) ?0:parseInt(pressnumberSum401Pbb[0]?.total))
 
             }</td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
             
             
           </tr>
         
 
           <tr>
-          <td  style={{fontSize:'14px'}} rowspan='2'>402</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}} rowspan='2'>402</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  >{isNaN( parseInt(pressnumberCount402Srt[0]?.total)) ?0:parseInt(pressnumberCount402Srt[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount402Pob[0]?.total)) ?0:parseInt(pressnumberCount402Pob[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount402Apw[0]?.total)) ?0:parseInt(pressnumberCount402Apw[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount402Sks[0]?.total)) ?0:parseInt(pressnumberCount402Sks[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount402Pbb[0]?.total)) ?0:parseInt(pressnumberCount402Pbb[0]?.total) }</td>
-            <td  ></td>
-            <td  >{  ( isNaN( parseInt(pressnumberCount402Srt[0]?.total)) ?0:parseInt(pressnumberCount402Srt[0]?.total))
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount402Srt[0]?.total)) ?0:parseInt(pressnumberCount402Srt[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount402Pob[0]?.total)) ?0:parseInt(pressnumberCount402Pob[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount402Apw[0]?.total)) ?0:parseInt(pressnumberCount402Apw[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount402Sks[0]?.total)) ?0:parseInt(pressnumberCount402Sks[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount402Pbb[0]?.total)) ?0:parseInt(pressnumberCount402Pbb[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{  ( isNaN( parseInt(pressnumberCount402Srt[0]?.total)) ?0:parseInt(pressnumberCount402Srt[0]?.total))
                                                         +(isNaN( parseInt(pressnumberCount402Pob[0]?.total)) ?0:parseInt(pressnumberCount402Pob[0]?.total))
                                                        +(isNaN( parseInt(pressnumberCount402Apw[0]?.total)) ?0:parseInt(pressnumberCount402Apw[0]?.total))
                                                        +( isNaN( parseInt(pressnumberCount402Sks[0]?.total)) ?0:parseInt(pressnumberCount402Sks[0]?.total))
                                                        +(isNaN( parseInt(pressnumberCount402Pbb[0]?.total)) ?0:parseInt(pressnumberCount402Pbb[0]?.total))}</td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
             
             
             
           </tr>
           <tr>
           
-            <td  style={{fontSize:'14px'}}>Ton</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
             
-            <td  >{isNaN( parseInt(pressnumberSum402Srt[0]?.total)) ?0:parseInt(pressnumberSum402Srt[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum402Pob[0]?.total)) ?0:parseInt(pressnumberSum402Pob[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum402Apw[0]?.total)) ?0:parseInt(pressnumberSum402Apw[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum402Sks[0]?.total)) ?0:parseInt(pressnumberSum402Sks[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum402Pbb[0]?.total)) ?0:parseInt(pressnumberSum402Pbb[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum402Srt[0]?.total)) ?0:parseInt(pressnumberSum402Srt[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum402Pob[0]?.total)) ?0:parseInt(pressnumberSum402Pob[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum402Apw[0]?.total)) ?0:parseInt(pressnumberSum402Apw[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum402Sks[0]?.total)) ?0:parseInt(pressnumberSum402Sks[0]?.total).toFixed(1) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum402Pbb[0]?.total)) ?0:parseInt(pressnumberSum402Pbb[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >
                                                     {(isNaN( parseInt(pressnumberSum402Srt[0]?.total)) ?0:parseInt(pressnumberSum402Srt[0]?.total))
                                                     +(isNaN( parseInt(pressnumberSum402Pob[0]?.total)) ?0:parseInt(pressnumberSum402Pob[0]?.total))
                                                     +(isNaN( parseInt(pressnumberSum402Apw[0]?.total)) ?0:parseInt(pressnumberSum402Apw[0]?.total))
                                                     +(isNaN( parseInt(pressnumberSum402Sks[0]?.total)) ?0:parseInt(pressnumberSum402Sks[0]?.total) )
                                                     +(isNaN( parseInt(pressnumberSum402Pbb[0]?.total)) ?0:parseInt(pressnumberSum402Pbb[0]?.total))}
             </td>
-            <td  ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
             
             
             
           </tr>  <tr>
-          <td  style={{fontSize:'14px'}} rowspan='2'>501</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}} rowspan='2'>501</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  >{(isNaN( parseInt(pressnumberCount501Srt[0]?.total)) ?0:parseInt(pressnumberCount501Srt[0]?.total) )}</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount501Pob[0]?.total)) ?0:parseInt(pressnumberCount501Pob[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount501Apw[0]?.total)) ?0:parseInt(pressnumberCount501Apw[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount501Sks[0]?.total)) ?0:parseInt(pressnumberCount501Sks[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount501Pbb[0]?.total)) ?0:parseInt(pressnumberCount501Pbb[0]?.total) }</td>
-            <td  ></td>
-            <td  >
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{(isNaN( parseInt(pressnumberCount501Srt[0]?.total)) ?0:parseInt(pressnumberCount501Srt[0]?.total) )}</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount501Pob[0]?.total)) ?0:parseInt(pressnumberCount501Pob[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount501Apw[0]?.total)) ?0:parseInt(pressnumberCount501Apw[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberCount501Sks[0]?.total)) ?0:parseInt(pressnumberCount501Sks[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount501Pbb[0]?.total)) ?0:parseInt(pressnumberCount501Pbb[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>
                                                         {(isNaN( parseInt(pressnumberCount501Srt[0]?.total)) ?0:parseInt(pressnumberCount501Srt[0]?.total))
                                                         +(isNaN( parseInt(pressnumberCount501Pob[0]?.total)) ?0:parseInt(pressnumberCount501Pob[0]?.total))
                                                         +(isNaN( parseInt(pressnumberCount501Apw[0]?.total)) ?0:parseInt(pressnumberCount501Apw[0]?.total))
                                                         +(isNaN( parseInt(pressnumberCount501Sks[0]?.total)) ?0:parseInt(pressnumberCount501Sks[0]?.total))
                                                         +(isNaN( parseInt(pressnumberCount501Pbb[0]?.total)) ?0:parseInt(pressnumberCount501Pbb[0]?.total) )}
             </td>
-            <td  ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
             
             
           </tr>
           <tr>
           
-            <td  style={{fontSize:'14px'}}>Ton</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
             
-            <td  >{isNaN( parseInt(pressnumberSum501Srt[0]?.total)) ?0:parseInt(pressnumberSum501Srt[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum501Pob[0]?.total)) ?0:parseInt(pressnumberSum501Pob[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum501Apw[0]?.total)) ?0:parseInt(pressnumberSum501Apw[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum501Sks[0]?.total)) ?0:parseInt(pressnumberSum501Sks[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum501Pbb[0]?.total)) ?0:parseInt(pressnumberSum501Pbb[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum501Srt[0]?.total)) ?0:parseInt(pressnumberSum501Srt[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum501Pob[0]?.total)) ?0:parseInt(pressnumberSum501Pob[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum501Apw[0]?.total)) ?0:parseInt(pressnumberSum501Apw[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum501Sks[0]?.total)) ?0:parseInt(pressnumberSum501Sks[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum501Pbb[0]?.total)) ?0:parseInt(pressnumberSum501Pbb[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>
                                                     {(isNaN( parseInt(pressnumberSum501Srt[0]?.total)) ?0:parseInt(pressnumberSum501Srt[0]?.total))
                                                     +(isNaN( parseInt(pressnumberSum501Pob[0]?.total)) ?0:parseInt(pressnumberSum501Pob[0]?.total))
                                                     +(isNaN( parseInt(pressnumberSum501Apw[0]?.total)) ?0:parseInt(pressnumberSum501Apw[0]?.total)) 
                                                     +(isNaN( parseInt(pressnumberSum501Sks[0]?.total)) ?0:parseInt(pressnumberSum501Sks[0]?.total))
                                                     +(isNaN( parseInt(pressnumberSum501Pbb[0]?.total)) ?0:parseInt(pressnumberSum501Pbb[0]?.total))}
             </td>
-            <td  ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
             
             
           </tr>
          
           <tr>
-          <td  style={{fontSize:'14px'}} rowspan='2'>502</td>
-            <td  style={{fontSize:'14px'}}>Nos</td>
+          <td  style={{fontWeight:'bold',fontSize:'12px'}} rowspan='2'>502</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Nos</td>
             
-            <td  >{isNaN( parseInt(pressnumberCount502Srt[0]?.total)) ?0:parseInt(pressnumberCount502Srt[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount502Pob[0]?.total)) ?0:parseInt(pressnumberCount502Pob[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount502Apw[0]?.total)) ?0:parseInt(pressnumberCount502Apw[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount502Sks[0]?.total)) ?0:parseInt(pressnumberCount502Sks[0]?.total) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberCount502Pbb[0]?.total)) ?0:parseInt(pressnumberCount502Pbb[0]?.total) }</td>
-            <td  ></td>
-            <td  >
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount502Srt[0]?.total)) ?0:parseInt(pressnumberCount502Srt[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount502Pob[0]?.total)) ?0:parseInt(pressnumberCount502Pob[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount502Apw[0]?.total)) ?0:parseInt(pressnumberCount502Apw[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount502Sks[0]?.total)) ?0:parseInt(pressnumberCount502Sks[0]?.total) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberCount502Pbb[0]?.total)) ?0:parseInt(pressnumberCount502Pbb[0]?.total) }</td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >
                                                     {(isNaN( parseInt(pressnumberCount502Srt[0]?.total)) ?0:parseInt(pressnumberCount502Srt[0]?.total))
                                                     +(isNaN( parseInt(pressnumberCount502Pob[0]?.total)) ?0:parseInt(pressnumberCount502Pob[0]?.total) )
                                                     +(isNaN( parseInt(pressnumberCount502Apw[0]?.total)) ?0:parseInt(pressnumberCount502Apw[0]?.total))
                                                     +(isNaN( parseInt(pressnumberCount502Sks[0]?.total)) ?0:parseInt(pressnumberCount502Sks[0]?.total))
                                                     +(isNaN( parseInt(pressnumberCount502Pbb[0]?.total)) ?0:parseInt(pressnumberCount502Pbb[0]?.total))}
             </td>
-            <td  ></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
             
             
           </tr>
           <tr>
           
-            <td  style={{fontSize:'14px'}}>Ton</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>Ton</td>
             
-            <td  >{isNaN( parseInt(pressnumberSum502Srt[0]?.total)) ?0:parseInt(pressnumberSum502Srt[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum502Pob[0]?.total)) ?0:parseInt(pressnumberSum502Pob[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum502Apw[0]?.total)) ?0:parseInt(pressnumberSum502Apw[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum502Sks[0]?.total)) ?0:parseInt(pressnumberSum502Sks[0]?.total).toFixed(1) }</td>
-            <td  ></td>
-            <td  >{isNaN( parseInt(pressnumberSum502Pbb[0]?.total)) ?0:parseInt(pressnumberSum502Pbb[0]?.total).toFixed(1)}</td>
-            <td  ></td>
-            <td  >
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum502Srt[0]?.total)) ?0:parseInt(pressnumberSum502Srt[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum502Pob[0]?.total)) ?0:parseInt(pressnumberSum502Pob[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{isNaN( parseInt(pressnumberSum502Apw[0]?.total)) ?0:parseInt(pressnumberSum502Apw[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum502Sks[0]?.total)) ?0:parseInt(pressnumberSum502Sks[0]?.total).toFixed(1) }</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}>{isNaN( parseInt(pressnumberSum502Pbb[0]?.total)) ?0:parseInt(pressnumberSum502Pbb[0]?.total).toFixed(1)}</td>
+            <td  style={{fontWeight:'bold',fontSize:'12px'}}></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >
                                                    {(isNaN( parseInt(pressnumberSum502Srt[0]?.total)) ?0:parseInt(pressnumberSum502Srt[0]?.total))
                                                    +(isNaN( parseInt(pressnumberSum502Pob[0]?.total)) ?0:parseInt(pressnumberSum502Pob[0]?.total))
                                                    +(isNaN( parseInt(pressnumberSum502Apw[0]?.total)) ?0:parseInt(pressnumberSum502Apw[0]?.total)) 
                                                    +(isNaN( parseInt(pressnumberSum502Sks[0]?.total)) ?0:parseInt(pressnumberSum502Sks[0]?.total))
                                                    +(isNaN( parseInt(pressnumberSum502Pbb[0]?.total)) ?0:parseInt(pressnumberSum502Pbb[0]?.total))}
             </td>
-            <td  ></td>
+            <td style={{fontWeight:'bold',fontSize:'12px'}} ></td>
             
             
           </tr>
          
          
           <tr>
-          <td  colspan='2'>SUMMARY</td>
+          <td  colspan='2' style={{fontWeight:'bold',fontSize:'12px'}}>SUMMARY</td>
           
             
-            <td  >{
+            <td style={{fontWeight:'bold',fontSize:'12px'}} >{
                                                       
             }</td>
             <td  ></td>
