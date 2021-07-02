@@ -20,11 +20,48 @@ const LineOne = () => {
      
 
 
-      const oeeChange =(e)=>{
+      const oeeChange1001 =(e)=>{
         e.preventDefault();
        setPressState('1001')
         navigate('/app/oeemachinewise')
      }
+
+
+     const oeeChange651 =(e)=>{
+      e.preventDefault();
+     setPressState('651')
+      navigate('/app/oeemachinewise')
+   }
+
+   const oeeChange401 =(e)=>{
+    e.preventDefault();
+   setPressState('401')
+    navigate('/app/oeemachinewise')
+ }
+
+
+ const oeeChange402 =(e)=>{
+  e.preventDefault();
+ setPressState('402')
+  navigate('/app/oeemachinewise')
+}
+
+
+
+const oeeChange501 =(e)=>{
+  e.preventDefault();
+ setPressState('501')
+  navigate('/app/oeemachinewise')
+}
+
+const oeeChange502 =(e)=>{
+  e.preventDefault();
+ setPressState('502')
+  navigate('/app/oeemachinewise')
+}
+
+
+
 
 
   const handleOptionOne = (e) => {
@@ -1958,20 +1995,20 @@ const pressnumberSum502Bd= pressSumBd && pressSumBd.filter((d) => { return d.pre
           <td  style={{fontWeight:'bold',fontSize:'12px'}}>OEE</td>
             <td  style={{fontWeight:'bold',fontSize:'12px'}}>%</td>
             
-            <td onClick={oeeChange} ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
-            <td  ></td>
+               <td onClick={oeeChange1001} ></td>
+               <td  ></td>
+               <td onClick={oeeChange651} ></td>
+               <td  ></td>
+               <td onClick={oeeChange401}></td>
+               <td  ></td>
+               <td onClick={oeeChange402}></td>
+               <td  ></td>
+               <td onClick={oeeChange501}></td>
+               <td  ></td>
+               <td onClick={oeeChange502}></td>
+               <td  ></td>
+               <td  ></td>
+               <td  ></td>
             
             
           </tr>

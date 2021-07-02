@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AssessmentIcon from '@material-ui/icons/Assessment';
@@ -30,7 +30,7 @@ import {
 import NavItem from './NavItem';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import ListSubheader from '@material-ui/core/ListSubheader';
-
+import {reportContext} from '../../../context/ContextProvider'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -116,6 +116,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = ({ onMobileClose, openMobile }) => {
+
+
+
+
+
+  const{ddate,setDdate} =useContext(reportContext)
+
+
+  var newd =  new Date(ddate);
+    let monthNumber = newd.getMonth() + 1;    
+
   const classes = useStyles();
   const location = useLocation();
 
@@ -208,9 +219,20 @@ const NavBar = ({ onMobileClose, openMobile }) => {
               component='button'
               variant="outline"
               className={classes.button}
-              onClick={() => window.open('https://google.com')}
+              onClick={() => window.open((monthNumber ===1)?'https://docs.google.com/spreadsheets/d/1rQ75EveyAWhPVY-qR_zyXccpGUBPufIDyauMS61UBf0/edit#gid=265877892':(monthNumber ===2)?'https://docs.google.com/spreadsheets/d/1_lfDxE-XZmtqKR6MyLtqWIf-Zb2nOLX3XC9KIGk3A1s/edit#gid=1436419379':(monthNumber ===3)?'https://docs.google.com/spreadsheets/d/1UM_uayjrEaBBHUflZswWpGP_ZgXyWYO9Yv0I4ZNfx7M/edit#gid=1541233601':(monthNumber ===4)?'https://docs.google.com/spreadsheets/d/11c2KuIFqQl6ZYWEEKwzTNh7cMRQrkmxi1kuwpRsCjvk/edit#gid=1450881799':(monthNumber ===5)?'https://docs.google.com/spreadsheets/d/1jjgXTGE_UqJQusIyBhXm0587K-VPqoiZbWRsdqyzPSg/edit#gid=1249626179':(monthNumber ===6)?'https://docs.google.com/spreadsheets/d/1zbWkbJz6nzjkNRHm28yQaOrXxGsdkT9tDtqkW1b9Kq0/edit#gid=1636713844':(monthNumber ===7)?'':'')}
             >
               <DraftsIcon /> <span className='ml-2'>DPR</span>
+            </Button>
+
+
+            <Button
+              color=""
+              component='button'
+              variant="outline"
+              className={classes.button}
+              onClick={() => window.open('')}
+            >
+              <SendIcon /> <span className='ml-2'>LOST ANALYSIS</span>
             </Button>
           </div>
 

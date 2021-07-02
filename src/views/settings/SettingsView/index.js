@@ -2461,54 +2461,6 @@ let allProCostMtd =allCostMtd.reduce((acc,curr)=>{
 ,initialValue)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // let initialalue = 0
 // let sum = [{x: 1}, {x: 2}, {x: 3}].reduce(
 //     (accumulator, currentValue) => accumulator + currentValue.x
