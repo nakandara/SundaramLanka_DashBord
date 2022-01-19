@@ -306,6 +306,7 @@ const [engDashPowerConsumptionMtd,setENGDashPowerConsumptionMtd]  =useState('')
         /////////////////////////////
   
         const responsePone = await apiThree.get(`/dashboard/${pda}/${pb}/${parmDate}`);
+        console.log(pda)
     
        
           setProductionDashActual(responsePone.data.data.data.actual_weight);
@@ -701,6 +702,7 @@ const [engDashPowerConsumptionMtd,setENGDashPowerConsumptionMtd]  =useState('')
    const responseMone = await apiThree.get(`/dashboard/${mdwa}/${mb}/${parmDate}`);
     
          setMixingDashTonnage(responseMone.data.data.data.compound_weight_actual)
+         console.log(mixingDashTonnage)
   
   
         const responseMtwo = await apiThree.get(`/dashboard/${mdwp}/${mb}/${parmDate}`);
@@ -745,6 +747,7 @@ const [engDashPowerConsumptionMtd,setENGDashPowerConsumptionMtd]  =useState('')
    const responseMone = await api.get(`/reporting/piechart/sum/compound_weight_actual/mixing_data/${paramDateOne}/${parmDate}`);
        
    setMixingDashTonnageMtd(responseMone.data.data.data[0].total)
+   console.log(responseMone.data.data.data[0].total)
 
   
   
@@ -1281,7 +1284,7 @@ RCCM
       <th scope="col-md-2 col-sm-2 col-lg-2" width='8%'>UOM</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='8%'>TARGET</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='8%'>ACTUAL</th>
-      <th scope="col-md-1 col-sm-1 col-lg-1" width='9%'>MTD</th> 
+      <th scope="col-md-1 col-sm-1 col-lg-1" width='10%'>MTD</th> 
       <th scope="col-md-1 col-sm-1 col-lg-1">RESP</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='12%'>HOD</th>
       <th scope="col-md-1 col-sm-1 col-lg-1" width='1%'>RCCM</th>
@@ -1621,6 +1624,7 @@ RCCM
       }}
         
          ></Button></td>
+
       
     </tr>
     <tr>
@@ -2071,6 +2075,10 @@ RCCM
       
     </tr>
   </tbody>
+
+
+
+
 </table>
 
 <table className="table">
@@ -2081,7 +2089,248 @@ RCCM
 
          
 </div>  
+
+
+
+{/* planning */}
+
+
+<div className='row mr-1 ml-1 mt-2 bo'>
+   <div className='col-md-12 col-sm-12 col-lg-12 text-center ' >
       
+
+   <table className="table  table-bordered table-hover ttt">
+ 
+  <tbody>
+    <tr>
+      <td  rowspan="4" width='14%' ><div className='division mt-4'>planning</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Number of Tire</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{beadDashBeadPlan}</td>
+      <td className='acc'  width='9%' style={thirty?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{beadDashBead}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'creelBead'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>WIP</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
+      <td className='acc' style={thirtyone?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashRejectBead}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'rejectBead'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>FTNR</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td className='acc' style={thirtythree?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashEnergy}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button   size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'beadEnergy'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>FTR</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>hrs</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
+      <td className='acc' style={thirtyfour?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashBreakDown}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Janaka/Akalanka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'beadBreakDown'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+  </tbody>
+
+
+
+
+</table>
+
+<table className="table">
+ 
+</table>
+         </div>
+
+
+         
+</div>
+
+
+{/* FGS acuraccy */}
+<div className='row mr-1 ml-1 mt-2 bo'>
+   <div className='col-md-12 col-sm-12 col-lg-12 text-center ' >
+      
+
+   <table className="table  table-bordered table-hover ttt">
+ 
+  <tbody>
+    <tr>
+      <td  rowspan="5" width='14%' ><div className='division mt-4'>Fgs Accuracy</div></td>
+      <td  width='15%' style={{fontSize:'12px',fontWeight:'bold'}}>Tire stock Accuracy</td>
+      <td width='8%' style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td  width='9%' style={{fontSize:'12px',fontWeight:'bold'}}>{beadDashBeadPlan}</td>
+      <td className='acc'  width='9%' style={thirty?{backgroundColor:"green",fontWeight:900,color:'white'}:{backgroundColor:"red",fontWeight:900,color:'white'}}>{beadDashBead}</td>
+      <td   width='9%' style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhanuka</td>
+      <td  style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td  width='1%'><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'creelBead'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Tire preparation</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
+      <td className='acc' style={thirtyone?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashRejectBead}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhanuka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'rejectBead'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Tire Pid</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td className='acc' style={thirtythree?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashEnergy}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhanuka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button   size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'beadEnergy'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Shipment</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
+      <td className='acc' style={thirtyfour?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashBreakDown}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhanuka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'beadBreakDown'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+    <tr>
+      
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>ShotBlasting</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>nos</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>0</td>
+      <td className='acc' style={thirtyfour?{backgroundColor:"red",fontWeight:900,color:'white'}:{backgroundColor:"green",fontWeight:900,color:'white'}}>{beadDashBreakDown}</td>
+      <td   style={{fontSize:'12px',fontWeight:'bold'}}></td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhanuka</td>
+      <td style={{fontSize:'12px',fontWeight:'bold'}}>Mr.Dhammika</td>
+      <td><Button    size='small'  endIcon={<ArrowRightIcon />}
+         variant='text'
+         onClick={(e)=>{
+            
+          e.preventDefault();
+          dispatch({type:'beadBreakDown'})
+        navigate('/daily')
+      
+      }}
+         ></Button></td>
+      
+    </tr>
+  </tbody>
+
+
+
+
+</table>
+
+<table className="table">
+ 
+</table>
+         </div>
+
+
+         
+</div>
       
       
       </div>
